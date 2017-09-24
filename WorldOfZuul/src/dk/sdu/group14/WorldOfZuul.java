@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.sdu.gruppe14;
+package dk.sdu.group14;
 
 import com.framework.WorldOfZuul.Game;
 
 /**
  *
- * @author Jonathan
+ * @author Group14
  */
 public class WorldOfZuul {
 
@@ -17,8 +17,11 @@ public class WorldOfZuul {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        // Create a Game object
         Game game = new Game();
+        
+        // Execute the game using it's play() method.
         game.play();
     }
     
