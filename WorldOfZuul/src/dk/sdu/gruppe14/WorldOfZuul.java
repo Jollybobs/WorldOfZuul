@@ -5,6 +5,8 @@
  */
 package dk.sdu.gruppe14;
 
+import com.framework.WorldOfZuul.Game;
+
 /**
  *
  * @author Jonathan
@@ -16,6 +18,8 @@ public class WorldOfZuul {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Game game = new Game();
+        game.play();
     }
     
 }
