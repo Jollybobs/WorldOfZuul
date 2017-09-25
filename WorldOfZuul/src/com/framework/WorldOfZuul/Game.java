@@ -11,7 +11,7 @@ public class Game
         
     public Game() 
     {
-        createRooms();
+        createRooms(); //test
         parser = new Parser();
     }
 
