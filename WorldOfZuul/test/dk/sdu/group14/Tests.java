@@ -7,9 +7,9 @@ import com.framework.WorldOfZuul.Room;
 
 /**
  *
- * @author jphj
+ * @author group 14.
  */
-public class RoomTest {
+public class Tests {
     
     Room aRoom1;
     Room aRoom2;
@@ -27,9 +27,22 @@ public class RoomTest {
      * @throws Exception 
      */
     @Test
-    public void testRooms() throws Exception {
-        aRoom1.setExit("east", aRoom1);
+    public void testRoom1() throws Exception {
+        
+        aRoom1.setExit("east", aRoom2);
         aRoom1.getExit("east");
+    }
+    
+    /**
+     * Testing rooms
+     * 
+     * @throws Exception 
+     */
+    @Test
+    public void testRoom2() throws Exception {
+        
+        aRoom2.setExit("west", aRoom1);
+        aRoom2.getExit("west");
     }
     
 }
