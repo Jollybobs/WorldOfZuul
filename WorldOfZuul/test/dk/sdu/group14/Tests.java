@@ -1,5 +1,6 @@
 package dk.sdu.group14;
 
+import com.framework.WorldOfZuul.ExitDirection;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,8 +30,8 @@ public class Tests {
     @Test
     public void testRoom1() throws Exception {
         
-        aRoom1.setExit("east", aRoom2);
-        aRoom1.getExit("east");
+        aRoom1.setExit(ExitDirection.EAST, aRoom2);
+        aRoom1.getExit(ExitDirection.EAST);
     }
     
     /**
@@ -41,8 +42,8 @@ public class Tests {
     @Test
     public void testRoom2() throws Exception {
         
-        aRoom2.setExit("west", aRoom1);
-        aRoom2.getExit("west");
+        aRoom2.setExit(ExitDirection.WEST, aRoom1);
+        aRoom2.getExit(ExitDirection.WEST);
     }
     
 }

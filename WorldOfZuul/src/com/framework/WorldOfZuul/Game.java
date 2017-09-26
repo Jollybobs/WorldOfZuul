@@ -25,18 +25,18 @@ public class Game
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        outside.setExit(ExitDirection.EAST, theatre);
+        outside.setExit(ExitDirection.SOUTH, lab);
+        outside.setExit(ExitDirection.WEST, pub);
 
-        theatre.setExit("west", outside);
+        theatre.setExit(ExitDirection.WEST, outside);
 
-        pub.setExit("east", outside);
+        pub.setExit(ExitDirection.EAST, outside);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        lab.setExit(ExitDirection.NORTH, outside);
+        lab.setExit(ExitDirection.EAST, office);
 
-        office.setExit("west", lab);
+        office.setExit(ExitDirection.WEST, lab);
 
         currentRoom = outside;
     }
@@ -103,8 +103,23 @@ public class Game
         }
 
         String direction = command.getSecondWord();
-
-        Room nextRoom = currentRoom.getExit(direction);
+        
+        // Enums for guarding exit directions.
+        ExitDirection exitDirection = ExitDirection.NORTH;
+        switch (direction.toUpperCase()) {
+            case "NORTH":  exitDirection = ExitDirection.NORTH;
+                     break;
+            case "EAST":  exitDirection = ExitDirection.EAST;
+                     break;
+            case "SOUTH":  exitDirection = ExitDirection.SOUTH;
+                     break;
+            case "WEST":  exitDirection = ExitDirection.WEST;
+                     break;
+            default: System.out.println("Unsupported ExitDirection Enum used!, NORTH used as default.");
+                     break;
+        }
+        
+        Room nextRoom = currentRoom.getExit(exitDirection);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
