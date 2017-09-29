@@ -20,9 +20,9 @@ public class Room
         exits = new HashMap<String, Room>();
     }
 
-    public void setExit(ExitDirection direction, Room neighbor) 
+    public void setExit(String direction, Room neighbor) 
     {
-        exits.put(direction.toString(), neighbor);
+        exits.put(direction, neighbor);
     }
 
     public String getShortDescription()
@@ -45,9 +45,8 @@ public class Room
         return returnString;
     }
 
-    public Room getExit(ExitDirection direction) 
+    public Room getExit(String direction) 
     {
-        return exits.get(direction.toString());
+        return exits.get(direction);
     }
 }
-
