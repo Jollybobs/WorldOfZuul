@@ -5,7 +5,7 @@
  */
 package dk.sdu.group14;
 
-import com.framework.WorldOfZuul.Game;
+import dk.sdu.group14.apiWrapper.GameWrapper;
 
 /**
  *
@@ -19,7 +19,7 @@ public class WorldOfZuul {
     public static void main(String[] args) {
         
         // Create a Game object
-        Game game = new Game();
+        GameWrapper game = new GameWrapper();
         
         // Execute the game using it's play() method.
         game.play();
