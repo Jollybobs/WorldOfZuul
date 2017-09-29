@@ -83,6 +83,9 @@ public class Game
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
+        else if (commandWord == commandWord.LOOK) {
+            lookRoom();
+        }
         return wantToQuit;
     }
 
@@ -113,6 +116,10 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
+    }
+    private void lookRoom(){
+        System.out.println(currentRoom.getLongDescription());
+        //code to view the items in the room
     }
 
     private boolean quit(Command command) 
