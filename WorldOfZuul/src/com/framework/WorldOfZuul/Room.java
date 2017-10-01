@@ -22,7 +22,40 @@ public class Room
 
     public void setExit(String direction, Room neighbor) 
     {
+        setExit(direction, neighbor, false);
+    }
+    
+    /**
+     * Sets an exit reference from this room to @param neighbor room in 
+     * @direction.
+     * 
+     * if @param backwardExitReference is true, a backward reference is set from 
+     * @neighbor to this room.
+     * 
+     * @param direction
+     * @param neighbor
+     * @param backwardExitReference 
+     */
+    public void setExit(String direction, Room neighbor, Boolean backwardExitReference) 
+    {
         exits.put(direction, neighbor);
+        
+        if(backwardExitReference){
+            String backDirection;
+            switch(direction){
+                case "north" : backDirection = "south";
+                               break;
+                case "east"  : backDirection = "west";
+                               break;     
+                case "south" : backDirection = "north";
+                               break;
+                case "west"  : backDirection = "east";
+                               break;
+                default      : backDirection = "Not Compatible";
+                               break;
+            }
+            neighbor.setExit(backDirection, this);
+        }
     }
 
     public String getShortDescription()
