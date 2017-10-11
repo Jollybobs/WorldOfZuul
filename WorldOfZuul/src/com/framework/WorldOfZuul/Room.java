@@ -20,6 +20,10 @@ public class Room
         exits = new HashMap<String, Room>();
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setExit(String direction, Room neighbor) 
     {
         exits.put(direction, neighbor);

@@ -17,28 +17,56 @@ public class Game
 
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+        Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
       
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        cell = new Room("in your cell, the door to the hall is to the east");
+        southHall = new Room("in the southern end of the hall, the hall keeps going north and the door to the bathroom is to the east");
+        hall = new Room("in the central part of the hall, the hall keeps going both south and north, the door the the yard is to the east");
+        northHall = new Room("in the northern end of the hall, the hall keeps going south, you see the door to the correction officers office to the north /n and the door to the canteen to the east");
+        office = new Room("in the correction officers office, the exit is to the south");
+        canteen = new Room("in the big canteena, the exit to the hall is to the west");
+        yard = new Room("in the yard, the hall is west and you can see the workshop to the east");
+        workshop = new Room("in the workshop, the exit is to the west");
+        bathroom = new Room("in the bathroom, the exit is to the west");
+        sewer = new Room("in the sewers, the sewer keeps going to the west and the cell is back east");
+        sewerExit = new Room("in the sewers, the sewer keeps going to the west but you see an exit above you and back east is the sewer at your cell");
+        freedom = new Room("free!");
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        
+        cell.setExit("east", southHall);
 
-        theatre.setExit("west", outside);
+        southHall.setExit("west", cell);
+        southHall.setExit("north", hall);
+        southHall.setExit("east", bathroom);
 
-        pub.setExit("east", outside);
+        hall.setExit("south", southHall);
+        hall.setExit("east", yard);
+        hall.setExit("north", northHall);        
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        northHall.setExit("east", canteen);
+        northHall.setExit("south", southHall);
 
-        office.setExit("west", lab);
-
-        currentRoom = outside;
+        office.setExit("south", northHall);
+        
+        canteen.setExit("west", northHall);
+        canteen.setExit("south", yard);
+        
+        yard.setExit("west", hall);
+        yard.setExit("north", canteen);
+        yard.setExit("south", bathroom);
+        
+        workshop.setExit("west", yard);
+        
+        bathroom.setExit("west", southHall);
+        bathroom.setExit("north", yard);
+        
+        sewer.setExit("east", cell);
+        sewer.setExit("west", sewerExit);
+        
+        sewerExit.setExit("east", sewer);
+        sewerExit.setExit("up", sewer);
+        
+        currentRoom = cell;
     }
 
     public void play() 
@@ -56,8 +84,8 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the Nevada Prison");
+        System.out.println("Nevada Prison is a new, incredibly insecure prison so you want to break out.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -88,8 +116,8 @@ public class Game
 
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You wander around the prison and");
+        System.out.println("you want to find a way to break out.");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
