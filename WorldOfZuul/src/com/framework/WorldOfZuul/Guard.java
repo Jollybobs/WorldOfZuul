@@ -24,6 +24,7 @@ public class Guard {
             System.out.println("A guard can only guard so many rooms");
         } else {
             patrol[roomsToPatrol] = room;
+            roomsToPatrol++;
         }
     }
 }
