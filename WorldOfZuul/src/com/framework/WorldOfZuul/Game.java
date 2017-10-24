@@ -208,9 +208,10 @@ public class Game
         //code to view the items in the room
     }
 
-    // In order to quit, a second word has to be applied. THIS FUNCTIONALITY HOWEVER SEEMS TO BE BROKEN!!.
+    // In order to quit, there can't be a second word.
     private boolean quit(Command command) 
     {
+        // If something is written in the console the program won't quit.
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");
             return false;
