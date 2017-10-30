@@ -10,7 +10,7 @@ package com.framework.WorldOfZuul;
  */
 public enum CommandWord
 {
-    GO("go"), QUIT("quit"), HELP("help"), LOOK("look"), UNKNOWN("?");
+    GO("go"), QUIT("quit"), HELP("help"), LOOK("look"), INVENTORY ("inventory"), UNKNOWN("?");
     
     private String commandString;
     

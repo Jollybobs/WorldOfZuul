@@ -1,5 +1,7 @@
 package com.framework.WorldOfZuul;
 
+import java.util.ArrayList;
+
 /**
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30
@@ -9,6 +11,7 @@ public class Game
     private Parser parser;
     private Room currentRoom;
         
+    ArrayList<Item> inventory = new ArrayList<Item> ();
     /**
      * Constructor for Game Class.
      * At instantiation the rooms are created and a parser for handling the command line input is instantiated.
@@ -78,6 +81,8 @@ public class Game
         
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
         currentRoom = cell;
+        
+        inventory.add(new Item("key"));
     }
 
     /**
@@ -152,9 +157,19 @@ public class Game
         else if (commandWord == commandWord.LOOK) {
             lookRoom();
         }
+        else if (commandWord ==commandWord.INVENTORY){
+            
+        }
         return wantToQuit;
     }
-
+    private void printInventory(){
+        String output = "";
+        for (int i = 0; i < inventory.size(); i++){
+            output += inventory.get(i).getKey() + " ";
+        }
+        System.out.println("You are holding a; ");
+        System.out.println();
+    }
     /**
      * Prints a helping guide to the console, indicating which commands are available at the current moment.
      */
