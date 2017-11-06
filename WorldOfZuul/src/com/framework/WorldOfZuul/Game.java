@@ -83,7 +83,7 @@ public class Game
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
         currentRoom = cell;
         
-        inventory.add(new Item("key"));
+        inventory.add(new Item("key", 0));
         
         Guard guard = new Guard(northHall);
         guards[0] = guard;
