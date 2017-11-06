@@ -10,6 +10,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Guard[] guards = new Guard[10];
         
     ArrayList<Item> inventory = new ArrayList<Item> ();
     /**
@@ -83,6 +84,14 @@ public class Game
         currentRoom = cell;
         
         inventory.add(new Item("key"));
+        
+        Guard guard = new Guard(northHall);
+        guards[0] = guard;
+        guard.addToPatrol(canteen);
+        guard.addToPatrol(yard);
+        guard.addToPatrol(bathroom);
+        guard.addToPatrol(southHall);
+        guard.addToPatrol(hall);
     }
 
     /**
@@ -157,8 +166,11 @@ public class Game
         else if (commandWord == commandWord.LOOK) {
             lookRoom();
         }
+        else if (commandWord == commandWord.WAIT) {
+            moveGuard();
+        }
         else if (commandWord ==commandWord.INVENTORY){
-            
+            printInventory();
         }
         return wantToQuit;
     }
@@ -222,6 +234,12 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
         if (currentRoom.getItem() != null) {
             System.out.println("You can see a " + currentRoom.getItem());
+        }
+    }
+    
+    private void moveGuard(){
+        for (Guard guard : guards){
+            guard.moveToNextRoom();
         }
     }
 
