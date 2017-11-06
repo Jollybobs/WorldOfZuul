@@ -36,7 +36,7 @@ public class Game
         cell = new Room("in your cell, the door to the hall is to the east");
         southHall = new Room("in the southern end of the hall, the hall keeps going north and the door to the bathroom is to the east");
         hall = new Room("in the central part of the hall, the hall keeps going both south and north, the door the the yard is to the east");
-        northHall = new Room("in the northern end of the hall, the hall keeps going south, you see the door to the correction officers office to the north /n and the door to the canteen to the east");
+        northHall = new Room("in the northern end of the hall, the hall keeps going south, you see the door to the correction officers office to the north \nand the door to the canteen to the east");
         office = new Room("in the correction officers office, the exit is to the south");
         canteen = new Room("in the big canteena, the exit to the hall is to the west");
         yard = new Room("in the yard, the hall is west and you can see the workshop to the east");
