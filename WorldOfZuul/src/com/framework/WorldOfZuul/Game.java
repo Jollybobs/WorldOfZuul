@@ -13,8 +13,9 @@ public class Game
     private Guard[] guards = new Guard[10];
     private boolean TimerRunOut;
     private boolean CarryItem;
+    inventory Inventory = new inventory();
         
-    ArrayList<Item> inventory = new ArrayList<Item> ();
+   
     /**
      * Constructor for Game Class.
      * At instantiation the rooms are created and a parser for handling the command line input is instantiated.
@@ -113,7 +114,7 @@ public class Game
             // if the command is to set finished = true the loop ends, else the loop will continue to run.
         }
         // After the loop, a shut down message is displayed.
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     /**
@@ -172,18 +173,11 @@ public class Game
             moveGuard();
         }
         else if (commandWord ==commandWord.INVENTORY){
-            printInventory();
+            Inventory.PrintInventory();
         }
         return wantToQuit;
     }
-    private void printInventory(){
-        String output = "";
-        for (int i = 0; i < inventory.size(); i++){
-            output += inventory.get(i).getKey() + " ";
-        }
-        System.out.println("You are holding a; ");
-        System.out.println();
-    }
+   
     /**
      * Prints a helping guide to the console, indicating which commands are available at the current moment.
      */
@@ -257,10 +251,9 @@ public class Game
             return true;
         }
     }
-    /*
+    
     public boolean CheckForItems() { 
-        for (Guard guard: guards) { 
-            if (currentRoom.inventory.checkEmpty == currentRoom.guard) {
+            if (Inventory.checkEmpty()) {
             }
             else {
                 CarryItem = true;
@@ -268,8 +261,8 @@ public class Game
             }
         return false;
         } 
-    }
-    */
+      
+    
     
     public void GameOver() {
         if (TimerRunOut) {
@@ -280,8 +273,7 @@ public class Game
             System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
         } 
         else {
-            //int time = //timer();
-            int time = 2; //Remove later
+            int time = timer(); //Ingen timer endnu
             if (time > 0) {
                 System.out.println("You made it, Congratz! Your time was " + time);
                 
