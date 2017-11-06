@@ -86,7 +86,7 @@ public class Game
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
         currentRoom = cell;
         
-        inventory.add(new Item("key", 0));
+        //inventory.add(new Item("key", 0));
         
         Guard guard = new Guard(northHall);
         guards[0] = guard;
@@ -273,7 +273,8 @@ public class Game
             System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
         } 
         else {
-            int time = timer(); //Ingen timer endnu
+            //int time = timer(); //Ingen timer endnu
+            int time = 2; //temp to avoid an error
             if (time > 0) {
                 System.out.println("You made it, Congratz! Your time was " + time);
                 
