@@ -13,6 +13,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
+    private Item item = null;
 
     public Room(String description) 
     {
@@ -27,6 +28,14 @@ public class Room
     public void setExit(String direction, Room neighbor) 
     {
         setExit(direction, neighbor, false);
+    }
+    
+    public void setItem(Item item){
+        this.item = item;
+    }
+    
+    public Item getItem(){
+        return this.item;
     }
     
     /**

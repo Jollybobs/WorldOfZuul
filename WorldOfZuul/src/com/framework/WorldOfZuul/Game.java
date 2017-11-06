@@ -220,7 +220,9 @@ public class Game
     // TODO - Unfinished method.
     private void lookRoom(){
         System.out.println(currentRoom.getLongDescription());
-        //code to view the items in the room
+        if (currentRoom.getItem() != null) {
+            System.out.println("You can see a " + currentRoom.getItem());
+        }
     }
 
     // In order to quit, there can't be a second word.
