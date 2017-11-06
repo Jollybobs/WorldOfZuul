@@ -11,6 +11,8 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Guard[] guards = new Guard[10];
+    private boolean TimerRunOut;
+    private boolean CarryItem;
         
     ArrayList<Item> inventory = new ArrayList<Item> ();
     /**
@@ -255,4 +257,41 @@ public class Game
             return true;
         }
     }
+    /*
+    public boolean CheckForItems() { 
+        for (Guard guard: guards) { 
+            if (currentRoom.inventory.checkEmpty == currentRoom.guard) {
+            }
+            else {
+                CarryItem = true;
+                return true;
+            }
+        return false;
+        } 
+    }
+    */
+    
+    public void GameOver() {
+        if (TimerRunOut) {
+            System.out.println("You didn't make it in time. Hutty up and surrender, before they shoot you");
+        } 
+        else if (CarryItem) {
+            
+            System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
+        } 
+        else {
+            //int time = //timer();
+            int time = 2; //Remove later
+            if (time > 0) {
+                System.out.println("You made it, Congratz! Your time was " + time);
+                
+            } else {
+                System.out.println("");
+            }
+        }
+        System.out.println("Game over");
+    }
+    
 }
+
+
