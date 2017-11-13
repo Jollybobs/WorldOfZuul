@@ -253,22 +253,23 @@ public class Game
     }
     
     public boolean CheckForItems() { 
-            if (Inventory.checkEmpty()) {
+        for (Guard gua : guards) { //Checking all Guards
+            if (currentRoom == gua.getCurrentRoom()) {
+                if(!Inventory.checkEmpty()){
+                    return true;
+                }
             }
-            else {
-                CarryItem = true;
-                return true;
-            }
+        }
         return false;
-        } 
+    }
       
     
     
     public void GameOver() {
         if (TimerRunOut) {
-            System.out.println("You didn't make it in time. Hutty up and surrender, before they shoot you");
+            System.out.println("You didn't make it in time. Hurry up and surrender, before they shoot you");
         } 
-        else if (CarryItem) {
+        else if (CheckForItems()) {
             
             System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
         } 
