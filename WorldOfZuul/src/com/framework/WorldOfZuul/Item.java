@@ -18,7 +18,7 @@ public class Item {
   
  //METHODS
  public int getSize(){
- return this.size;}
+ return this.size;} //Nemmere at se
     
  public String getName(){
  return this.name;}

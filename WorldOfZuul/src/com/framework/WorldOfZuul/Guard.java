@@ -18,7 +18,7 @@ public class Guard {
     public Guard(Room room){
         this.currentRoom = room;
         patrol = new Room[10];
-        patrol[numOfRooms] = room;
+        patrol[numOfRooms] = room; // Siger hvilket rum han er i nu
         numOfRooms++;
     }
 
@@ -56,4 +56,5 @@ public class Guard {
             
         }
     }
+    
 }
