@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
@@ -30,11 +31,14 @@
       </MenuBar>
       <Group fx:id="gameButtonGroup" layoutX="458.0" layoutY="290.0">
          <children>
-            <Button fx:id="EastButton" layoutX="90.0" layoutY="36.0" mnemonicParsing="false" onKeyPressed="#EastKeyPressed" onKeyReleased="#EastKeyReleased" onMouseClicked="#EastClicked" text="East" />
-            <Button fx:id="SouthButton" layoutX="42.0" layoutY="71.0" mnemonicParsing="false" onKeyPressed="#SouthKeyPressed" onKeyReleased="#SouthKeyReleased" onMouseClicked="#SouthClicked" text="South" />
-            <Button fx:id="WestButton" layoutY="36.0" mnemonicParsing="false" onKeyPressed="#WestKeyPressed" onKeyReleased="#WestKeyReleased" onMouseClicked="#WestClicked" text="West" />
-            <Button fx:id="NorthButton" layoutX="42.0" mnemonicParsing="false" onKeyPressed="#NorthKeyPressed" onKeyReleased="#NorthKeyReleased" onMouseClicked="#NorthClicked" text="North" />
-            <Button fx:id="WaitButton" layoutX="46.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#WaitClicked" text="Wait" />
+            <Button fx:id="EastButton" focusTraversable="false" layoutX="90.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#EastClicked" text="East" />
+            <Button fx:id="SouthButton" focusTraversable="false" layoutX="42.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#SouthClicked" text="South" />
+            <Button fx:id="WestButton" focusTraversable="false" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#WestClicked" text="West" />
+            <Button fx:id="NorthButton" focusTraversable="false" layoutX="42.0" mnemonicParsing="false" onMouseClicked="#NorthClicked" text="North">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></Button>
+            <Button fx:id="WaitButton" layoutX="46.0" layoutY="36.0" mnemonicParsing="false" onKeyPressed="#HandelKeyMove" onMouseClicked="#WaitClicked" text="Wait" />
          </children>
       </Group>
    </children>
