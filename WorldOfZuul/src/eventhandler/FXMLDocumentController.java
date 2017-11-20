@@ -7,6 +7,7 @@ package eventhandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.event.EventType;
@@ -94,6 +95,17 @@ public class FXMLDocumentController implements Initializable {
     }
     
     
+
+    @FXML
+    private void CloseApp(ActionEvent event) {
+        Platform.exit();
+        System.exit(0);
+    }
+
+    @FXML
+    private void saveGame(ActionEvent event) {
+        
+    }
 
 
 
