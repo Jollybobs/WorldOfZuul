@@ -6,8 +6,10 @@
 package DataLayer;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
@@ -36,5 +38,24 @@ public class Data {
             i.printStackTrace();
         }
         return false;
+    }
+    protected ArrayList loadGame(){
+        ArrayList aList = new ArrayList();
+        try {
+           FileInputStream fileIn = new FileInputStream("C:\\Users\\103020\\Desktop\\tmp\\employee.ser");
+           ObjectInputStream in = new ObjectInputStream(fileIn);
+           Object temp = in.readObject();
+            if (temp instanceof ArrayList) {
+                aList = (ArrayList) temp;
+            }
+           in.close();
+           fileIn.close();
+           return aList;
+        } catch (IOException i) {
+           i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+           c.printStackTrace();
+        }
+        return null;
     }
 }
