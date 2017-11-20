@@ -7,6 +7,7 @@ package eventhandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -123,6 +124,17 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void NorthKeyReleased(KeyEvent event) {
+    }
+
+    @FXML
+    private void CloseApp(ActionEvent event) {
+        Platform.exit();
+        System.exit(0);
+    }
+
+    @FXML
+    private void saveGame(ActionEvent event) {
+        
     }
 
 
