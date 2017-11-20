@@ -13,7 +13,7 @@ public class Game
     private Guard[] guards = new Guard[10];
     private boolean TimerRunOut;
     private boolean CarryItem;
-    inventory Inventory = new inventory();
+    Inventory Inventory = new Inventory();
         
    
     /**
