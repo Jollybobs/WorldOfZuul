@@ -26,7 +26,7 @@ import javafx.scene.layout.AnchorPane;
  * @author paul
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     private Label label;
     @FXML
     private Button EastButton;
@@ -40,36 +40,32 @@ public class FXMLDocumentController implements Initializable {
     private Button WaitButton;
     @FXML
     private Group gameButtonGroup;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-    }    
+    }
 
     @FXML
     private void EastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
 
     }
-    
 
     @FXML
     private void SouthClicked(MouseEvent event) {
         System.out.println("You used the mouse to move South");
     }
 
-
     @FXML
     private void WestClicked(MouseEvent event) {
         System.out.println("You used the mouse to move West");
     }
 
-
     @FXML
     private void NorthClicked(MouseEvent event) {
         System.out.println("You used the mouse to move North");
     }
-
 
     @FXML
     private void WaitClicked(MouseEvent event) {
@@ -78,23 +74,22 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void HandelKeyMove(KeyEvent event) {
-    switch(event.getCode())
-    {
-        case LEFT: System.out.println("LEFT");
-        break;
-        case RIGHT: System.out.println("RIGHT");
-        break;
-        case UP: System.out.println("Up");
-        break;
-        case DOWN: System.out.println("Down");
-        break;
+        switch (event.getCode()) {
+            case LEFT:
+                System.out.println("LEFT");
+                break;
+            case RIGHT:
+                System.out.println("RIGHT");
+                break;
+            case UP:
+                System.out.println("Up");
+                break;
+            case DOWN:
+                System.out.println("Down");
+                break;
+        }
+
     }
-    
-    }
-    //help
-    }
-    
-   
 
     @FXML
     private void CloseApp(ActionEvent event) {
@@ -104,7 +99,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void saveGame(ActionEvent event) {
-        
+
     }
-
-
+}
