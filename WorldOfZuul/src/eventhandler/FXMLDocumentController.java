@@ -92,20 +92,50 @@ public class FXMLDocumentController implements Initializable {
     
     }
     //help
-    }
-    
-    
 
     @FXML
-    private void CloseApp(ActionEvent event) {
-        Platform.exit();
-        System.exit(0);
+    private void EastKeyPressed(KeyEvent event) {
+    }
+
+    @FXML
+    private void EastKeyReleased(KeyEvent event) {
+    }
+
+    @FXML
+    private void SouthKeyPressed(KeyEvent event) {
+    }
+
+    @FXML
+    private void SouthKeyReleased(KeyEvent event) {
+    }
+
+    @FXML
+    private void WestKeyPressed(KeyEvent event) {
+    }
+
+    @FXML
+    private void WestKeyReleased(KeyEvent event) {
+    }
+
+    @FXML
+    private void NorthKeyPressed(KeyEvent event) {
+    }
+
+    @FXML
+    private void NorthKeyReleased(KeyEvent event) {
     }
 
     @FXML
     private void saveGame(ActionEvent event) {
-        
     }
 
+    @FXML
+    private void CloseApp(ActionEvent event) {
+    }
+    }
+    
+    
+
+ 
 
 
