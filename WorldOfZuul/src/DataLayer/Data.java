@@ -21,7 +21,7 @@ public class Data {
     protected boolean saveGame(ArrayList aList){
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
-        System.out.println(desktop.toString());
+        //System.out.println(desktop.toString());
         
         String folderName = "data";
         
@@ -41,8 +41,12 @@ public class Data {
     }
     protected ArrayList loadGame(){
         ArrayList aList = new ArrayList();
+        
+        File desktop = new File(System.getProperty("user.home"), "Desktop");
+        //System.out.println(desktop.toString());
+        
         try {
-           FileInputStream fileIn = new FileInputStream("C:\\Users\\103020\\Desktop\\tmp\\employee.ser");
+           FileInputStream fileIn = new FileInputStream(desktop + "\\data\\data.ser");
            ObjectInputStream in = new ObjectInputStream(fileIn);
            Object temp = in.readObject();
             if (temp instanceof ArrayList) {
