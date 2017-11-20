@@ -5,7 +5,7 @@
  */
 package dk.sdu.group14.apiWrapper;
 
-import com.framework.WorldOfZuul.Room;
+import Business.Room;
 
 /**
  *

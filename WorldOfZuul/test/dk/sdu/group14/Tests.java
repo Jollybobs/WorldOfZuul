@@ -5,7 +5,7 @@ import dk.sdu.group14.apiWrapper.ExitDirection;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.framework.WorldOfZuul.Room;
+import Business.Room;
 
 /**
  *
