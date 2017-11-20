@@ -28,14 +28,14 @@ public class Data {
         
         String folderName = "data";
         
-        File f = new File(desktop.toString(),folderName);
+        File filePath = new File(desktop.toString(),folderName);
         
-        if(!f.exists()){
-            f.mkdirs();
+        if(!filePath.exists()){
+            filePath.mkdirs();
         }
         
         try {
-            FileOutputStream fileOut = new FileOutputStream(desktop + "\\" + folderName + "\\data.ser");
+            FileOutputStream fileOut = new FileOutputStream(filePath + "\\data.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(aList);
             out.close();
@@ -69,6 +69,7 @@ public class Data {
         }
         return null;
     }
+    //TODO: mayby to be removed
     protected boolean saveHighscore(ArrayList aList){
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
@@ -76,14 +77,14 @@ public class Data {
         
         String folderName = "data";
         
-        File f = new File(desktop.toString(),folderName);
+        File filePath = new File(desktop.toString(),folderName);
        
-        if(!f.exists()){
-            f.mkdirs();
+        if(!filePath.exists()){
+            filePath.mkdirs();
         }
         
         try {
-            FileOutputStream fileOut = new FileOutputStream(desktop.toString() + "\\" + folderName + "\\high.ser");
+            FileOutputStream fileOut = new FileOutputStream(filePath + "\\high.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(aList);
             out.close();
