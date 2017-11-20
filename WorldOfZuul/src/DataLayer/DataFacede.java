@@ -5,10 +5,11 @@
  */
 package DataLayer;
 
-/**
- *
- * @author Bruger
- */
-public class DataFacede {
+import Acquaintance.*;
+
+
+public class DataFacede implements IData {
+    
+    
     
 }
