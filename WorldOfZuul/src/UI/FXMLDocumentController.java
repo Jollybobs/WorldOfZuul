@@ -28,6 +28,28 @@ import javafx.scene.layout.AnchorPane;
 public class FXMLDocumentController implements Initializable {
 
     private Label label;
+    @FXML
+    private Label HighScore1;
+    @FXML
+    private Label HighScore2;
+    @FXML
+    private Label HighScore3;
+    @FXML
+    private Label HighScore4;
+    @FXML
+    private Label HighScore5;
+    @FXML
+    private Label Time1;
+    @FXML
+    private Label Time2;
+    @FXML
+    private Label Time3;
+    @FXML
+    private Label Time4;
+    @FXML
+    private Label Time5;
+    @FXML
+    private Label Time51;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
