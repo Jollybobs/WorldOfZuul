@@ -5,10 +5,23 @@
  */
 package Business;
 
+import Acquaintance.*;
+
 /**
  *
  * @author Bruger
  */
-public class BusinessFacede {
+public class BusinessFacede implements IBusiness {
+
+    @Override
+    public void PrintTest(String input) {
+        System.out.println("WORKS"+input);
+    }
+
+  
+    IData data;
+    public void InjectData(IData Data) {
+        this.data=data;
+    }
     
 }

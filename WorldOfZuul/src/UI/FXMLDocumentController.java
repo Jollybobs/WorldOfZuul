@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eventhandler;
+package UI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -94,7 +94,7 @@ public class FXMLDocumentController implements Initializable {
     //help
     }
     
-    
+   
 
     @FXML
     private void CloseApp(ActionEvent event) {
@@ -106,6 +106,5 @@ public class FXMLDocumentController implements Initializable {
     private void saveGame(ActionEvent event) {
         
     }
-
 
 

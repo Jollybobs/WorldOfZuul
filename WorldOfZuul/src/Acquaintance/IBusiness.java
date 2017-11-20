@@ -11,4 +11,7 @@ package Acquaintance;
  */
 public interface IBusiness {
     
+     void InjectData (IData Data);
+    
+    void PrintTest(String input);
 }
