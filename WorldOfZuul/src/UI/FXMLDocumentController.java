@@ -85,24 +85,37 @@ public class FXMLDocumentController implements Initializable {
     private void HandelKeyMove(KeyEvent event) {
         switch (event.getCode()) {
             case LEFT:
-                System.out.println("LEFT");
+                System.out.println("You used the button to go West");
                 break;
             case RIGHT:
-                System.out.println("RIGHT");
+                System.out.println("You used the button to go East");
                 break;
             case UP:
-                System.out.println("Up");
+                System.out.println("You used the button to go North");
                 break;
             case DOWN:
-                System.out.println("Down");
+                System.out.println("You used the button to go South");
                 break;
         }
 
     }
 
-    private void CloseApp(ActionEvent event) {
+    @FXML
+    private void saveGame(ActionEvent event) {
+    }
+
+    @FXML
+    private void exitGame(ActionEvent event) {
         Platform.exit();
         System.exit(0);
+    }
+
+    @FXML
+    private void startNewGame(ActionEvent event) {
+    }
+
+    @FXML
+    private void loadGame(ActionEvent event) {
     }
 
 }
