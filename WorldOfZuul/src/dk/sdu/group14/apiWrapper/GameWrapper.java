@@ -5,7 +5,7 @@
  */
 package dk.sdu.group14.apiWrapper;
 
-import com.framework.WorldOfZuul.Game;
+import Business.Game;
 
 /**
  *

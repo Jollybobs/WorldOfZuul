@@ -1,4 +1,4 @@
-package com.framework.WorldOfZuul;
+package Business;
 
 /** 
  * @author  Michael Kolling and David J. Barnes
