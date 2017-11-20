@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.framework.WorldOfZuul;
+package Acquaintance;
 
 /**
  *
- * @author paul
+ * @author Bruger
  */
-public class Start {
+public interface IUI {
     
-    public static void main(String[] args) {
-        Game newGame = new Game();
-        newGame.play();
-    }
 }

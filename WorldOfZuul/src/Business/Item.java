@@ -1,4 +1,4 @@
-package com.framework.WorldOfZuul;
+package Business;
 
 
 public class Item {
@@ -38,3 +38,15 @@ this.itemID=itemID;
 public int getItemID(){
 return this.itemID;}
 }//c-key
+class tools extends Item{
+    private final int itemID;
+
+    public tools(String name, int Size, int itemID){
+        super (name, Size);
+        this.itemID=itemID;
+  
+    }
+public int getItemID(){
+    return this.itemID;}
+
+}

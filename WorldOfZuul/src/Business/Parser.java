@@ -1,5 +1,7 @@
-package com.framework.WorldOfZuul;
+package Business;
 
+import Business.CommandWords;
+import Business.Command;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 

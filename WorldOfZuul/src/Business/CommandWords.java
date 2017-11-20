@@ -1,5 +1,6 @@
-package com.framework.WorldOfZuul;
+package Business;
 
+import Business.CommandWord;
 import java.util.HashMap;
 
 /**

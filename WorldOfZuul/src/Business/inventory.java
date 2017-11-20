@@ -1,5 +1,6 @@
 
-package com.framework.WorldOfZuul;
+package Business;
+import Business.Item;
 import java.util.ArrayList;
 public class inventory {
     

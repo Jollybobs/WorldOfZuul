@@ -1,5 +1,5 @@
 
-package com.framework.WorldOfZuul;
+package Business;
 
 /**
  *
