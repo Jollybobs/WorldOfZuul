@@ -28,18 +28,6 @@ import javafx.scene.layout.AnchorPane;
 public class FXMLDocumentController implements Initializable {
 
     private Label label;
-    @FXML
-    private Button EastButton;
-    @FXML
-    private Button SouthButton;
-    @FXML
-    private Button WestButton;
-    @FXML
-    private Button NorthButton;
-    @FXML
-    private Button WaitButton;
-    @FXML
-    private Group gameButtonGroup;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,7 +60,6 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("You used the mouse to Wait");
     }
 
-    @FXML
     private void HandelKeyMove(KeyEvent event) {
         switch (event.getCode()) {
             case LEFT:
@@ -91,14 +78,9 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
-    @FXML
     private void CloseApp(ActionEvent event) {
         Platform.exit();
         System.exit(0);
     }
 
-    @FXML
-    private void saveGame(ActionEvent event) {
-
-    }
 }
