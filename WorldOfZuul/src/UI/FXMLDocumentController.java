@@ -5,6 +5,7 @@
  */
 package UI;
 
+import Acquaintance.IBusiness;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -45,9 +46,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label Time51;
 
+    IBusiness business;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+    business = UI.getInstance().GetBusiness();
     }
 
     @FXML

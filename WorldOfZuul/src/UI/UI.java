@@ -19,6 +19,9 @@ import javafx.stage.Stage;
  */
 public class UI extends Application implements IUI {
 
+    static UI ui;
+    public static UI getInstance(){return ui;}
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -30,10 +33,9 @@ public class UI extends Application implements IUI {
         root.requestFocus();
     }
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public void StartAplication(String[] args) {
+    //   ui=this;
         launch(args);
 
     }
