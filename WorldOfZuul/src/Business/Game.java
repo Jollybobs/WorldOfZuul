@@ -9,15 +9,10 @@ import java.util.ArrayList;
 public class Game 
 {
     private ArrayList allObjects = new ArrayList();
-    
     private Player player;
-    
     private Parser parser;
-    //private Room currentRoom;
     private Guard[] guards = new Guard[10];
     private boolean TimerRunOut;
-    private boolean CarryItem;
-    Inventory Inventory = new Inventory();
         
    
     /**
@@ -113,7 +108,7 @@ public class Game
         guard.addToPatrol(southHall);
         guard.addToPatrol(hall);
         
-        allObjects.add(guard);
+        allObjects.add(guards);
     }
 
     /**
@@ -192,7 +187,7 @@ public class Game
             moveGuard();
         }
         else if (commandWord ==commandWord.INVENTORY){
-            Inventory.PrintInventory();
+            player.getInventory().PrintInventory();
         }
         return wantToQuit;
     }
@@ -242,6 +237,7 @@ public class Game
             player.setCurrentRoom(nextRoom);
             System.out.println(player.getCurrentRoom().getLongDescription());
         }
+        moveGuard();
     }
     
     // TODO - Unfinished method.
@@ -274,7 +270,7 @@ public class Game
     public boolean CheckForItems() { 
         for (Guard gua : guards) { //Checking all Guards
             if (player.getCurrentRoom() == gua.getCurrentRoom()) {
-                if(!Inventory.checkEmpty()){
+                if(!player.getInventory().checkEmpty()){
                     return true;
                 }
             }
