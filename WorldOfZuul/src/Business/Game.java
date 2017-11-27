@@ -27,6 +27,7 @@ public class Game
      */
     public Game() 
     {
+        allObjects.add(player);
         createRooms(); 
         parser = new Parser();
     }
@@ -41,17 +42,29 @@ public class Game
       
         // Instantiates room variables.
         cell = new Room("in your cell, the door to the hall is to the east");
+        allObjects.add(cell);
         southHall = new Room("in the southern end of the hall, the hall keeps going north and the door to the bathroom is to the east");
+        allObjects.add(southHall);
         hall = new Room("in the central part of the hall, the hall keeps going both south and north, the door the the yard is to the east");
+        allObjects.add(hall);
         northHall = new Room("in the northern end of the hall, the hall keeps going south, you see the door to the correction officers office to the north \nand the door to the canteen to the east");
+        allObjects.add(northHall);
         office = new Room("in the correction officers office, the exit is to the south");
+        allObjects.add(office);
         canteen = new Room("in the big canteena, the exit to the hall is to the west");
+        allObjects.add(canteen);
         yard = new Room("in the yard, the hall is west and you can see the workshop to the east");
+        allObjects.add(yard);
         workshop = new Room("in the workshop, the exit is to the west");
+        allObjects.add(workshop);
         bathroom = new Room("in the bathroom, the exit is to the west");
+        allObjects.add(bathroom);
         sewer = new Room("in the sewers, the sewer keeps going to the west and the cell is back east");
+        allObjects.add(sewer);
         sewerExit = new Room("in the sewers, the sewer keeps going to the west but you see an exit above you and back east is the sewer at your cell");
+        allObjects.add(sewerExit);
         freedom = new Room("free!");
+        allObjects.add(freedom);
         
         // Uses .setExit() method to define exits in rooms. 
         cell.setExit("east", southHall);
@@ -99,6 +112,8 @@ public class Game
         guard.addToPatrol(bathroom);
         guard.addToPatrol(southHall);
         guard.addToPatrol(hall);
+        
+        allObjects.add(guard);
     }
 
     /**

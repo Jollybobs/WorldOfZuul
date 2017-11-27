@@ -18,6 +18,11 @@ import java.util.ArrayList;
  * @author 103020
  */
 public class Data {
+    /**
+     * saves the game with serializabel
+     * @param aList it saves an ArrayList
+     * @return returns true if it saved or false if it could not save
+     */
     protected boolean saveGame(ArrayList aList){
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
@@ -43,6 +48,10 @@ public class Data {
         }
         return false;
     }
+    /**
+     * load a serialized file from memory
+     * @return the loaded ArrayList loaded from the file
+     */
     protected ArrayList loadGame(){
         ArrayList aList = new ArrayList();
         
@@ -67,6 +76,11 @@ public class Data {
         return null;
     }
     //TODO: mayby to be removed
+    /**
+     * saves the highscore
+     * @param aList the ArrayList with the highscore
+     * @return true if saved and false if it faild
+     */
     protected boolean saveHighscore(ArrayList aList){
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
@@ -92,6 +106,10 @@ public class Data {
         }
         return false;
     }
+    /**
+     * loads the highscore
+     * @return the ArrayList with the highscore that it read from the file
+     */
     protected ArrayList loadHighscore(){
         ArrayList aList = new ArrayList();
         
