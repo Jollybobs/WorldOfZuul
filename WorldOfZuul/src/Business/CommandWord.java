@@ -1,4 +1,4 @@
-package com.framework.WorldOfZuul;
+package Business;
 
 /**
  * An Enum designed to guard the list of usable commandWords from things like spelling mistakes etc. when used in the code.

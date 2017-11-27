@@ -1,7 +1,7 @@
 
-package com.framework.WorldOfZuul;
+package Business;
 import java.util.ArrayList;
-public class inventory {
+public class Inventory {
     
     //the only time the inventroy size is definable is in the constructor (if this ability is need add a setFreeSpace method)
     
@@ -10,8 +10,8 @@ public class inventory {
    ArrayList<Item> inventory= new ArrayList<Item>();
    
    //CONSTRUCTOR
-   public inventory(){} 
-   public inventory(int FreeSpace){this.FreeSpace=FreeSpace;} 
+   public Inventory(){} 
+   public Inventory(int FreeSpace){this.FreeSpace=FreeSpace;} 
    
 /*METHODS contained in inventory 
 -addItem
