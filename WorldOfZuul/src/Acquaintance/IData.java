@@ -5,10 +5,16 @@
  */
 package Acquaintance;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Bruger
  */
 public interface IData {
     
+    void save(ArrayList aList);
+    ArrayList load();
+    void saveScore(ArrayList hList);
+    ArrayList loadScore();
 }
