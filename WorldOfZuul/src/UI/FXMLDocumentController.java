@@ -8,18 +8,12 @@ package UI;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 
 /**
  *

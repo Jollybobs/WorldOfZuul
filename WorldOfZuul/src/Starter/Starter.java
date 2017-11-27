@@ -10,12 +10,6 @@ import Acquaintance.IData;
 import Acquaintance.IUI;
 import Business.BusinessFacede;
 import DataLayer.DataFacede;
-import UI.FXMLDocumentController;
-import static javafx.application.Application.launch;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import UI.UI;
 
