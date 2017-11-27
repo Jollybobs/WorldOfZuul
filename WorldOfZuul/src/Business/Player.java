@@ -12,14 +12,17 @@ package Business;
 public class Player {
     private Room currentRoom;
     private String name;
+    private Inventory inventory;
     
     public Player(Room room){
         this.currentRoom = room;
+        this.inventory = new Inventory();
         
     }
     public Player(Room room, String name){
         this.currentRoom = room;
         this.name = name;
+        this.inventory = new Inventory();
     }
 
     public Room getCurrentRoom() {
@@ -36,6 +39,14 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void addItemInventory(Item item) {
+        this.inventory.addItem(item);
     }
     
 }
