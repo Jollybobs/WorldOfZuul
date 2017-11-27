@@ -1,13 +1,19 @@
 package Business;
 
+import java.util.ArrayList;
+
 /**
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30
  */
 public class Game 
 {
+    private ArrayList allObjects = new ArrayList();
+    
+    private Player player;
+    
     private Parser parser;
-    private Room currentRoom;
+    //private Room currentRoom;
     private Guard[] guards = new Guard[10];
     private boolean TimerRunOut;
     private boolean CarryItem;
@@ -82,7 +88,7 @@ public class Game
         sewerExit.setExit("up", sewer);
         
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
-        currentRoom = cell;
+        player.setCurrentRoom(cell);
         
         //inventory.add(new Item("key", 0));
         
@@ -125,7 +131,7 @@ public class Game
         System.out.println("Nevada Prison is a new, incredibly insecure prison so you want to break out.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
-        System.out.println(currentRoom.getLongDescription());
+        System.out.println(player.getCurrentRoom().getLongDescription());
     }
 
     /**
@@ -210,7 +216,7 @@ public class Game
         String direction = command.getSecondWord();
 
         // Sets nextRoom to the desired next room
-        Room nextRoom = currentRoom.getExit(direction);
+        Room nextRoom = player.getCurrentRoom().getExit(direction);
 
         // A hidden Null-pointer guard, wich display a message to the user, if there are no door.
         if (nextRoom == null) {
@@ -218,16 +224,16 @@ public class Game
         }
         // If there is a door, the currentRoom is set to nextRoom and a LongDescription af the now currentRoom is displayed to the user.
         else {
-            currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            player.setCurrentRoom(nextRoom);
+            System.out.println(player.getCurrentRoom().getLongDescription());
         }
     }
     
     // TODO - Unfinished method.
     private void lookRoom(){
-        System.out.println(currentRoom.getLongDescription());
-        if (currentRoom.getItem() != null) {
-            System.out.println("You can see a " + currentRoom.getItem());
+        System.out.println(player.getCurrentRoom().getLongDescription());
+        if (player.getCurrentRoom().getItem() != null) {
+            System.out.println("You can see a " + player.getCurrentRoom().getItem());
         }
     }
     
@@ -252,7 +258,7 @@ public class Game
     
     public boolean CheckForItems() { 
         for (Guard gua : guards) { //Checking all Guards
-            if (currentRoom == gua.getCurrentRoom()) {
+            if (player.getCurrentRoom() == gua.getCurrentRoom()) {
                 if(!Inventory.checkEmpty()){
                     return true;
                 }
