@@ -5,6 +5,11 @@
  */
 package Acquaintance;
 
+import Business.Game;
+import Business.Guard;
+import Business.Item;
+import Business.Room;
+
 /**
  *
  * @author Bruger
@@ -13,5 +18,23 @@ public interface IBusiness {
     
      void InjectData (IData Data);
     
-    void PrintTest(String input);
+    void go(Room room);
+    void play(Game game);
+    void quit(Game game);
+    void look(Room room);
+    void goRoom(Room room);
+    void move(Room room);
+    void waitGuard();
+    double loadHighscore();
+    boolean saveGame();
+    void pickUpItem(Item item);
+    void dropItem(Item item);
+    void useItem(Item item);
+    void showInventory();
+    void help();
+    void playMiniGame();
+    void pause();
+    void interactNPC();
+    
+    
 }
