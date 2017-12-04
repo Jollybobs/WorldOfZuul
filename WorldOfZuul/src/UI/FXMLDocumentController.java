@@ -36,7 +36,7 @@ import javafx.scene.layout.GridPane;
 public class FXMLDocumentController implements Initializable {
 
     BusinessFacede busFace = new BusinessFacede();
-    
+
     private Label label;
     @FXML
     private Label HighScore1;
@@ -101,13 +101,36 @@ public class FXMLDocumentController implements Initializable {
         buttonSouth.setDisable(true);
         buttonWait.setDisable(true);
         buttonWest.setDisable(true);
-        setHighscore((ArrayList)busFace.loadHighscore());
+        //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
     }
-    
-    private void setHighscore(ArrayList alist){
-        
+
+    private void setHighscore(ArrayList aList) {
+        for (int i = 0; i < 10; i++) {
+            switch (i+1) { //i did not wante to change all 10 case's
+                case 1:
+                    HighScore1.setText((String)aList.get(i));
+                case 2:
+                    Time1.setText((String)aList.get(i));
+                case 3:
+                    HighScore2.setText((String)aList.get(i));
+                case 4:
+                    Time2.setText((String)aList.get(i));
+                case 5:
+                    HighScore3.setText((String)aList.get(i));
+                case 6:
+                    Time3.setText((String)aList.get(i));
+                case 7:
+                    HighScore4.setText((String)aList.get(i));
+                case 8:
+                    Time4.setText((String)aList.get(i));
+                case 9:
+                    HighScore5.setText((String)aList.get(i));
+                case 10:
+                    Time5.setText((String)aList.get(i));
+            }
+        }
     }
-    
+
     @FXML
     private void EastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
@@ -173,33 +196,31 @@ public class FXMLDocumentController implements Initializable {
 //        stage.setScene(gameScene);        
 //        drawRoom();
 //    }
-    
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
         System.out.println("new game");
         Stage stage = UI.getStage();
         Scene gameScene = UI.getGameScene();
-        
+
         Image image = new Image("/UI/background.png");
         ImageView iv1 = new ImageView(image);
         ImageView iv2 = new ImageView(image);
         ImageView iv3 = new ImageView(image);
-        
-        
+
         Group root = new Group();
-         Scene scene = new Scene(root);
-         scene.setFill(Color.BLACK);
-         HBox box = new HBox();
-         box.getChildren().add(iv1);
-         box.getChildren().add(iv2);
-         box.getChildren().add(iv3);
-         root.getChildren().add(box);
-        
-        stage.setScene(scene);        
+        Scene scene = new Scene(root);
+        scene.setFill(Color.BLACK);
+        HBox box = new HBox();
+        box.getChildren().add(iv1);
+        box.getChildren().add(iv2);
+        box.getChildren().add(iv3);
+        root.getChildren().add(box);
+
+        stage.setScene(scene);
         drawRoom();
     }
-    
-    private void drawRoom(/*Room room*/){
+
+    private void drawRoom(/*Room room*/) {
         tile00 = new ImageView(new Image("/UI/background.png"));
         tile01 = new ImageView(new Image("/UI/background.png"));
         tile02 = new ImageView(new Image("/UI/background.png"));
@@ -208,7 +229,7 @@ public class FXMLDocumentController implements Initializable {
         tile05 = new ImageView(new Image("/UI/background.png"));
         tile06 = new ImageView(new Image("/UI/background.png"));
         tile07 = new ImageView(new Image("/UI/background.png"));
-        tile08 = new ImageView(new Image("/UI/background.png"));          
+        tile08 = new ImageView(new Image("/UI/background.png"));
     }
 
     @FXML
