@@ -2,13 +2,10 @@ package Business;
 
 
 public class Item {
- private String name; //items navn
- private int size; //størelsen itemet har (lige nu er der plads til 1 "size" i en tom inventory)
+ private String name; 
+ private int size; 
 
- /*METHODS contained in inventory 
--getSize
--getName
--getItemID */
+ 
  
 //CONSTRUCTOR 
  public Item (String name, int Size){
@@ -16,10 +13,15 @@ public class Item {
  this.size=Size;}
  public Item(){}
   
- //METHODS
+ /**
+ returns the size(int) that the item wil take up in the inventory
+ */
  public int getSize(){
  return this.size;} //Nemmere at se
     
+ /**
+ returns items name(String)
+ */
  public String getName(){
  return this.name;}
  
@@ -29,12 +31,21 @@ public class Item {
 class key extends Item{
  private final int itemID; 
 
-//CONSTRUCTOR
+/**
+ * 
+ * @param name
+ * @param Size
+ * @param itemID 
+ */
 public key(String name, int Size,int itemID){
 super (name, Size);
 this.itemID=itemID;
 }//key no args -constructor
 
+/**
+return the items ID witch is used to find a specific item.
+itemID is final and is defined when the constructor is called
+*/
 public int getItemID(){
 return this.itemID;}
 }//c-key
