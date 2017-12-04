@@ -35,10 +35,8 @@ public class UI extends Application implements IUI {
     public void start(Stage stage) throws Exception {
         aStage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        Parent game = FXMLLoader.load(getClass().getResource("Map.fxml"));
 
         rootScene = new Scene(root);
-        gameScene = new Scene(game);
         
 //        TileMap map = TileMapReader.readMap(“path/to/my/map.tmx”);
 
@@ -46,7 +44,6 @@ public class UI extends Application implements IUI {
         aStage.setScene(rootScene);
         aStage.show();
         root.requestFocus();
-        game.requestFocus();
     }
 
     /**
