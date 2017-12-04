@@ -40,7 +40,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#NorthClicked" text="North" GridPane.columnIndex="1">
+                  <Button fx:id="buttonNorth" mnemonicParsing="false" onMouseClicked="#NorthClicked" text="North" GridPane.columnIndex="1">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Insets bottom="4.0" left="7.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button layoutX="76.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#WestClicked" text="West" GridPane.rowIndex="1">
+                  <Button fx:id="buttonWest" layoutX="76.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#WestClicked" text="West" GridPane.rowIndex="1">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -56,7 +56,7 @@
                         <Insets left="19.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#SouthClicked" text="South" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="buttonSouth" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#SouthClicked" text="South" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -64,7 +64,7 @@
                         <Insets left="8.0" top="4.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#WaitClicked" text="Wait" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="buttonWait" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#WaitClicked" text="Wait" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -72,7 +72,7 @@
                         <Insets bottom="2.0" left="11.0" top="2.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#EastClicked" text="East" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="buttonEast" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#EastClicked" text="East" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="13.0" />
                      </font>
