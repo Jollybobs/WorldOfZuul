@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Data {
      * @param aList it saves an ArrayList
      * @return returns true if it saved or false if it could not save
      */
-    protected boolean saveGame(ArrayList aList){
+    protected boolean saveGame(List aList){
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
         //System.out.println(desktop.toString());
@@ -52,7 +53,7 @@ public class Data {
      * load a serialized file from memory
      * @return the loaded ArrayList loaded from the file
      */
-    protected ArrayList loadGame(){
+    protected List loadGame(){
         ArrayList aList = new ArrayList();
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
@@ -81,7 +82,7 @@ public class Data {
      * @param aList the ArrayList with the highscore
      * @return true if saved and false if it faild
      */
-    protected boolean saveHighscore(ArrayList aList){
+    protected boolean saveHighscore(List aList){
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
         //System.out.println(desktop.toString());
@@ -110,7 +111,7 @@ public class Data {
      * loads the highscore
      * @return the ArrayList with the highscore that it read from the file
      */
-    protected ArrayList loadHighscore(){
+    protected List loadHighscore(){
         ArrayList aList = new ArrayList();
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");

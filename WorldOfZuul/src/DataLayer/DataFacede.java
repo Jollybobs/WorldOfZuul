@@ -6,28 +6,28 @@
 package DataLayer;
 
 import Acquaintance.*;
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class DataFacede implements IData {
     Data data;
     @Override
-    public void save(ArrayList aList) {
+    public void save(List aList) {
         data.saveGame(aList);
     }
 
     @Override
-    public ArrayList load() {
+    public List load() {
         return data.loadGame();
     }
 
     @Override
-    public void saveScore(ArrayList hList) {
+    public void saveScore(List hList) {
         data.saveHighscore(hList);
     }
 
     @Override
-    public ArrayList loadScore() {
+    public List loadScore() {
         return data.loadHighscore();
     }
     

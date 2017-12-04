@@ -5,7 +5,7 @@
  */
 package Acquaintance;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public interface IData {
     
-    void save(ArrayList aList);
-    ArrayList load();
-    void saveScore(ArrayList hList);
-    ArrayList loadScore();
+    void save(List aList);
+    List load();
+    void saveScore(List hList);
+    List loadScore();
 }
