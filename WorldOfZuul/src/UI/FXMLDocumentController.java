@@ -188,7 +188,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void exitGame(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to quit?",ButtonType.YES,ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit the game?",ButtonType.YES,ButtonType.NO);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
             Platform.exit();
