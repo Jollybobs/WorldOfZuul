@@ -6,6 +6,7 @@
 package Business;
 
 import Acquaintance.*;
+import java.util.List;
 
 /**
  *
@@ -59,7 +60,7 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
-    public double loadHighscore() {
+    public List loadHighscore() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -105,6 +106,16 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void interactNPC() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean saveHighscore() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void loadGame() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

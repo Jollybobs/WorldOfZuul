@@ -92,8 +92,8 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#saveGame" text="Save Game" />
-                              <MenuItem mnemonicParsing="false" onAction="#exitGame" text="Exit Game" />
+                          <MenuItem fx:id="menuSave" mnemonicParsing="false" onAction="#saveGame" text="Save Game" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitGame" text="Exit Game" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Edit">
@@ -103,8 +103,8 @@
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
-                              <MenuItem mnemonicParsing="false" text="Game Controls" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#about" text="About" />
+                              <MenuItem fx:id="menuControls" mnemonicParsing="false" onAction="#controls" text="Game Controls" />
                         </items>
                       </Menu>
                     </menus>
