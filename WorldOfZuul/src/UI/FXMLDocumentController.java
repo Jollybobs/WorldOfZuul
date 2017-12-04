@@ -54,23 +54,14 @@ public class FXMLDocumentController implements Initializable {
     private Label Time5;
     @FXML
     private Label Time51;
-    @FXML
     private ImageView tile00;
-    @FXML
     private ImageView tile01;
-    @FXML
     private ImageView tile02;
-    @FXML
     private ImageView tile03;
-    @FXML
     private ImageView tile04;
-    @FXML
     private ImageView tile05;
-    @FXML
     private ImageView tile06;
-    @FXML
     private ImageView tile07;
-    @FXML
     private ImageView tile08;
     @FXML
     private Button buttonNorth;
@@ -85,11 +76,12 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        buttonEast.setDisable(true);
+        System.out.println("davs");
+        /*buttonEast.setDisable(true);
         buttonNorth.setDisable(true);
         buttonSouth.setDisable(true);
         buttonWait.setDisable(true);
-        buttonWest.setDisable(true);
+        buttonWest.setDisable(true);*/
     }
 
     @FXML
@@ -182,7 +174,6 @@ public class FXMLDocumentController implements Initializable {
         drawRoom();
     }
     
-    @FXML
     private void drawRoom(/*Room room*/){
         tile00 = new ImageView(new Image("/UI/background.png"));
         tile01 = new ImageView(new Image("/UI/background.png"));
