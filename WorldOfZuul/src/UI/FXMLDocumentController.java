@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -54,16 +55,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label Time51;
     @FXML
-    private Button buttonNorth;
-    @FXML
-    private Button buttonWest;
-    @FXML
-    private Button buttonSouth;
-    @FXML
-    private Button buttonWait;
-    @FXML
-    private Button buttonEast;
-    @FXML
     private ImageView tile00;
     @FXML
     private ImageView tile01;
@@ -81,6 +72,16 @@ public class FXMLDocumentController implements Initializable {
     private ImageView tile07;
     @FXML
     private ImageView tile08;
+    @FXML
+    private Button buttonNorth;
+    @FXML
+    private Button buttonWest;
+    @FXML
+    private Button buttonSouth;
+    @FXML
+    private Button buttonWait;
+    @FXML
+    private Button buttonEast;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
