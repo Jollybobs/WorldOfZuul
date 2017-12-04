@@ -83,8 +83,8 @@ public class BusinessFacede implements IBusiness {
     
     @Override
     public void loadGame() {
-        ArrayList alist = new ArrayList();
-        alist = (ArrayList)data.load();
+        ArrayList alist = new ArrayList((ArrayList)data.load());
+        game.loadRooms(alist);
     }
 
     @Override
