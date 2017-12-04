@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.geometry.Rectangle2D;
 
 /**
  *
@@ -19,31 +20,67 @@ import javafx.stage.Stage;
  */
 public class UI extends Application implements IUI {
 
+    IBusiness business;
+    static UI ui;
+    static Stage aStage;
+    static Scene rootScene; 
+    static Scene gameScene;
+            
+    /**
+     * 
+     * @param stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
+        aStage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent game = FXMLLoader.load(getClass().getResource("Map.fxml"));
 
-        Scene scene = new Scene(root);
+        rootScene = new Scene(root);
+        gameScene = new Scene(game);
+        
+//        TileMap map = TileMapReader.readMap(“path/to/my/map.tmx”);
 
-        stage.setScene(scene);
-        stage.show();
+
+        aStage.setScene(rootScene);
+        aStage.show();
         root.requestFocus();
+        game.requestFocus();
     }
 
     /**
      * @param args the command line arguments
      */
     public void StartAplication(String[] args) {
+        ui = this;
         launch(args);
-
+    }
+    
+    public static Stage getStage() {
+        return aStage;
     }
 
-    IBusiness business;
-
+    public static Scene getRootScene() {
+        return rootScene;
+    }
+     
+    public static Scene getGameScene() {
+        return gameScene;
+    }
+        
+    /**
+     * 
+     * @param business 
+     */
     public void InjectBusiness(IBusiness business) {
         this.business = business;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public IBusiness GetBusiness() {
         return this.business;
     }
