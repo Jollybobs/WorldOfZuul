@@ -89,12 +89,12 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void pickUpItem(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Player.addItemInventory(item);
     }
 
     @Override
     public void dropItem(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Player.dropItem(item);
     }
 
     @Override
@@ -104,7 +104,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void showInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Player.getInventory();
     }
 
     @Override

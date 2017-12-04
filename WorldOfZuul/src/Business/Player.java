@@ -5,45 +5,84 @@
  */
 package Business;
 
-
 public class Player {
-    private Room currentRoom;
-    private String name;
-    private Inventory inventory;
+
+    private static Player player;
+    private static Room currentRoom;
+    private static String name;
+    private static Inventory inventory;
+
     
-    public Player(Room room){
+
+    /**
+     *
+     * @param room
+     */
+    public Player(Room room) {
         this.currentRoom = room;
         this.inventory = new Inventory();
-        
+
     }
-    public Player(Room room, String name){
+
+    /**
+     *
+     * @param room
+     * @param name
+     */
+    public Player(Room room, String name) {
         this.currentRoom = room;
         this.name = name;
         this.inventory = new Inventory();
     }
 
-    public Room getCurrentRoom() {
+    /**
+     *
+     * @return
+     */
+    public static Room getCurrentRoom() {
         return currentRoom;
     }
 
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
+    /**
+     *
+     * @param currentRoom
+     */
+    public static void setCurrentRoom(Room currentRoom) {
+        currentRoom = currentRoom;
     }
 
-    public String getName() {
+    /**
+     *
+     * @return
+     */
+    public static String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     *
+     * @param name
+     */
+    public static void setName(String name) {
+        name = name;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    /**
+     *
+     * @return
+     */
+    public static String getInventory() {
+       return inventory.PrintInventory();
     }
 
-    public void addItemInventory(Item item) {
-        this.inventory.addItem(item);
+    /**
+     *
+     * @param item
+     */
+    public static void addItemInventory(Item item) {
+        inventory.addItem(item);
     }
     
+    public static void dropItem(Item item){
+    inventory.dropItem(item);}
 }
