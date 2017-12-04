@@ -9,6 +9,7 @@ import Business.Game;
 import Business.Guard;
 import Business.Item;
 import Business.Room;
+import java.util.List;
 
 /**
  *
@@ -25,8 +26,10 @@ public interface IBusiness {
     void goRoom(Room room);
     void move(Room room);
     void waitGuard();
-    double loadHighscore();
+    boolean saveHighscore();
+    List loadHighscore();
     boolean saveGame();
+    void loadGame();
     void pickUpItem(Item item);
     void dropItem(Item item);
     void useItem(Item item);

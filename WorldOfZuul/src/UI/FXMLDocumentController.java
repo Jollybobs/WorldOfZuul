@@ -17,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -24,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import Business.BusinessFacede;
 
 /**
  *
@@ -31,6 +33,8 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
 
+    BusinessFacede busFace = new BusinessFacede();
+    
     private Label label;
     @FXML
     private Label HighScore1;
@@ -73,15 +77,23 @@ public class FXMLDocumentController implements Initializable {
     private Button buttonWait;
     @FXML
     private Button buttonEast;
+    @FXML
+    private MenuItem menuSave;
+    @FXML
+    private MenuItem menuExit;
+    @FXML
+    private MenuItem menuAbout;
+    @FXML
+    private MenuItem menuControls;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("davs");
-        /*buttonEast.setDisable(true);
+        buttonEast.setDisable(true);
         buttonNorth.setDisable(true);
         buttonSouth.setDisable(true);
         buttonWait.setDisable(true);
-        buttonWest.setDisable(true);*/
+        buttonWest.setDisable(true);
     }
 
     @FXML
@@ -131,6 +143,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void saveGame(ActionEvent event) {
+        busFace.saveGame();
     }
 
     @FXML
@@ -188,5 +201,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loadGame(ActionEvent event) {
+        busFace.loadGame();
+    }
+
+    @FXML
+    private void about(ActionEvent event) {
+    }
+
+    @FXML
+    private void controls(ActionEvent event) {
     }
 }
