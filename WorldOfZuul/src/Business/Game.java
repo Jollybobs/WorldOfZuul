@@ -2,13 +2,19 @@ package Business;
 
 import java.util.ArrayList;
 
+import DataLayer.DataFacede;
+import java.util.List;
+
 /**
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30
  */
-public class Game 
-{
+public class Game {
+    
+    DataFacede data = new DataFacede();
+    
     private ArrayList allObjects = new ArrayList();
+    private ArrayList highscore = (ArrayList)data.loadScore();
     private Player player;
     private Parser parser;
     private Guard[] guards = new Guard[10];
@@ -278,6 +284,13 @@ public class Game
         return false;
     }
       
+    protected boolean saveGame(){
+        return data.save(allObjects);
+    }
+    
+    protected boolean saveHighscore(){
+        return data.saveScore(highscore);
+    }
     
     
     public void GameOver() {

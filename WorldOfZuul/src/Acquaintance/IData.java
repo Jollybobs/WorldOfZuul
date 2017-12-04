@@ -13,8 +13,8 @@ import java.util.List;
  */
 public interface IData {
     
-    void save(List aList);
+    boolean save(List aList);
     List load();
-    void saveScore(List hList);
+    boolean saveScore(List hList);
     List loadScore();
 }
