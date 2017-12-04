@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Bruger
+ * @author 103020
  */
 public interface IData {
     

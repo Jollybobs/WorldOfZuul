@@ -12,6 +12,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -53,6 +54,16 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label Time51;
     @FXML
+    private Button buttonNorth;
+    @FXML
+    private Button buttonWest;
+    @FXML
+    private Button buttonSouth;
+    @FXML
+    private Button buttonWait;
+    @FXML
+    private Button buttonEast;
+    @FXML
     private ImageView tile00;
     @FXML
     private ImageView tile01;
@@ -70,9 +81,14 @@ public class FXMLDocumentController implements Initializable {
     private ImageView tile07;
     @FXML
     private ImageView tile08;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        buttonEast.setDisable(true);
+        buttonNorth.setDisable(true);
+        buttonSouth.setDisable(true);
+        buttonWait.setDisable(true);
+        buttonWest.setDisable(true);
     }
 
     @FXML

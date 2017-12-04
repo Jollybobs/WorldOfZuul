@@ -8,7 +8,10 @@ package DataLayer;
 import Acquaintance.*;
 import java.util.List;
 
-
+/**
+ *
+ * @author 103020
+ */
 public class DataFacede implements IData {
     Data data;
     @Override
