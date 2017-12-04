@@ -15,8 +15,8 @@ import java.util.List;
 public class DataFacede implements IData {
     Data data;
     @Override
-    public void save(List aList) {
-        data.saveGame(aList);
+    public boolean save(List aList) {
+        return data.saveGame(aList);
     }
 
     @Override
@@ -25,8 +25,8 @@ public class DataFacede implements IData {
     }
 
     @Override
-    public void saveScore(List hList) {
-        data.saveHighscore(hList);
+    public boolean saveScore(List hList) {
+        return data.saveHighscore(hList);
     }
 
     @Override

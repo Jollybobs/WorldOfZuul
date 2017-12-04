@@ -7,12 +7,15 @@ package Business;
 
 import Acquaintance.*;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author Bruger
  */
 public class BusinessFacede implements IBusiness {
+    
+    Game game;
 
     public void PrintTest(String input) {
         System.out.println("WORKS"+input);
@@ -31,7 +34,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void play(Game game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.game = new Game();
     }
 
     @Override
@@ -60,13 +63,28 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
+    public boolean saveHighscore() {
+        return game.saveHighscore();
+    }
+    
+    @Override
     public List loadHighscore() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean saveGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (game == null) {
+            return false;
+        } else {
+            return game.saveGame();
+        }
+    }
+    
+    @Override
+    public void loadGame() {
+        ArrayList alist = new ArrayList();
+        alist = (ArrayList)data.load();
     }
 
     @Override
@@ -108,15 +126,4 @@ public class BusinessFacede implements IBusiness {
     public void interactNPC() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public boolean saveHighscore() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void loadGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

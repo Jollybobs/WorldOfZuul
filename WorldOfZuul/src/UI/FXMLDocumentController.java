@@ -26,6 +26,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import Business.BusinessFacede;
+import java.util.ArrayList;
+import javafx.scene.layout.GridPane;
 
 /**
  *
@@ -85,17 +87,27 @@ public class FXMLDocumentController implements Initializable {
     private MenuItem menuAbout;
     @FXML
     private MenuItem menuControls;
+    @FXML
+    private GridPane highscorePane;
+    @FXML
+    private Button buttonNewgame;
+    @FXML
+    private Button buttonLoadgame;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("davs");
         buttonEast.setDisable(true);
         buttonNorth.setDisable(true);
         buttonSouth.setDisable(true);
         buttonWait.setDisable(true);
         buttonWest.setDisable(true);
+        setHighscore((ArrayList)busFace.loadHighscore());
     }
-
+    
+    private void setHighscore(ArrayList alist){
+        
+    }
+    
     @FXML
     private void EastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
