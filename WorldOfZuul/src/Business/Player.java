@@ -5,10 +5,7 @@
  */
 package Business;
 
-/**
- *
- * @author 103020
- */
+
 public class Player {
     private Room currentRoom;
     private String name;

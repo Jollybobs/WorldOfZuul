@@ -4,65 +4,63 @@ import java.util.ArrayList;
 
 public class Inventory {
 
-    //the only time the inventroy size is definable is in the constructor (if this ability is need add a setFreeSpace method)
-//DEF. VAR.
-    private int FreeSpace = 1;//ledig plads i inventory
+    private int freeSpace = 1;
     ArrayList<Item> inventory = new ArrayList<Item>();
 
-    //CONSTRUCTOR
+    /**
+     * if no args default inventorys frespace=1
+     */
     public Inventory() {
-    }
+    }  // no args constructor
 
     public Inventory(int FreeSpace) {
-        this.FreeSpace = FreeSpace;
+        this.freeSpace = FreeSpace;
     }
 
-    /*METHODS contained in inventory 
-    -addItem
-    -dropItem  
-    -PrintInventory   
-    -checkFor 
-    -checkEmpty */
-    //ADD ITEM
-    //Checks the variabel Freespace, adds an Item to the ArrayList inventory.
-    //prints outcome on consol display
-    public void addItem(Item item) {
-        if (item.getSize() > 0) {
-            if (item.getSize() <= FreeSpace) {
-                inventory.add(item);
-                FreeSpace -= item.getSize();
-                //sout Item pick up
-                System.out.println("you picked up a " + item.getName() + "!");
-            }//if getsize<=FreeSpace
-            else {
-                System.out.println("your inventory doesn't have space");
-            }//if getsize>0 false
-        }//if getsize>0    
+    /**
+     * Checks if the inventory has Freespace, and adds an Item to the ArrayList
+     * inventory if there is not space. returns a String with text explaining
+     * the outcome.
+     */
+    public String addItem(Item item) throws IllegalArgumentException {
+        if (item.getSize() <= 0) {
+            throw new IllegalArgumentException("Size <=0 exception");
+        }
+        if (item.getSize() <= freeSpace) {
+            inventory.add(item);
+            freeSpace -= item.getSize();
+            //sout Item pick up
+            return ("you picked up a " + item.getName() + "!");
+        }//if 
         else {
-            System.out.println("your inventory doesn't have space");
-        }//else getsize<=freeSpace false
+            return ("your inventory doesn't have space");
+        }//else
+
     }//m-addItem
 
-    //DROP ITEM
-    //romves Item from ArrayList inventory & and adds the items size back to FreeSpace
-    public void dropItem(Item item) {
+    /*
+    *romves Item from ArrayList inventory & and adds the items size back to freeSpace
+     *returns a String with text explaining the outcome.
+     */
+    public String dropItem(Item item) {
         inventory.remove(item);
-        FreeSpace += item.getSize();
-        System.out.println("you dropped" + item);
+        freeSpace += item.getSize();
+        return ("you dropped" + item);
     }//m-addItem 
 
     //PRINT INVENTORY
     //prints ArrayList inventory
-    public void PrintInventory() {
-        System.out.println("you inventory contains:");
+    public String PrintInventory() {
+        String result = ("you inventory contains: ");
         for (Item item : inventory) {
-            System.out.println(item.getName());
+            result += (item.getName() + ", ");
         }//for print
-
+        return result;
     }//PrintInventory
 
-    //CHECK FOR ITEM
-    //check for .containts on ArrayList inventory
+    /**
+     * check if ArrayList inventory containts Item
+     */
     public boolean checkFor(Item item) {
         boolean result = false;
         if (inventory.contains(item)) {
@@ -71,8 +69,10 @@ public class Inventory {
         return result;
     }//m-checkFor
 
-    //CHECK EMPTY
-    //check if the inventory contains anything (returns true if inventory is empty)
+    /**
+     * check if the inventory contains anything (returns true if inventory is
+     * empty)
+     */
     public boolean checkEmpty() {
         boolean result = false;
         if (inventory.isEmpty()) {
