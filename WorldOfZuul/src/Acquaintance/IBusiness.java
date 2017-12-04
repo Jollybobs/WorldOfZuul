@@ -16,28 +16,45 @@ import java.util.List;
  * @author Bruger
  */
 public interface IBusiness {
-    
-     void InjectData (IData Data);
-    
+
+    void InjectData(IData Data);
+
     void go(Room room);
+
     void play(Game game);
+
     void quit(Game game);
+
     void look(Room room);
+
     void goRoom(Room room);
+
     void move(Room room);
+
     void waitGuard();
+
     boolean saveHighscore();
+
     List loadHighscore();
+
     boolean saveGame();
+
     void loadGame();
+
     void pickUpItem(Item item);
+
     void dropItem(Item item);
+
     void useItem(Item item);
+
     void showInventory();
+
     void help();
+
     void playMiniGame();
+
     void pause();
+
     void interactNPC();
-    
-    
+
 }

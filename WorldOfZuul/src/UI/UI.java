@@ -53,15 +53,24 @@ public class UI extends Application implements IUI {
         ui = this;
         launch(args);
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public static Stage getStage() {
         return aStage;
     }
-
+/**
+ * 
+ * @return 
+ */
     public static Scene getRootScene() {
         return rootScene;
     }
-     
+   /**
+    * 
+    * @return 
+    */  
     public static Scene getGameScene() {
         return gameScene;
     }

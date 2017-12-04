@@ -12,9 +12,12 @@ import java.util.List;
  * @author 103020
  */
 public interface IData {
-    
+
     boolean save(List aList);
+
     List load();
+
     boolean saveScore(List hList);
+
     List loadScore();
 }

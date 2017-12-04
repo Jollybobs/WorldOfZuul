@@ -10,6 +10,8 @@ package Acquaintance;
  * @author Bruger
  */
 public interface IUI {
-    void InjectBusiness( IBusiness business);
+
+    void InjectBusiness(IBusiness business);
+
     void StartAplication(String[] Args);
 }
