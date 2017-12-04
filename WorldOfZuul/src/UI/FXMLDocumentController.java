@@ -27,6 +27,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import Business.BusinessFacede;
 import java.util.ArrayList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -178,13 +180,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void saveGame(ActionEvent event) {
-        busFace.saveGame();
+        if (busFace.saveGame() == false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,"There was an error during the saveing of the game!",ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void exitGame(ActionEvent event) {
-        Platform.exit();
-        System.exit(0);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to quit?",ButtonType.YES,ButtonType.NO);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            Platform.exit();
+            System.exit(0);
+        }
     }
 
 //    @FXML

@@ -25,17 +25,59 @@ public class Game {
      * parser for handling the command line input is instantiated. After
      * instantiation call .play() to start the game
      */
-    public Game() {
-        allObjects.add(player);
-        createRooms();
+
+    public Game() 
+    {
         parser = new Parser();
     }
 
+    protected void loadRooms(ArrayList aList){
+        allObjects = new ArrayList(aList);
+        
+        player = (Player)allObjects.get(0);
+        
+        // Defines room variables.
+        Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
+      
+        // Instantiates room variables.
+        cell = (Room)allObjects.get(1);
+        
+        southHall = (Room)allObjects.get(2);
+        
+        hall = (Room)allObjects.get(3);
+        
+        northHall = (Room)allObjects.get(4);
+        
+        office = (Room)allObjects.get(5);
+        
+        canteen = (Room)allObjects.get(6);
+        
+        yard = (Room)allObjects.get(7);
+        
+        workshop = (Room)allObjects.get(8);
+        
+        bathroom = (Room)allObjects.get(9);
+        
+        sewer = (Room)allObjects.get(10);
+        
+        sewerExit = (Room)allObjects.get(11);
+        
+        freedom = (Room)allObjects.get(12);
+        
+        Guard guard = (Guard)allObjects.get(13);
+        guards[0] = guard;
+    }
+    
     /**
      * Creates room instantiations, sets exits in rooms and defines the starting
      * room.
      */
-    private void createRooms() {
+
+    protected void createRooms()
+    {
+        allObjects.add(player);
+        
+
         // Defines room variables.
         Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
 

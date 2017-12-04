@@ -10,9 +10,10 @@ package Business;
  * @author paul
  */
 public class Start {
-    
-    /*public static void main(String[] args) {
+    /*
+    public static void main(String[] args) {
         Game newGame = new Game();
+        newGame.createRooms();
         newGame.play();
     }
     */
