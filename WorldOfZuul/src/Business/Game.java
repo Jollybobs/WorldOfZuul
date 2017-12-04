@@ -6,26 +6,26 @@ import DataLayer.DataFacede;
 import java.util.List;
 
 /**
- * @author  Michael Kolling and David J. Barnes
+ * @author Michael Kolling and David J. Barnes
  * @version 2006.03.30
  */
 public class Game {
-    
+
     DataFacede data = new DataFacede();
-    
+
     private ArrayList allObjects = new ArrayList();
-    private ArrayList highscore = (ArrayList)data.loadScore();
+    private ArrayList highscore = (ArrayList) data.loadScore();
     private Player player;
     private Parser parser;
     private Guard[] guards = new Guard[10];
     private boolean TimerRunOut;
-        
-   
+
     /**
-     * Constructor for Game Class.
-     * At instantiation the rooms are created and a parser for handling the command line input is instantiated.
-     * After instantiation call .play() to start the game
+     * Constructor for Game Class. At instantiation the rooms are created and a
+     * parser for handling the command line input is instantiated. After
+     * instantiation call .play() to start the game
      */
+
     public Game() 
     {
         parser = new Parser();
@@ -69,15 +69,18 @@ public class Game {
     }
     
     /**
-     * Creates room instantiations, sets exits in rooms and defines the starting room.
+     * Creates room instantiations, sets exits in rooms and defines the starting
+     * room.
      */
+
     protected void createRooms()
     {
         allObjects.add(player);
         
+
         // Defines room variables.
         Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
-      
+
         // Instantiates room variables.
         cell = new Room("in your cell, the door to the hall is to the east");
         allObjects.add(cell);
@@ -103,7 +106,7 @@ public class Game {
         allObjects.add(sewerExit);
         freedom = new Room("free!");
         allObjects.add(freedom);
-        
+
         // Uses .setExit() method to define exits in rooms. 
         cell.setExit("east", southHall);
 
@@ -113,36 +116,35 @@ public class Game {
 
         hall.setExit("south", southHall);
         hall.setExit("east", yard);
-        hall.setExit("north", northHall);        
+        hall.setExit("north", northHall);
 
         northHall.setExit("east", canteen);
         northHall.setExit("south", southHall);
 
         office.setExit("south", northHall);
-        
+
         canteen.setExit("west", northHall);
         canteen.setExit("south", yard);
-        
+
         yard.setExit("west", hall);
         yard.setExit("north", canteen);
         yard.setExit("south", bathroom);
-        
+
         workshop.setExit("west", yard);
-        
+
         bathroom.setExit("west", southHall);
         bathroom.setExit("north", yard);
-        
+
         sewer.setExit("east", cell);
         sewer.setExit("west", sewerExit);
-        
+
         sewerExit.setExit("east", sewer);
         sewerExit.setExit("up", sewer);
-        
+
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
         player.setCurrentRoom(cell);
-        
+
         //inventory.add(new Item("key", 0));
-        
         Guard guard = new Guard(northHall);
         guards[0] = guard;
         guard.addToPatrol(canteen);
@@ -150,20 +152,20 @@ public class Game {
         guard.addToPatrol(bathroom);
         guard.addToPatrol(southHall);
         guard.addToPatrol(hall);
-        
+
         allObjects.add(guards);
     }
 
     /**
-     * Method to handle game loop and shut down. Initialization is handles by the Game constructor itself.
+     * Method to handle game loop and shut down. Initialization is handles by
+     * the Game constructor itself.
      */
-    public void play() 
-    {            
+    public void play() {
         printWelcome();
 
         // Sets boolean variable finished to false to maintain the game loop until a shutdown is initiated from inside the loop, by setting the boolean to true.
         boolean finished = false;
-        while (! finished) {
+        while (!finished) {
             // Inside the loop a command from the command line is received after being parsed by the Parser class instantiation saved in a membervariable.
             Command command = parser.getCommand();
             // The command is then processed by the processCommand method and returns a boolean to the variable finished.
@@ -177,8 +179,7 @@ public class Game {
     /**
      * Prints a welcome message to the console.
      */
-    private void printWelcome()
-    {
+    private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the Nevada Prison");
         System.out.println("Nevada Prison is a new, incredibly insecure prison so you want to break out.");
@@ -188,14 +189,14 @@ public class Game {
     }
 
     /**
-     * Processes a command object by using the objects .getCommandWord() method to retrieve the first word in the command supplied by the user.
-     * This CommandWord dictates which operation is to be executed.
-     * 
+     * Processes a command object by using the objects .getCommandWord() method
+     * to retrieve the first word in the command supplied by the user. This
+     * CommandWord dictates which operation is to be executed.
+     *
      * @param command a Command Object.
      * @return boolean wantToQuit, if true the program shuts down.
      */
-    private boolean processCommand(Command command) 
-    {
+    private boolean processCommand(Command command) {
         // Starts by setting the return boolean to false. This is to ensure that the program won't accidently shut down.
         boolean wantToQuit = false;
 
@@ -206,7 +207,7 @@ public class Game {
         // If this is outcommented nothing would happen when the user types an unknown command.
         // The call printHelp() is added to supply the user with a list of usable commands, 
         // because perhaps the user has forgotten that help is a useable command.
-        if(commandWord == CommandWord.UNKNOWN) {
+        if (commandWord == CommandWord.UNKNOWN) {
             System.out.println("I don't know what you mean...");
             printHelp();
             return false;
@@ -215,31 +216,26 @@ public class Game {
         // an if/else block to apply function calls to the correct CommandWord.
         if (commandWord == CommandWord.HELP) {
             printHelp();
-        }
-        else if (commandWord == CommandWord.GO) {
+        } else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        }
-        // if CommandWord == commandWord.QUIT, the wantToQuit variable is changed to true and the program will shut down.
+        } // if CommandWord == commandWord.QUIT, the wantToQuit variable is changed to true and the program will shut down.
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        }
-        else if (commandWord == commandWord.LOOK) {
+        } else if (commandWord == commandWord.LOOK) {
             lookRoom();
-        }
-        else if (commandWord == commandWord.WAIT) {
+        } else if (commandWord == commandWord.WAIT) {
             moveGuard();
-        }
-        else if (commandWord ==commandWord.INVENTORY){
+        } else if (commandWord == commandWord.INVENTORY) {
             player.getInventory().PrintInventory();
         }
         return wantToQuit;
     }
-   
+
     /**
-     * Prints a helping guide to the console, indicating which commands are available at the current moment.
+     * Prints a helping guide to the console, indicating which commands are
+     * available at the current moment.
      */
-    private void printHelp() 
-    {
+    private void printHelp() {
         System.out.println("You wander around the prison and");
         System.out.println("you want to find a way to break out.");
         System.out.println();
@@ -251,16 +247,15 @@ public class Game {
      * if commandWord == CommandWord.GO the private goRoom method is executed.
      * supplied with the Command object this method extracts the Secondword.
      * This is used to determine the direction to execute the goRoom method in.
-     * 
-     * @param command 
+     *
+     * @param command
      */
-    private void goRoom(Command command) 
-    {
+    private void goRoom(Command command) {
         // Null-point Guard to make sure the Command object has a SecondWord.
         // If the SecondWord is not defined in memory by a pointer, as soon as
         // the program tries to access the memory at the end of the undefined pointer
         // the program will crash if the Null-pointer exception isn't handed by a try/catch.
-        if(!command.hasSecondWord()) {
+        if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
         }
@@ -274,83 +269,75 @@ public class Game {
         // A hidden Null-pointer guard, wich display a message to the user, if there are no door.
         if (nextRoom == null) {
             System.out.println("There is no door!");
-        }
-        // If there is a door, the currentRoom is set to nextRoom and a LongDescription af the now currentRoom is displayed to the user.
+        } // If there is a door, the currentRoom is set to nextRoom and a LongDescription af the now currentRoom is displayed to the user.
         else {
             player.setCurrentRoom(nextRoom);
             System.out.println(player.getCurrentRoom().getLongDescription());
         }
         moveGuard();
     }
-    
+
     // TODO - Unfinished method.
-    private void lookRoom(){
+    private void lookRoom() {
         System.out.println(player.getCurrentRoom().getLongDescription());
         if (player.getCurrentRoom().getItem() != null) {
             System.out.println("You can see a " + player.getCurrentRoom().getItem());
         }
     }
-    
-    private void moveGuard(){
-        for (Guard guard : guards){
+
+    private void moveGuard() {
+        for (Guard guard : guards) {
             guard.moveToNextRoom();
         }
     }
 
     // In order to quit, there can't be a second word.
-    private boolean quit(Command command) 
-    {
+    private boolean quit(Command command) {
         // If something is written in the console the program won't quit.
-        if(command.hasSecondWord()) {
+        if (command.hasSecondWord()) {
             System.out.println("Quit what?");
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
-    
-    public boolean CheckForItems() { 
+
+    public boolean CheckForItems() {
         for (Guard gua : guards) { //Checking all Guards
             if (player.getCurrentRoom() == gua.getCurrentRoom()) {
-                if(!player.getInventory().checkEmpty()){
+                if (!player.getInventory().checkEmpty()) {
                     return true;
                 }
             }
         }
         return false;
     }
-      
-    protected boolean saveGame(){
+
+    protected boolean saveGame() {
         return data.save(allObjects);
     }
-    
-    protected boolean saveHighscore(){
+
+    protected boolean saveHighscore() {
         return data.saveScore(highscore);
     }
-    
-    
+
     public void GameOver() {
         if (TimerRunOut) {
             System.out.println("You didn't make it in time. Hurry up and surrender, before they shoot you");
-        } 
-        else if (CheckForItems()) {
-            
+        } else if (CheckForItems()) {
+
             System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
-        } 
-        else {
+        } else {
             //int time = timer(); //Ingen timer endnu
             int time = 2; //temp to avoid an error
             if (time > 0) {
                 System.out.println("You made it, Congratz! Your time was " + time);
-                
+
             } else {
                 System.out.println("");
             }
         }
         System.out.println("Game over");
     }
-    
+
 }
-
-
