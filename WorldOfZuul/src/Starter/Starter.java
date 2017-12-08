@@ -21,11 +21,11 @@ public class Starter {
      public static void main(String[] args) {
          IData Data = new DataFacede();
          IBusiness business = new BusinessFacede();
-          business.InjectData(Data);
+          business.injectData(Data);
           
          IUI UI = (IUI) new UI();
-         UI.InjectBusiness(business);
-         UI.StartAplication(args);
+         UI.injectBusiness(business);
+         UI.startAplication(args);
        
      
          

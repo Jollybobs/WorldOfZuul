@@ -17,13 +17,13 @@ public class BusinessFacede implements IBusiness {
     
     Game game;
 
-    public void PrintTest(String input) {
+    public void printTest(String input) {
         System.out.println("WORKS"+input);
     }
 
   
     IData data;
-    public void InjectData(IData Data) {
+    public void injectData(IData Data) {
         this.data=data;
     }
 

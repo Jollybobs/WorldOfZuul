@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface IBusiness {
 
-    void InjectData(IData Data);
+    void injectData(IData Data);
 
     void go(Room room);
 

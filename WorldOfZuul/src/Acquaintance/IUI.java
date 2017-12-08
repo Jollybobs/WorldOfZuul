@@ -11,7 +11,7 @@ package Acquaintance;
  */
 public interface IUI {
 
-    void InjectBusiness(IBusiness business);
+    void injectBusiness(IBusiness business);
 
-    void StartAplication(String[] Args);
+    void startAplication(String[] Args);
 }

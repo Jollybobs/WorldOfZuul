@@ -49,7 +49,7 @@ public class UI extends Application implements IUI {
     /**
      * @param args the command line arguments
      */
-    public void StartAplication(String[] args) {
+    public void startAplication(String[] args) {
         ui = this;
         launch(args);
     }
@@ -79,7 +79,7 @@ public class UI extends Application implements IUI {
      * 
      * @param business 
      */
-    public void InjectBusiness(IBusiness business) {
+    public void injectBusiness(IBusiness business) {
         this.business = business;
     }
 
