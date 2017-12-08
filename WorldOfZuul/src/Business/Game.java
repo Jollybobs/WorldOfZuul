@@ -226,7 +226,7 @@ public class Game {
         } else if (commandWord == commandWord.WAIT) {
             moveGuard();
         } else if (commandWord == commandWord.INVENTORY) {
-            player.getInventory().PrintInventory();
+            player.getInventory().printInventory();
         }
         return wantToQuit;
     }

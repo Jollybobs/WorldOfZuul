@@ -71,8 +71,8 @@ public class Player {
      *
      * @return
      */
-    public static String getInventory() {
-       return inventory.PrintInventory();
+    public static Inventory getInventory() {
+       return inventory;
     }
 
     /**

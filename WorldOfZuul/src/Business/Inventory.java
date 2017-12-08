@@ -50,7 +50,7 @@ public class Inventory {
 
     //PRINT INVENTORY
     //prints ArrayList inventory
-    public String PrintInventory() {
+    public String printInventory() {
         String result = ("you inventory contains: ");
         for (Item item : inventory) {
             result += (item.getName() + ", ");
