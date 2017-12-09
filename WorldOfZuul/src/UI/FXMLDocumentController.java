@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -212,20 +213,87 @@ public class FXMLDocumentController implements Initializable {
         Scene gameScene = UI.getGameScene();
 
         Image image = new Image("/UI/background.png");
+        ImageView iv0 = new ImageView(image);
         ImageView iv1 = new ImageView(image);
         ImageView iv2 = new ImageView(image);
         ImageView iv3 = new ImageView(image);
+        ImageView iv4 = new ImageView(image);
+        ImageView iv5 = new ImageView(image);
+        ImageView iv6 = new ImageView(image);
+        ImageView iv7 = new ImageView(image);
+        ImageView iv8 = new ImageView(image);
+        ImageView iv9 = new ImageView(image);
+        ImageView iv10 = new ImageView(image);
+        ImageView iv11 = new ImageView(image);
+        ImageView iv12 = new ImageView(image);
+        ImageView iv13 = new ImageView(image);
+        ImageView iv14 = new ImageView(image);
+        ImageView iv15 = new ImageView(image);
+        ImageView iv16 = new ImageView(image);
+        ImageView iv17 = new ImageView(image);
+        ImageView iv18 = new ImageView(image);
+        ImageView iv19 = new ImageView(image);
 
         Group root = new Group();
         Scene scene = new Scene(root);
         scene.setFill(Color.BLACK);
-        HBox box = new HBox();
-        box.getChildren().add(iv1);
-        box.getChildren().add(iv2);
-        box.getChildren().add(iv3);
-        root.getChildren().add(box);
+        
+        GridPane gridpane = new GridPane();
 
-        stage.setScene(scene);
+     // Set one constraint at a time...
+     // Places the button at the first row and second column
+     Button button = new Button();
+     GridPane.setRowIndex(button, 0);
+     GridPane.setColumnIndex(button, 1);
+
+     // or convenience methods set more than one constraint at once...
+     Label label = new Label();
+     GridPane.setConstraints(label, 2, 0); // column=2 row=0
+
+     // don't forget to add children to gridpane
+     gridpane.getChildren().addAll(button, label);
+        
+        GridPane gp = new GridPane();
+        
+        VBox vbox = new VBox();
+        
+        HBox box = new HBox();
+        gp.getChildren().add(iv0);
+        gp.getChildren().add(iv1);
+        gp.getChildren().add(iv2);
+        gp.getChildren().add(iv3);
+        gp.getChildren().add(iv4);
+        gp.getChildren().add(iv5);
+        
+        vbox.getChildren().add(box);
+        
+        HBox box2 = new HBox();
+        box2.getChildren().add(iv0);
+        box2.getChildren().add(iv1);
+        box2.getChildren().add(iv2);
+        box2.getChildren().add(iv3);
+        box2.getChildren().add(iv4);
+        box2.getChildren().add(iv5);
+        box2.getChildren().add(iv6);
+        box2.getChildren().add(iv7);
+        box2.getChildren().add(iv8);
+        box2.getChildren().add(iv9);
+        box2.getChildren().add(iv10);
+        box2.getChildren().add(iv11);
+        box2.getChildren().add(iv12);
+        box2.getChildren().add(iv13);
+        box2.getChildren().add(iv14);
+        box2.getChildren().add(iv15);
+        box2.getChildren().add(iv16);
+        box2.getChildren().add(iv17);
+        box2.getChildren().add(iv18);
+        box2.getChildren().add(iv19);
+        vbox.getChildren().add(box2);
+        
+//        root.getChildren().add(gridpane);
+
+        Scene scene2 = new Scene(gp);
+        stage.setScene(scene2);
         drawRoom();
     }
 

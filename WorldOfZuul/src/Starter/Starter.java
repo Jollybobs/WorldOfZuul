@@ -26,10 +26,6 @@ public class Starter {
          IUI UI = (IUI) new UI();
          UI.injectBusiness(business);
          UI.startAplication(args);
-       
-     
-         
-    
     }
 }
 
