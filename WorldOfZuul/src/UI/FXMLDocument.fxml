@@ -105,27 +105,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="buttonNewgame" mnemonicParsing="false" onAction="#startNewGame" text="New Game" GridPane.columnIndex="4" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="buttonNewgame" mnemonicParsing="false" onAction="#startNewGame" text="New Game" GridPane.columnIndex="22" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.rowIndex="18" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="buttonLoadgame" mnemonicParsing="false" onAction="#loadGame" text="Load Game" GridPane.columnIndex="4" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="buttonLoadgame" mnemonicParsing="false" onAction="#loadGame" text="Load Game" GridPane.columnIndex="22" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.rowIndex="21" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button fx:id="buttonWait" mnemonicParsing="false" onMouseClicked="#WaitClicked" text="Wait" GridPane.columnIndex="24" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="24" GridPane.rowSpan="3" GridPane.valignment="CENTER">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="buttonNorth" mnemonicParsing="false" onMouseClicked="#NorthClicked" text="North" GridPane.columnIndex="24" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="21" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="buttonWait" mnemonicParsing="false" onMouseClicked="#WaitClicked" text="Wait" GridPane.columnIndex="24" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="27" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
@@ -133,7 +128,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="buttonSouth" mnemonicParsing="false" onMouseClicked="#SouthClicked" text="South" GridPane.columnIndex="24" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="27" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="buttonNorth" mnemonicParsing="false" onMouseClicked="#NorthClicked" text="North" GridPane.columnIndex="24" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="24" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
@@ -141,7 +136,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="buttonWest" mnemonicParsing="false" onMouseClicked="#WestClicked" text="West" GridPane.columnIndex="21" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="24" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="buttonSouth" mnemonicParsing="false" onMouseClicked="#SouthClicked" text="South" GridPane.columnIndex="24" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="30" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
@@ -149,7 +144,7 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Button fx:id="buttonEast" mnemonicParsing="false" onMouseClicked="#EastClicked" text="East" GridPane.columnIndex="27" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="24" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+            <Button fx:id="buttonWest" mnemonicParsing="false" onMouseClicked="#WestClicked" text="West" GridPane.columnIndex="21" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="27" GridPane.rowSpan="3" GridPane.valignment="CENTER">
                <font>
                   <Font size="13.0" />
                </font>
@@ -157,7 +152,15 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <GridPane fx:id="highscorePane" prefHeight="197.0" prefWidth="140.0" GridPane.columnIndex="21" GridPane.columnSpan="9" GridPane.rowIndex="3" GridPane.rowSpan="15">
+            <Button fx:id="buttonEast" mnemonicParsing="false" onMouseClicked="#EastClicked" text="East" GridPane.columnIndex="27" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="27" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <GridPane fx:id="highscorePane" prefHeight="197.0" prefWidth="140.0" GridPane.columnIndex="21" GridPane.columnSpan="9" GridPane.rowIndex="2" GridPane.rowSpan="15">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
