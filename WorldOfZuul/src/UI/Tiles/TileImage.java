@@ -5,16 +5,13 @@
  */
 package UI.Tiles;
 
-import javafx.scene.image.ImageView;
-
 /**
  *
  * @author Jonathan
  */
-public class Tile extends ImageView {
-
-    public Tile(TileEnum tileEnum) {
-        //this(tileEnum.toString());
+public class TileImage {
+    public TileImage() {
+    
     }
     
 }

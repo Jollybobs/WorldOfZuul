@@ -42,6 +42,7 @@ public class FXMLDocumentController implements Initializable {
     BusinessFacede busFace = new BusinessFacede();
     private String BGpng = "/UI/background.png";
     Image image;
+    HashMap<String, Image> gameMap;
     @FXML
     private Label Time0;
     @FXML
@@ -116,6 +117,10 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         levelMap = new HashMap<>();
         initViewPort();
+        GameMap gm = new GameMap();
+        gameMap = gm.getMap();
+        System.out.println("gameMap: " + gameMap);
+        redrawViewPort();
         setControlButtonStatus(true);
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
@@ -292,8 +297,10 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void redrawViewPort() {
-        levelMap.forEach((k, v) -> {
-            System.out.println("k" + k + "v" + v.toString());
+        levelMap.forEach((String k, ImageView v) -> {
+            System.out.println("k: " + k);
+            System.out.println("gameMap: " + gameMap);
+            levelMap.put(k, new ImageView(gameMap.get(k)));
         });
     
     }
