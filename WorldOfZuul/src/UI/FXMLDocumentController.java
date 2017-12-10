@@ -119,8 +119,8 @@ public class FXMLDocumentController implements Initializable {
         initViewPort();
         GameMap gm = new GameMap();
         gameMap = gm.getMap();
-        System.out.println("gameMap: " + gameMap);
         redrawViewPort();
+        System.out.println("gameMap: " + gameMap);
         setControlButtonStatus(true);
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
@@ -298,9 +298,10 @@ public class FXMLDocumentController implements Initializable {
     
     private void redrawViewPort() {
         levelMap.forEach((String k, ImageView v) -> {
-            System.out.println("k: " + k);
-            System.out.println("gameMap: " + gameMap);
-            levelMap.put(k, new ImageView(gameMap.get(k)));
+            v.setImage(gameMap.get(k));
+//            System.out.println("k: " + k);
+//            System.out.println("gameMap: " + gameMap);
+//            levelMap.put(k, new ImageView());
         });
     
     }
