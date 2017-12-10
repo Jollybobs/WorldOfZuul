@@ -101,22 +101,26 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
+    @FXML
     private void eastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
         busFace.move("east");
 
     }
 
+    @FXML
     private void southClicked(MouseEvent event) {
         System.out.println("You used the mouse to move South");
         busFace.move("south");
     }
 
+    @FXML
     private void westClicked(MouseEvent event) {
         System.out.println("You used the mouse to move West");
         busFace.move("west");
     }
 
+    @FXML
     private void northClicked(MouseEvent event) {
         System.out.println("You used the mouse to move North");
         busFace.move("north");
