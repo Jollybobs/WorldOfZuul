@@ -43,60 +43,7 @@ public class FXMLDocumentController implements Initializable {
     private String BGpng = "/UI/background.png";
     Image image;
     HashMap<String, Image> gameMap;
-    @FXML
-    private Label Time0;
-    @FXML
-    private Label HighScore0;
-    @FXML
-    private Label HighScore1;
-    @FXML
-    private Label HighScore2;
-    @FXML
-    private Label HighScore3;
-    @FXML
-    private Label HighScore4;
-    @FXML
-    private Label HighScore5;
-    @FXML
-    private Label Time1;
-    @FXML
-    private Label Time2;
-    @FXML
-    private Label Time3;
-    @FXML
-    private Label Time4;
-    @FXML
-    private Label Time5;
-    @FXML
-    private Button buttonShowInventory;
-    @FXML
-    private Button buttonPickUp;
-    @FXML
-    private Button buttonUseItem;
-    @FXML
-    private Button buttonLook;    
-    @FXML
-    private Button buttonNorth;
-    @FXML
-    private Button buttonWest;
-    @FXML
-    private Button buttonSouth;
-    @FXML
-    private Button buttonWait;
-    @FXML
-    private Button buttonEast;
-    @FXML
-    private MenuItem menuSave;
-    @FXML
-    private MenuItem menuExit;
-    @FXML
-    private MenuItem menuAbout;
-    @FXML
-    private MenuItem menuControls;
-    @FXML
-    private Button buttonNewgame;
-    @FXML
-    private Button buttonLoadgame;
+    
     
     
     Map<String, ImageView> levelMap;
@@ -238,25 +185,6 @@ public class FXMLDocumentController implements Initializable {
         alert.showAndWait();
     }
 
-    private void HandelKeyMove(KeyEvent event) {
-        System.out.println("click");
-        switch (event.getCode()) {
-            case LEFT:
-                System.out.println("You used the button to go West");
-                break;
-            case RIGHT:
-                System.out.println("You used the button to go East");
-                break;
-            case UP:
-                System.out.println("You used the button to go North");
-                break;
-            case DOWN:
-                System.out.println("You used the button to go South");
-                break;
-        }
-
-    }
-
     @FXML
     private void saveGame(ActionEvent event) {
         if (busFace.saveGame() == false) {
@@ -328,6 +256,26 @@ public class FXMLDocumentController implements Initializable {
         alert.showAndWait();
     }
     
+    
+    private void HandelKeyMove(KeyEvent event) {
+        System.out.println("click");
+        switch (event.getCode()) {
+            case LEFT:
+                System.out.println("You used the button to go West");
+                break;
+            case RIGHT:
+                System.out.println("You used the button to go East");
+                break;
+            case UP:
+                System.out.println("You used the button to go North");
+                break;
+            case DOWN:
+                System.out.println("You used the button to go South");
+                break;
+        }
+
+    }
+    
     private void setPlacer(int x, int y) {
         if(x > 0 && intX < 10 || x < 0 && intX > 0) {
             intX = intX +x;
@@ -351,7 +299,6 @@ public class FXMLDocumentController implements Initializable {
         });
     }
 
-    // Only hardcoded junk for viewport tiles from here and down.
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
     private void initViewPort() {
         levelMap.put("00", tile00);levelMap.put("01", tile01);levelMap.put("02", tile02);levelMap.put("03", tile03);
@@ -407,4 +354,61 @@ public class FXMLDocumentController implements Initializable {
     @FXML private ImageView tile88;@FXML private ImageView tile89;@FXML private ImageView tile90;@FXML private ImageView tile91;
     @FXML private ImageView tile92;@FXML private ImageView tile93;@FXML private ImageView tile94;@FXML private ImageView tile95;
     @FXML private ImageView tile96;@FXML private ImageView tile97;@FXML private ImageView tile98;@FXML private ImageView tile99;
+    
+    
+    //Other FXML-pointers.
+    @FXML
+    private Label Time0;
+    @FXML
+    private Label HighScore0;
+    @FXML
+    private Label HighScore1;
+    @FXML
+    private Label HighScore2;
+    @FXML
+    private Label HighScore3;
+    @FXML
+    private Label HighScore4;
+    @FXML
+    private Label HighScore5;
+    @FXML
+    private Label Time1;
+    @FXML
+    private Label Time2;
+    @FXML
+    private Label Time3;
+    @FXML
+    private Label Time4;
+    @FXML
+    private Label Time5;
+    @FXML
+    private Button buttonShowInventory;
+    @FXML
+    private Button buttonPickUp;
+    @FXML
+    private Button buttonUseItem;
+    @FXML
+    private Button buttonLook;    
+    @FXML
+    private Button buttonNorth;
+    @FXML
+    private Button buttonWest;
+    @FXML
+    private Button buttonSouth;
+    @FXML
+    private Button buttonWait;
+    @FXML
+    private Button buttonEast;
+    @FXML
+    private MenuItem menuSave;
+    @FXML
+    private MenuItem menuExit;
+    @FXML
+    private MenuItem menuAbout;
+    @FXML
+    private MenuItem menuControls;
+    @FXML
+    private Button buttonNewgame;
+    @FXML
+    private Button buttonLoadgame;
 }
