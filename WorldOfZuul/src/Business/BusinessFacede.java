@@ -43,7 +43,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void move(String room) {
-        game.goRoom(new Command(CommandWord.GO, room));
+//        game.goRoom(new Command(CommandWord.GO, room));
     }
 
     @Override

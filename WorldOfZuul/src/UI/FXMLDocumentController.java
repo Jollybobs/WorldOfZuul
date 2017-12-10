@@ -157,38 +157,51 @@ public class FXMLDocumentController implements Initializable {
             }
         }
     }
+    
+    // Handles arrow keys user input.
+    @FXML
+    private void handleOnKeyPressed(KeyEvent e) {
+        switch(e.getCode()) {
+            case UP:
+                setPlacer(0,-1);
+                break;
+            case RIGHT:
+                setPlacer(1,0);
+                break;
+            case DOWN:
+                setPlacer(0,1);
+                break;
+            case LEFT:
+                setPlacer(-1,0);
+                break;
+        }
+    }
 
     @FXML
     private void eastClicked(MouseEvent event) {
-        System.out.println("You used the mouse to move East");
-        intX = intX + 1;
-        redrawViewPort();
+//        System.out.println("You used the mouse to move East");
+        setPlacer(1,0);
         busFace.move("east");
-        
-
     }
 
     @FXML
     private void southClicked(MouseEvent event) {
-        System.out.println("You used the mouse to move South");
-        intY = intY + 1;
-        redrawViewPort();
+//        System.out.println("You used the mouse to move South");
+        setPlacer(0,1);
         busFace.move("south");
     }
 
     @FXML
     private void westClicked(MouseEvent event) {
-        System.out.println("You used the mouse to move West");
-        intX = intX - 1;
-        redrawViewPort();
+//        System.out.println("You used the mouse to move West");
+        setPlacer(-1,0);
         busFace.move("west");
     }
 
     @FXML
     private void northClicked(MouseEvent event) {
-        System.out.println("You used the mouse to move North");
-        intY = intY - 1;
-        redrawViewPort();
+//        System.out.println("You used the mouse to move North");
+        setPlacer(0,-1);
         busFace.move("north");
     }
 
@@ -309,24 +322,27 @@ public class FXMLDocumentController implements Initializable {
         alert.showAndWait();
     }
     
+    private void setPlacer(int x, int y) {
+        if(x > 0 && intX < 10 || x < 0 && intX > 0) {
+            intX = intX +x;
+            redrawViewPort();
+        }
+        if(y > 0 && intY < 10 || y < 0 && intY > 0) {
+            intY = intY +y;
+            redrawViewPort();
+        }
+    }
+    
     private void redrawViewPort() {
         levelMap.forEach((String k, ImageView v) -> {
             int x = Integer.parseInt(k.substring(1,2));
             int y = Integer.parseInt(k.substring(0,1));
-            
             x = x + intX;
             y = y + intY;
             
             String placement = new String(Integer.toString(y) + Integer.toString(x));
-            
-            System.err.println("x: " + x + ", y: " + y + " = " + placement);
-            
             v.setImage(gameMap.get(placement));
-//            System.out.println("k: " + k);
-//            System.out.println("gameMap: " + gameMap);
-//            levelMap.put(k, new ImageView());
         });
-    
     }
 
     // Only hardcoded junk for viewport tiles from here and down.
