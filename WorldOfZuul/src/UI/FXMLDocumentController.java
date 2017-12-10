@@ -299,8 +299,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     // Only hardcoded junk for viewport tiles from here and down.
-    
-    // Organizes the tiles in a HashMap called lavelMap.
+    // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
     private void initViewPort() {
         levelMap.put("00", tile00);levelMap.put("01", tile01);levelMap.put("02", tile02);levelMap.put("03", tile03);
         levelMap.put("04", tile04);levelMap.put("05", tile05);levelMap.put("06", tile06);levelMap.put("07", tile07);
