@@ -84,6 +84,7 @@
                            </GridPane.margin>
                         </Button>
                         <Button fx:id="buttonShowInventory" mnemonicParsing="false" onMouseClicked="#inventoryClicked" text="Items" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="buttonLook" mnemonicParsing="false" onMouseClicked="#lookClicked" text="Look" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="3">
