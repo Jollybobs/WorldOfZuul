@@ -102,21 +102,11 @@ public class FXMLDocumentController implements Initializable {
     Map<String, ImageView> levelMap;
     int intX;
     int intY;
-
-    public void setControlButtonStatus(boolean boo){
-        buttonEast.setDisable(boo);
-        buttonNorth.setDisable(boo);
-        buttonSouth.setDisable(boo);
-        buttonWait.setDisable(boo);
-        buttonWest.setDisable(boo);
-        buttonPickUp.setDisable(boo);
-        buttonShowInventory.setDisable(boo);
-        buttonUseItem.setDisable(boo);
-        buttonLook.setDisable(boo);
-    }
+    boolean gameStarted;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        gameStarted = false;
         intX = 0;
         intY = 0;
         levelMap = new HashMap<>();
@@ -129,6 +119,18 @@ public class FXMLDocumentController implements Initializable {
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
         image = new Image(BGpng);
+    }
+    
+        public void setControlButtonStatus(boolean boo){
+        buttonEast.setDisable(boo);
+        buttonNorth.setDisable(boo);
+        buttonSouth.setDisable(boo);
+        buttonWait.setDisable(boo);
+        buttonWest.setDisable(boo);
+        buttonPickUp.setDisable(boo);
+        buttonShowInventory.setDisable(boo);
+        buttonUseItem.setDisable(boo);
+        buttonLook.setDisable(boo);
     }
 
     private void setHighscore(ArrayList aList) {
@@ -161,19 +163,21 @@ public class FXMLDocumentController implements Initializable {
     // Handles arrow keys user input.
     @FXML
     private void handleOnKeyPressed(KeyEvent e) {
-        switch(e.getCode()) {
-            case UP:
-                setPlacer(0,-1);
-                break;
-            case RIGHT:
-                setPlacer(1,0);
-                break;
-            case DOWN:
-                setPlacer(0,1);
-                break;
-            case LEFT:
-                setPlacer(-1,0);
-                break;
+        if(gameStarted){
+            switch(e.getCode()) {
+                case UP:
+                    setPlacer(0,-1);
+                    break;
+                case RIGHT:
+                    setPlacer(1,0);
+                    break;
+                case DOWN:
+                    setPlacer(0,1);
+                    break;
+                case LEFT:
+                    setPlacer(-1,0);
+                    break;
+            }
         }
     }
 
@@ -266,6 +270,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void exitGame(ActionEvent event) {
+        gameStarted = false;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure you want to exit the game?",ButtonType.YES,ButtonType.NO);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
@@ -285,6 +290,7 @@ public class FXMLDocumentController implements Initializable {
 //    }
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
+        gameStarted = true;
         setControlButtonStatus(false);
         buttonNewgame.setVisible(false);
         buttonLoadgame.setVisible(false);
