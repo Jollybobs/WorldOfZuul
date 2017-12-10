@@ -28,11 +28,6 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
-    public void go(Room room) {
-        
-    }
-
-    @Override
     public void play(Game game) {
         this.game = new Game();
     }

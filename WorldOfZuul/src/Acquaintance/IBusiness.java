@@ -20,8 +20,6 @@ public interface IBusiness {
 
     void injectData(IData Data);
 
-    void go(Room room);
-
     void play(Game game);
 
     String look();
