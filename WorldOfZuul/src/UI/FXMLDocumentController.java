@@ -40,16 +40,34 @@ public class FXMLDocumentController implements Initializable {
     BusinessFacede busFace = new BusinessFacede();
     private String BGpng = "/UI/background.png";
     Image image;
+    @FXML
+    private Label Time0;
+    @FXML
+    private Label HighScore0;
+    @FXML
+    private Button buttonShowInventory;
+    @FXML
+    private Button buttonPickUp;
+    @FXML
+    private Button buttonUseItem;
+    @FXML
+    private Button buttonLook;
 
-    
+    public void setControlButtonStatus(boolean boo){
+        buttonEast.setDisable(boo);
+        buttonNorth.setDisable(boo);
+        buttonSouth.setDisable(boo);
+        buttonWait.setDisable(boo);
+        buttonWest.setDisable(boo);
+        buttonPickUp.setDisable(boo);
+        buttonShowInventory.setDisable(boo);
+        buttonUseItem.setDisable(boo);
+        buttonLook.setDisable(boo);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        buttonEast.setDisable(true);
-        buttonNorth.setDisable(true);
-        buttonSouth.setDisable(true);
-        buttonWait.setDisable(true);
-        buttonWest.setDisable(true);
+        setControlButtonStatus(true);
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
         image = new Image(BGpng);
@@ -83,30 +101,54 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
-    @FXML
-    private void EastClicked(MouseEvent event) {
+    private void eastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
+        busFace.move("east");
 
     }
 
-    @FXML
-    private void SouthClicked(MouseEvent event) {
+    private void southClicked(MouseEvent event) {
         System.out.println("You used the mouse to move South");
+        busFace.move("south");
     }
 
-    @FXML
-    private void WestClicked(MouseEvent event) {
+    private void westClicked(MouseEvent event) {
         System.out.println("You used the mouse to move West");
+        busFace.move("west");
     }
 
-    @FXML
-    private void NorthClicked(MouseEvent event) {
+    private void northClicked(MouseEvent event) {
         System.out.println("You used the mouse to move North");
+        busFace.move("north");
     }
 
     @FXML
-    private void WaitClicked(MouseEvent event) {
+    private void waitClicked(MouseEvent event) {
         System.out.println("You used the mouse to Wait");
+        busFace.waitGuard();
+    }
+    
+    @FXML
+    private void inventoryClicked(MouseEvent event) {
+        System.out.println("You used the mouse to check the inventory");
+        System.out.println(busFace.showInventory());
+    }
+
+    @FXML
+    private void useClicked(MouseEvent event) {
+        System.out.println("You used the mouse to use an item from the inventory");
+        busFace.useItem();
+    }
+
+    @FXML
+    private void pickUpClicked(MouseEvent event) {
+        busFace.pickUpItem();
+    }
+    
+    @FXML
+    private void lookClicked(MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,busFace.look(),ButtonType.OK);
+        alert.showAndWait();
     }
 
     private void HandelKeyMove(KeyEvent event) {
@@ -132,6 +174,9 @@ public class FXMLDocumentController implements Initializable {
     private void saveGame(ActionEvent event) {
         if (busFace.saveGame() == false) {
             Alert alert = new Alert(Alert.AlertType.ERROR,"There was an error during the saveing of the game!",ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"The game was succsesfully saved.",ButtonType.OK);
             alert.showAndWait();
         }
     }
@@ -161,8 +206,21 @@ public class FXMLDocumentController implements Initializable {
         Stage stage = UI.getStage();
         Scene gameScene = UI.getGameScene();
         
+        setControlButtonStatus(false);
         buttonNewgame.setVisible(false);
         buttonLoadgame.setVisible(false);
+        HighScore0.setVisible(false);
+        HighScore1.setVisible(false);
+        HighScore2.setVisible(false);
+        HighScore3.setVisible(false);
+        HighScore4.setVisible(false);
+        HighScore5.setVisible(false);
+        Time0.setVisible(false);
+        Time1.setVisible(false);
+        Time2.setVisible(false);
+        Time3.setVisible(false);
+        Time4.setVisible(false);
+        Time5.setVisible(false);
         //gameView.setVisible(true);
 
         
@@ -442,15 +500,18 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void about(ActionEvent event) {
+        //TODO: about
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,"This game is about...",ButtonType.OK);
+        alert.showAndWait();
     }
 
     @FXML
     private void controls(ActionEvent event) {
+        //TODO: control list
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,"The different control in the game...",ButtonType.OK);
+        alert.showAndWait();
     }
     
-    //FXML Handels
-    @FXML
-    private Label label;
     @FXML
     private Label HighScore1;
     @FXML
@@ -471,10 +532,6 @@ public class FXMLDocumentController implements Initializable {
     private Label Time4;
     @FXML
     private Label Time5;
-    @FXML
-    private Label Time51;
-    @FXML
-    private Label gameView;
     @FXML
     private ImageView tile00;
     @FXML
@@ -693,8 +750,6 @@ public class FXMLDocumentController implements Initializable {
     private MenuItem menuAbout;
     @FXML
     private MenuItem menuControls;
-    @FXML
-    private GridPane highscorePane;
     @FXML
     private Button buttonNewgame;
     @FXML

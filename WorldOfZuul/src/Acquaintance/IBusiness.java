@@ -7,6 +7,7 @@ package Acquaintance;
 
 import Business.Game;
 import Business.Guard;
+import Business.Inventory;
 import Business.Item;
 import Business.Room;
 import java.util.List;
@@ -19,17 +20,11 @@ public interface IBusiness {
 
     void injectData(IData Data);
 
-    void go(Room room);
-
     void play(Game game);
 
-    void quit(Game game);
+    String look();
 
-    void look(Room room);
-
-    void goRoom(Room room);
-
-    void move(Room room);
+    void move(String room);
 
     void waitGuard();
 
@@ -41,15 +36,13 @@ public interface IBusiness {
 
     void loadGame();
 
-    void pickUpItem(Item item);
+    boolean pickUpItem();
 
-    void dropItem(Item item);
+    boolean dropItem();
 
-    void useItem(Item item);
+    boolean useItem();
 
-    void showInventory();
-
-    void help();
+    Inventory showInventory();
 
     void playMiniGame();
 
