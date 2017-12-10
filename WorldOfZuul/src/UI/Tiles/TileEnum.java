@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI.Tiles;
 
 /**
  *
@@ -11,7 +11,7 @@ package UI;
  */
 public enum TileEnum {
 //    BACKGROUND("/Tiles/Sprites/background.png"),
-//    BACKGROUND("/Tiles/Sprites/background.png"),
+//    BACKGROUND("/Tiles/Sprites/DoorEastEnd.png"),
 //    BACKGROUND("/Tiles/Sprites/background.png"),
 //    BACKGROUND("/Tiles/Sprites/background.png"),
 //    BACKGROUND("/Tiles/Sprites/background.png"),

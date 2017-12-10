@@ -5,6 +5,7 @@
  */
 package UI;
 
+import UI.Tiles.Tile;
 import java.util.HashMap;
 import java.util.Map;
 
