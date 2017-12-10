@@ -24,11 +24,7 @@ public interface IBusiness {
 
     void play(Game game);
 
-    void quit(Game game);
-
-    void look(Room room);
-
-    void goRoom(Room room);
+    String look();
 
     void move(String room);
 
@@ -42,15 +38,13 @@ public interface IBusiness {
 
     void loadGame();
 
-    void pickUpItem(Item item);
+    boolean pickUpItem();
 
-    void dropItem(Item item);
+    boolean dropItem();
 
-    void useItem(Item item);
+    boolean useItem();
 
     Inventory showInventory();
-
-    void help();
 
     void playMiniGame();
 

@@ -38,18 +38,12 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
-    public void quit(Game game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void look(Room room) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void goRoom(Room room) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String look() {
+        if (Player.getCurrentRoom() == null) {
+            return "You are in the void";
+        } else {
+            return Player.getCurrentRoom().getLongDescription();
+        }
     }
 
     @Override
@@ -88,28 +82,31 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
-    public void pickUpItem(Item item) {
-        Player.addItemInventory(item);
+    public boolean pickUpItem() {
+        if (Player.getCurrentRoom().isEmpty()) {
+            return false;
+        } else {
+            Player.addItemInventory(Player.getCurrentRoom().getItem());
+            Player.getCurrentRoom().setItem(null);
+            return true;
+        }
     }
 
     @Override
-    public void dropItem(Item item) {
-        Player.dropItem(item);
+    public boolean dropItem() {
+        //TODO: gøre så man kan fjerne et eller alle items fra inventory uden at sige hvilke det skal være
+        //Player.dropItem(Player.getInventory().);
+        return false;
     }
 
     @Override
-    public void useItem(Item item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean useItem() {
+        return false;
     }
 
     @Override
     public Inventory showInventory() {
         return Player.getInventory();
-    }
-
-    @Override
-    public void help() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
