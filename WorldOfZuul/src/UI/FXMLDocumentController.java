@@ -100,6 +100,8 @@ public class FXMLDocumentController implements Initializable {
     
     
     Map<String, ImageView> levelMap;
+    int intX;
+    int intY;
 
     public void setControlButtonStatus(boolean boo){
         buttonEast.setDisable(boo);
@@ -115,6 +117,8 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        intX = 0;
+        intY = 0;
         levelMap = new HashMap<>();
         initViewPort();
         GameMap gm = new GameMap();
@@ -157,25 +161,34 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void eastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
+        intX = intX + 1;
+        redrawViewPort();
         busFace.move("east");
+        
 
     }
 
     @FXML
     private void southClicked(MouseEvent event) {
         System.out.println("You used the mouse to move South");
+        intY = intY + 1;
+        redrawViewPort();
         busFace.move("south");
     }
 
     @FXML
     private void westClicked(MouseEvent event) {
         System.out.println("You used the mouse to move West");
+        intX = intX - 1;
+        redrawViewPort();
         busFace.move("west");
     }
 
     @FXML
     private void northClicked(MouseEvent event) {
         System.out.println("You used the mouse to move North");
+        intY = intY - 1;
+        redrawViewPort();
         busFace.move("north");
     }
 
@@ -298,7 +311,17 @@ public class FXMLDocumentController implements Initializable {
     
     private void redrawViewPort() {
         levelMap.forEach((String k, ImageView v) -> {
-            v.setImage(gameMap.get(k));
+            int x = Integer.parseInt(k.substring(1,2));
+            int y = Integer.parseInt(k.substring(0,1));
+            
+            x = x + intX;
+            y = y + intY;
+            
+            String placement = new String(Integer.toString(y) + Integer.toString(x));
+            
+            System.err.println("x: " + x + ", y: " + y + " = " + placement);
+            
+            v.setImage(gameMap.get(placement));
 //            System.out.println("k: " + k);
 //            System.out.println("gameMap: " + gameMap);
 //            levelMap.put(k, new ImageView());
