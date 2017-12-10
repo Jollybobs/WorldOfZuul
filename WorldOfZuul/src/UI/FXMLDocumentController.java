@@ -62,6 +62,7 @@ public class FXMLDocumentController implements Initializable {
         buttonPickUp.setDisable(boo);
         buttonShowInventory.setDisable(boo);
         buttonUseItem.setDisable(boo);
+        buttonLook.setDisable(boo);
     }
 
     @Override
@@ -100,33 +101,29 @@ public class FXMLDocumentController implements Initializable {
         }
     }
 
-    @FXML
-    private void EastClicked(MouseEvent event) {
+    private void eastClicked(MouseEvent event) {
         System.out.println("You used the mouse to move East");
         busFace.move("east");
 
     }
 
-    @FXML
-    private void SouthClicked(MouseEvent event) {
+    private void southClicked(MouseEvent event) {
         System.out.println("You used the mouse to move South");
         busFace.move("south");
     }
 
-    @FXML
-    private void WestClicked(MouseEvent event) {
+    private void westClicked(MouseEvent event) {
         System.out.println("You used the mouse to move West");
         busFace.move("west");
     }
 
-    @FXML
-    private void NorthClicked(MouseEvent event) {
+    private void northClicked(MouseEvent event) {
         System.out.println("You used the mouse to move North");
         busFace.move("north");
     }
 
     @FXML
-    private void WaitClicked(MouseEvent event) {
+    private void waitClicked(MouseEvent event) {
         System.out.println("You used the mouse to Wait");
         busFace.waitGuard();
     }
@@ -503,12 +500,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void about(ActionEvent event) {
+        //TODO: about
         Alert alert = new Alert(Alert.AlertType.INFORMATION,"This game is about...",ButtonType.OK);
         alert.showAndWait();
     }
 
     @FXML
     private void controls(ActionEvent event) {
+        //TODO: control list
         Alert alert = new Alert(Alert.AlertType.INFORMATION,"The different control in the game...",ButtonType.OK);
         alert.showAndWait();
     }

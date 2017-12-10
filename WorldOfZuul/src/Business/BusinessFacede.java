@@ -39,7 +39,11 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public String look() {
-        return Player.getCurrentRoom().getLongDescription();
+        if (Player.getCurrentRoom() == null) {
+            return "You are in the void";
+        } else {
+            return Player.getCurrentRoom().getLongDescription();
+        }
     }
 
     @Override
