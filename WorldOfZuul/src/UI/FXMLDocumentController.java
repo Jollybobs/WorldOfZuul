@@ -40,6 +40,10 @@ public class FXMLDocumentController implements Initializable {
     BusinessFacede busFace = new BusinessFacede();
     private String BGpng = "/UI/background.png";
     Image image;
+    @FXML
+    private Label Time0;
+    @FXML
+    private Label HighScore0;
 
     
 
@@ -163,6 +167,18 @@ public class FXMLDocumentController implements Initializable {
         
         buttonNewgame.setVisible(false);
         buttonLoadgame.setVisible(false);
+        HighScore0.setVisible(false);
+        HighScore1.setVisible(false);
+        HighScore2.setVisible(false);
+        HighScore3.setVisible(false);
+        HighScore4.setVisible(false);
+        HighScore5.setVisible(false);
+        Time0.setVisible(false);
+        Time1.setVisible(false);
+        Time2.setVisible(false);
+        Time3.setVisible(false);
+        Time4.setVisible(false);
+        Time5.setVisible(false);
         //gameView.setVisible(true);
 
         
@@ -448,9 +464,6 @@ public class FXMLDocumentController implements Initializable {
     private void controls(ActionEvent event) {
     }
     
-    //FXML Handels
-    @FXML
-    private Label label;
     @FXML
     private Label HighScore1;
     @FXML
@@ -473,8 +486,6 @@ public class FXMLDocumentController implements Initializable {
     private Label Time5;
     @FXML
     private Label Time51;
-    @FXML
-    private Label gameView;
     @FXML
     private ImageView tile00;
     @FXML

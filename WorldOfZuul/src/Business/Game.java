@@ -235,7 +235,7 @@ public class Game {
      * Prints a helping guide to the console, indicating which commands are
      * available at the current moment.
      */
-    private void printHelp() {
+    protected void printHelp() {
         System.out.println("You wander around the prison and");
         System.out.println("you want to find a way to break out.");
         System.out.println();
@@ -250,7 +250,7 @@ public class Game {
      *
      * @param command
      */
-    private void goRoom(Command command) {
+    protected void goRoom(Command command) {
         // Null-point Guard to make sure the Command object has a SecondWord.
         // If the SecondWord is not defined in memory by a pointer, as soon as
         // the program tries to access the memory at the end of the undefined pointer
@@ -273,12 +273,13 @@ public class Game {
         else {
             player.setCurrentRoom(nextRoom);
             System.out.println(player.getCurrentRoom().getLongDescription());
+            moveGuard();
         }
         moveGuard();
     }
 
     // TODO - Unfinished method.
-    private void lookRoom() {
+    protected void lookRoom() {
         System.out.println(player.getCurrentRoom().getLongDescription());
         if (player.getCurrentRoom().getItem() != null) {
             System.out.println("You can see a " + player.getCurrentRoom().getItem());
@@ -321,7 +322,7 @@ public class Game {
         return data.saveScore(highscore);
     }
 
-    public void GameOver() {
+    protected void GameOver() {
         if (TimerRunOut) {
             System.out.println("You didn't make it in time. Hurry up and surrender, before they shoot you");
         } else if (CheckForItems()) {
