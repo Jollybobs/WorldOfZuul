@@ -34,6 +34,13 @@ public class Room {
         return this.item;
     }
     
+    public boolean isEmpty(){
+        if (item == null) {
+            return true;
+        }
+        return false;
+    }
+    
     /**
      * Sets an exit reference from this room to @param neighbor room in 
      * @direction.
