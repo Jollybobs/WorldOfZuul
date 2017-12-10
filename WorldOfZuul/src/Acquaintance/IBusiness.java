@@ -7,6 +7,7 @@ package Acquaintance;
 
 import Business.Game;
 import Business.Guard;
+import Business.Inventory;
 import Business.Item;
 import Business.Room;
 import java.util.List;
@@ -29,7 +30,7 @@ public interface IBusiness {
 
     void goRoom(Room room);
 
-    void move(Room room);
+    void move(String room);
 
     void waitGuard();
 
@@ -47,7 +48,7 @@ public interface IBusiness {
 
     void useItem(Item item);
 
-    void showInventory();
+    Inventory showInventory();
 
     void help();
 

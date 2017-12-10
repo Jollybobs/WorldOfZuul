@@ -53,13 +53,13 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
-    public void move(Room room) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void move(String room) {
+        game.goRoom(new Command(CommandWord.GO, room));
     }
 
     @Override
     public void waitGuard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        game.moveGuard();
     }
 
     @Override
@@ -89,7 +89,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void pickUpItem(Item item) {
-    Player.addItemInventory(item);
+        Player.addItemInventory(item);
     }
 
     @Override
@@ -103,8 +103,8 @@ public class BusinessFacede implements IBusiness {
     }
 
     @Override
-    public void showInventory() {
-        Player.getInventory();
+    public Inventory showInventory() {
+        return Player.getInventory();
     }
 
     @Override

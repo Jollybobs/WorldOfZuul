@@ -286,7 +286,7 @@ public class Game {
         }
     }
 
-    private void moveGuard() {
+    protected void moveGuard() {
         for (Guard guard : guards) {
             guard.moveToNextRoom();
         }
@@ -303,7 +303,7 @@ public class Game {
         }
     }
 
-    public boolean CheckForItems() {
+    protected boolean CheckForItems() {
         for (Guard gua : guards) { //Checking all Guards
             if (player.getCurrentRoom() == gua.getCurrentRoom()) {
                 if (!player.getInventory().checkEmpty()) {
@@ -313,6 +313,17 @@ public class Game {
         }
         return false;
     }
+    
+    /*protected boolean PickUpItem(){
+        if (player.getCurrentRoom().isEmpty()) {
+            return false;
+        } else {
+            player.addItemInventory(player.getCurrentRoom().getItem());
+            player.getCurrentRoom().setItem(null);
+            return true;
+            
+        }
+    }*/
 
     protected boolean saveGame() {
         return data.save(allObjects);
