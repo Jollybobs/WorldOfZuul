@@ -198,7 +198,7 @@
                   <Label GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <GridPane GridPane.columnIndex="1" GridPane.columnSpan="19" GridPane.rowIndex="3" GridPane.rowSpan="26">
+            <GridPane GridPane.columnIndex="1" GridPane.columnSpan="19" GridPane.rowIndex="5" GridPane.rowSpan="26">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
