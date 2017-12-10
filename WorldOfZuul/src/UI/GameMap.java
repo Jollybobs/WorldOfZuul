@@ -23,17 +23,17 @@ public class GameMap {
         
         levelMap.put("00", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("01", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("02", new Image(TileEnum.BACKGROUND.toString()));
+        levelMap.put("02", new Image(TileEnum.DOORNORTHEND.toString()));
         levelMap.put("03", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("04", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("05", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("06", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("07", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("08", new Image(TileEnum.BACKGROUND.toString()));
+        levelMap.put("08", new Image(TileEnum.OFFICEMAN.toString()));
         levelMap.put("09", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("10", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("11", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("12", new Image(TileEnum.BACKGROUND.toString()));
+        levelMap.put("12", new Image(TileEnum.PRISONER.toString()));
         levelMap.put("13", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("14", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("15", new Image(TileEnum.BACKGROUND.toString()));
@@ -41,7 +41,7 @@ public class GameMap {
         levelMap.put("17", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("18", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("19", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("20", new Image(TileEnum.BACKGROUND.toString()));
+        levelMap.put("20", new Image(TileEnum.DOOREASTEND.toString()));
         levelMap.put("21", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("22", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("23", new Image(TileEnum.BACKGROUND.toString()));
