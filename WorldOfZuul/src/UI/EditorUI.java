@@ -5,10 +5,8 @@
  */
 package UI;
 
-import Acquaintance.EUI;
 import Acquaintance.IBusiness;
-import static UI.UI.aStage;
-import static UI.UI.ui;
+import Acquaintance.IUI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author Jonathan
  */
-public class EditorUI extends Application implements EUI{
+public class EditorUI extends Application implements IUI{
     
     IBusiness business;
     static EditorUI ui;

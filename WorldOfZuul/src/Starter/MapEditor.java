@@ -5,7 +5,7 @@
  */
 package Starter;
 
-import Acquaintance.EUI;
+import Acquaintance.IUI;
 import Acquaintance.IBusiness;
 import Acquaintance.IData;
 import Business.BusinessFacede;
@@ -22,7 +22,7 @@ public class MapEditor {
          IBusiness business = new BusinessFacede();
           business.injectData(Data);
           
-         EUI UI = (EUI) new EditorUI();
+         IUI UI = (IUI) new EditorUI();
          UI.injectBusiness(business);
          UI.startAplication(args);
     }
