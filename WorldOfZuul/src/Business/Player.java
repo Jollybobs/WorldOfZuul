@@ -10,7 +10,8 @@ public class Player {
     private static Player player;
     private static Room currentRoom;
     private static String name;
-    static Inventory inventory;
+    private static Inventory inventory;
+    private static double score;
 
     /**
      *
@@ -65,5 +66,33 @@ public class Player {
         name = name;
     }
 
-  
+    /**
+     *
+     * @return
+     */
+    public static Inventory getInventory() {
+       return inventory;
+    }
+
+    /**
+     *
+     * @param item
+     */
+    public static void addItemInventory(Item item) {
+        inventory.addItem(item);
+    }
+    
+    public static void dropAll(){
+        inventory.emptyInventory();
+    }
+
+    public static double getScore() {
+        return score;
+    }
+
+    public static void setScore(double score) {
+        Player.score = score;
+    }
+    
+
 }

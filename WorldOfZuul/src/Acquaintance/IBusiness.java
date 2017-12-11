@@ -50,4 +50,7 @@ public interface IBusiness {
 
     void interactNPC();
 
+    double getTime();
+    
+    void startTime();
 }

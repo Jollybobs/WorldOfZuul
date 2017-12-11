@@ -47,8 +47,8 @@ public class Inventory {
         freeSpace += item.getSize();
     }//m-addItem 
     
-    public void EmptyInventory(){
-    inventory.clear();
+    public void emptyInventory(){
+        inventory.clear();
     }
 
     //PRINT INVENTORY
