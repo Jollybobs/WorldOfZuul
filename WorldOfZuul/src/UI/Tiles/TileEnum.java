@@ -24,7 +24,7 @@ public enum TileEnum {
     Key               ("Key.png"),
     LADDER            ("Ladder.png"),
     OFFICEMAN         ("OfficeMan.png"),
-    PLAYER            ("Player.png"),
+    PLAYER            ("Player.gif"),
     PRISONER          ("Prisoner.png"),
     SAW               ("Saw.png"),
     SEWERFLOOR1       ("SewerFloor1.png"),

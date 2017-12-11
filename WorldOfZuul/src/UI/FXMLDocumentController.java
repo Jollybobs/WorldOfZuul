@@ -42,11 +42,12 @@ public class FXMLDocumentController implements Initializable {
     BusinessFacede busFace = new BusinessFacede();
     private String BGpng = "/UI/background.png";
     Image image;
-    HashMap<String, Image> gameMap;
+    HashMap<String, Image> backgroundMap;
+    HashMap<String, Image> dynamicMap;
     
     
     
-    Map<String, ImageView> levelMap;
+    HashMap<String, ImageView> levelMap;
     int intX;
     int intY;
     boolean gameStarted;
@@ -58,14 +59,14 @@ public class FXMLDocumentController implements Initializable {
         intY = 0;
         levelMap = new HashMap<>();
         initViewPort();
-        GameMap gm = new GameMap();
-        gameMap = gm.getMap();
+        BackgroundMap gm = new BackgroundMap();
+        backgroundMap = gm.getMap();
+        DynamicMap dm = new DynamicMap();
+        dynamicMap = dm.getMap();
         redrawViewPort();
-        System.out.println("gameMap: " + gameMap);
         setControlButtonStatus(true);
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
-        image = new Image(BGpng);
     }
     
         public void setControlButtonStatus(boolean boo){
@@ -256,26 +257,6 @@ public class FXMLDocumentController implements Initializable {
         alert.showAndWait();
     }
     
-    
-    private void HandelKeyMove(KeyEvent event) {
-        System.out.println("click");
-        switch (event.getCode()) {
-            case LEFT:
-                System.out.println("You used the button to go West");
-                break;
-            case RIGHT:
-                System.out.println("You used the button to go East");
-                break;
-            case UP:
-                System.out.println("You used the button to go North");
-                break;
-            case DOWN:
-                System.out.println("You used the button to go South");
-                break;
-        }
-
-    }
-    
     private void setPlacer(int x, int y) {
         if(x > 0 && intX < 10 || x < 0 && intX > 0) {
             intX = intX +x;
@@ -291,11 +272,16 @@ public class FXMLDocumentController implements Initializable {
         levelMap.forEach((String k, ImageView v) -> {
             int x = Integer.parseInt(k.substring(1,2));
             int y = Integer.parseInt(k.substring(0,1));
+            String dynamicplacement = new String(Integer.toString(y) + Integer.toString(x));
+            
             x = x + intX;
             y = y + intY;
-            
             String placement = new String(Integer.toString(y) + Integer.toString(x));
-            v.setImage(gameMap.get(placement));
+            
+            v.setImage(backgroundMap.get(placement));
+            if(dynamicMap.get(dynamicplacement) != null) {
+                v.setImage(dynamicMap.get(dynamicplacement));
+            }
         });
     }
 
@@ -326,6 +312,32 @@ public class FXMLDocumentController implements Initializable {
         levelMap.put("88", tile88);levelMap.put("89", tile89);levelMap.put("90", tile90);levelMap.put("91", tile91);
         levelMap.put("92", tile92);levelMap.put("93", tile93);levelMap.put("94", tile94);levelMap.put("95", tile95);
         levelMap.put("96", tile96);levelMap.put("97", tile97);levelMap.put("98", tile98);levelMap.put("99", tile99);
+        
+        levelMap.put("001", tile001);levelMap.put("011", tile011);levelMap.put("021", tile021);levelMap.put("031", tile031);
+        levelMap.put("041", tile041);levelMap.put("051", tile051);levelMap.put("061", tile061);levelMap.put("071", tile071);
+        levelMap.put("081", tile081);levelMap.put("091", tile091);levelMap.put("101", tile101);levelMap.put("111", tile111);
+        levelMap.put("121", tile121);levelMap.put("131", tile131);levelMap.put("141", tile141);levelMap.put("151", tile151);
+        levelMap.put("161", tile161);levelMap.put("171", tile171);levelMap.put("181", tile181);levelMap.put("191", tile191);
+        levelMap.put("201", tile201);levelMap.put("211", tile211);levelMap.put("221", tile221);levelMap.put("231", tile231);
+        levelMap.put("241", tile241);levelMap.put("251", tile251);levelMap.put("261", tile261);levelMap.put("271", tile271);
+        levelMap.put("281", tile281);levelMap.put("291", tile291);levelMap.put("301", tile301);levelMap.put("311", tile311);
+        levelMap.put("321", tile321);levelMap.put("331", tile331);levelMap.put("341", tile341);levelMap.put("351", tile351);
+        levelMap.put("361", tile361);levelMap.put("371", tile371);levelMap.put("381", tile381);levelMap.put("391", tile391);
+        levelMap.put("401", tile401);levelMap.put("411", tile411);levelMap.put("421", tile421);levelMap.put("431", tile431);
+        levelMap.put("441", tile441);levelMap.put("451", tile451);levelMap.put("461", tile461);levelMap.put("471", tile471);
+        levelMap.put("481", tile481);levelMap.put("491", tile491);levelMap.put("501", tile501);levelMap.put("511", tile511);
+        levelMap.put("521", tile521);levelMap.put("531", tile531);levelMap.put("541", tile541);levelMap.put("551", tile551);
+        levelMap.put("561", tile561);levelMap.put("571", tile571);levelMap.put("581", tile581);levelMap.put("591", tile591);
+        levelMap.put("601", tile601);levelMap.put("611", tile611);levelMap.put("621", tile621);levelMap.put("631", tile631);
+        levelMap.put("641", tile641);levelMap.put("651", tile651);levelMap.put("661", tile661);levelMap.put("671", tile671);
+        levelMap.put("681", tile681);levelMap.put("691", tile691);levelMap.put("701", tile701);levelMap.put("711", tile711);
+        levelMap.put("721", tile721);levelMap.put("731", tile731);levelMap.put("741", tile741);levelMap.put("751", tile751);
+        levelMap.put("761", tile761);levelMap.put("771", tile771);levelMap.put("781", tile781);levelMap.put("791", tile791);
+        levelMap.put("801", tile801);levelMap.put("811", tile811);levelMap.put("821", tile821);levelMap.put("831", tile831);
+        levelMap.put("841", tile841);levelMap.put("851", tile851);levelMap.put("861", tile861);levelMap.put("871", tile871);
+        levelMap.put("881", tile881);levelMap.put("891", tile891);levelMap.put("901", tile901);levelMap.put("911", tile911);
+        levelMap.put("921", tile921);levelMap.put("931", tile931);levelMap.put("941", tile941);levelMap.put("951", tile951);
+        levelMap.put("961", tile961);levelMap.put("971", tile971);levelMap.put("981", tile981);levelMap.put("991", tile991);
     }
 
     // FXML-pointer to tiles.
@@ -354,6 +366,32 @@ public class FXMLDocumentController implements Initializable {
     @FXML private ImageView tile88;@FXML private ImageView tile89;@FXML private ImageView tile90;@FXML private ImageView tile91;
     @FXML private ImageView tile92;@FXML private ImageView tile93;@FXML private ImageView tile94;@FXML private ImageView tile95;
     @FXML private ImageView tile96;@FXML private ImageView tile97;@FXML private ImageView tile98;@FXML private ImageView tile99;
+    
+    @FXML private ImageView tile001;@FXML private ImageView tile011;@FXML private ImageView tile021;@FXML private ImageView tile031;
+    @FXML private ImageView tile041;@FXML private ImageView tile051;@FXML private ImageView tile061;@FXML private ImageView tile071;
+    @FXML private ImageView tile081;@FXML private ImageView tile091;@FXML private ImageView tile101;@FXML private ImageView tile111;
+    @FXML private ImageView tile121;@FXML private ImageView tile131;@FXML private ImageView tile141;@FXML private ImageView tile151;
+    @FXML private ImageView tile161;@FXML private ImageView tile171;@FXML private ImageView tile181;@FXML private ImageView tile191;
+    @FXML private ImageView tile201;@FXML private ImageView tile211;@FXML private ImageView tile221;@FXML private ImageView tile231;
+    @FXML private ImageView tile241;@FXML private ImageView tile251;@FXML private ImageView tile261;@FXML private ImageView tile271;
+    @FXML private ImageView tile281;@FXML private ImageView tile291;@FXML private ImageView tile301;@FXML private ImageView tile311;
+    @FXML private ImageView tile321;@FXML private ImageView tile331;@FXML private ImageView tile341;@FXML private ImageView tile351;
+    @FXML private ImageView tile361;@FXML private ImageView tile371;@FXML private ImageView tile381;@FXML private ImageView tile391;
+    @FXML private ImageView tile401;@FXML private ImageView tile411;@FXML private ImageView tile421;@FXML private ImageView tile431;
+    @FXML private ImageView tile441;@FXML private ImageView tile451;@FXML private ImageView tile461;@FXML private ImageView tile471;
+    @FXML private ImageView tile481;@FXML private ImageView tile491;@FXML private ImageView tile501;@FXML private ImageView tile511;
+    @FXML private ImageView tile521;@FXML private ImageView tile531;@FXML private ImageView tile541;@FXML private ImageView tile551;
+    @FXML private ImageView tile561;@FXML private ImageView tile571;@FXML private ImageView tile581;@FXML private ImageView tile591;
+    @FXML private ImageView tile601;@FXML private ImageView tile611;@FXML private ImageView tile621;@FXML private ImageView tile631;
+    @FXML private ImageView tile641;@FXML private ImageView tile651;@FXML private ImageView tile661;@FXML private ImageView tile671;
+    @FXML private ImageView tile681;@FXML private ImageView tile691;@FXML private ImageView tile701;@FXML private ImageView tile711;
+    @FXML private ImageView tile721;@FXML private ImageView tile731;@FXML private ImageView tile741;@FXML private ImageView tile751;
+    @FXML private ImageView tile761;@FXML private ImageView tile771;@FXML private ImageView tile781;@FXML private ImageView tile791;
+    @FXML private ImageView tile801;@FXML private ImageView tile811;@FXML private ImageView tile821;@FXML private ImageView tile831;
+    @FXML private ImageView tile841;@FXML private ImageView tile851;@FXML private ImageView tile861;@FXML private ImageView tile871;
+    @FXML private ImageView tile881;@FXML private ImageView tile891;@FXML private ImageView tile901;@FXML private ImageView tile911;
+    @FXML private ImageView tile921;@FXML private ImageView tile931;@FXML private ImageView tile941;@FXML private ImageView tile951;
+    @FXML private ImageView tile961;@FXML private ImageView tile971;@FXML private ImageView tile981;@FXML private ImageView tile991;
     
     
     //Other FXML-pointers.

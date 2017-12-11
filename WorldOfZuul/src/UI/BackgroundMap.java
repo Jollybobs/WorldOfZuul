@@ -14,26 +14,26 @@ import javafx.scene.image.Image;
  *
  * @author Jonathan
  */
-public class GameMap {
+public class BackgroundMap {
     
     static HashMap<String, Image> levelMap;
     
-    public GameMap() {
+    public BackgroundMap() {
         levelMap = new HashMap<>();
         
         levelMap.put("00", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("01", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("02", new Image(TileEnum.DOORNORTHEND.toString()));
+        levelMap.put("02", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("03", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("04", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("05", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("06", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("07", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("08", new Image(TileEnum.OFFICEMAN.toString()));
+        levelMap.put("08", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("09", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("10", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("11", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("12", new Image(TileEnum.PRISONER.toString()));
+        levelMap.put("12", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("13", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("14", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("15", new Image(TileEnum.BACKGROUND.toString()));
@@ -41,7 +41,7 @@ public class GameMap {
         levelMap.put("17", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("18", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("19", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("20", new Image(TileEnum.DOOREASTEND.toString()));
+        levelMap.put("20", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("21", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("22", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("23", new Image(TileEnum.BACKGROUND.toString()));
@@ -123,17 +123,17 @@ public class GameMap {
         levelMap.put("99", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1010", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1011", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("1012", new Image(TileEnum.DOORNORTHEND.toString()));
+        levelMap.put("1012", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1013", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1014", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1015", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1016", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1017", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("1018", new Image(TileEnum.OFFICEMAN.toString()));
+        levelMap.put("1018", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1019", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1110", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1111", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("1112", new Image(TileEnum.PRISONER.toString()));
+        levelMap.put("1112", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1113", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1114", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1115", new Image(TileEnum.BACKGROUND.toString()));
@@ -141,7 +141,7 @@ public class GameMap {
         levelMap.put("1117", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1118", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1119", new Image(TileEnum.BACKGROUND.toString()));
-        levelMap.put("1210", new Image(TileEnum.DOOREASTEND.toString()));
+        levelMap.put("1210", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1211", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1212", new Image(TileEnum.BACKGROUND.toString()));
         levelMap.put("1213", new Image(TileEnum.BACKGROUND.toString()));
