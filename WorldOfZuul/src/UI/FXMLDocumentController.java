@@ -203,14 +203,14 @@ public class FXMLDocumentController implements Initializable {
                 while(busFace.miniGameRuns()){
                 textArea.appendText("press: "+busFace.miniGameGetChar());
                 //get input
-                    if (miniGameCheckInput(input)){
-                    textArea.appendText("Right");  
-                    }
-                    else{textArea.appendText("Wrong!");
-                    }
+//                    if (miniGameCheckInput(input)){
+//                    textArea.appendText("Right");  
+//                    }
+//                    else{textArea.appendText("Wrong!");
+//                    }
             }//Runs
             buttonWait.setFocusTraversable(true);
-            %WRITEBOXHOLDER%.requestFocus();
+//            %WRITEBOXHOLDER%.requestFocus();
             
         }//conditionCheck
     }

@@ -19,7 +19,7 @@ public class BusinessFacede implements IBusiness {
 
     Game game;
     Timer timer;
-    wallBreak wallBreak; //minigame
+    //wallBreak wallBreak; //minigame
 
     public void printTest(String input) {
         System.out.println("WORKS" + input);
@@ -137,16 +137,16 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public boolean miniGameConditionCheck() {
-        return wallBreak.conditionCheck();
+        return false;//wallBreak.conditionCheck();
     }
 
     @Override
     public boolean miniGameRuns() {
-        return wallBreak.runs();
+        return true;//wallBreak.runs();
     }
 
     @Override
     public Character miniGameGetChar() {
-        return wallBreak.getChar();
+        return 'c';//wallBreak.getChar();
     }
 }
