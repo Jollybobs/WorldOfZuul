@@ -16,18 +16,19 @@ import java.util.ArrayList;
  * @author Bruger
  */
 public class BusinessFacede implements IBusiness {
-    
+
     Game game;
     Timer timer;
+    wallBreak wallBreak; //minigame
 
     public void printTest(String input) {
-        System.out.println("WORKS"+input);
+        System.out.println("WORKS" + input);
     }
 
-  
     IData data;
+
     public void injectData(IData Data) {
-        this.data=data;
+        this.data = data;
     }
 
     @Override
@@ -58,7 +59,7 @@ public class BusinessFacede implements IBusiness {
     public boolean saveHighscore() {
         return game.saveHighscore();
     }
-    
+
     @Override
     public List loadHighscore() {
         return data.loadScore();
@@ -69,14 +70,14 @@ public class BusinessFacede implements IBusiness {
         if (game == null) {
             return false;
         } else {
-            Player.setScore(currentTimeMillis()-timer.getStartTime());
+            Player.setScore(currentTimeMillis() - timer.getStartTime());
             return game.saveGame();
         }
     }
-    
+
     @Override
     public void loadGame() {
-        ArrayList alist = new ArrayList((ArrayList)data.load());
+        ArrayList alist = new ArrayList((ArrayList) data.load());
         game.loadRooms(alist);
     }
 
@@ -92,8 +93,7 @@ public class BusinessFacede implements IBusiness {
     }
 
     /**
-     * emptys inventory 
-     * will also remove keys
+     * emptys inventory will also remove keys
      */
     @Override
     public void dropItem() {
@@ -104,19 +104,15 @@ public class BusinessFacede implements IBusiness {
     public boolean useItem() {
         return false;
     }
-/**
- * 
- * @return a string that contains all the items in the inventory in the format:
- *  "you inventory contains: name, name, name, name,"
- */
+
+    /**
+     *
+     * @return a string that contains all the items in the inventory in the
+     * format: "you inventory contains: name, name, name, name,"
+     */
     @Override
     public String showInventory() {
         return Player.getInventory().printInventory();
-    }
-
-    @Override
-    public void playMiniGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -128,14 +124,29 @@ public class BusinessFacede implements IBusiness {
     public void interactNPC() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     @Override
-    public double getTime(){
-        return currentTimeMillis()- timer.getStartTime();
+    public double getTime() {
+        return currentTimeMillis() - timer.getStartTime();
     }
-    
+
     @Override
-    public void startTime(){
+    public void startTime() {
         timer = new Timer();
+    }
+
+    @Override
+    public boolean miniGameConditionCheck() {
+        return wallBreak.conditionCheck();
+    }
+
+    @Override
+    public boolean miniGameRuns() {
+        return wallBreak.runs();
+    }
+
+    @Override
+    public Character miniGameGetChar() {
+        return wallBreak.getChar();
     }
 }
