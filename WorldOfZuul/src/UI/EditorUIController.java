@@ -135,7 +135,13 @@ public class EditorUIController implements Initializable {
 
     @FXML
     private void setImg(MouseEvent e) {
-        System.err.println("e.getSource().toString(): " + e.getSource().toString());
+        ImageView iv = (ImageView) e.getSource();
+        String s = iv.getId();
+        Image i = new Image(setTile);
+        iv.setImage(i);
+//        System.out.println("id: " +s);
+        
+        
         //levelMap.put(setTile);
 //        System.err.println("s: " + setTile);
     }
