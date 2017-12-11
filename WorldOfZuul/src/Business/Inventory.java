@@ -42,11 +42,14 @@ public class Inventory {
     *romves Item from ArrayList inventory & and adds the items size back to freeSpace
      *returns a String with text explaining the outcome.
      */
-    public String dropItem(Item item) {
+    public void dropItem(Item item) {
         inventory.remove(item);
         freeSpace += item.getSize();
-        return ("you dropped" + item);
     }//m-addItem 
+    
+    public void EmptyInventory(){
+    inventory.clear();
+    }
 
     //PRINT INVENTORY
     //prints ArrayList inventory

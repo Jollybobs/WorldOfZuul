@@ -10,9 +10,7 @@ public class Player {
     private static Player player;
     private static Room currentRoom;
     private static String name;
-    private static Inventory inventory;
-
-    
+    static Inventory inventory;
 
     /**
      *
@@ -67,22 +65,5 @@ public class Player {
         name = name;
     }
 
-    /**
-     *
-     * @return
-     */
-    public static Inventory getInventory() {
-       return inventory;
-    }
-
-    /**
-     *
-     * @param item
-     */
-    public static void addItemInventory(Item item) {
-        inventory.addItem(item);
-    }
-    
-    public static void dropItem(Item item){
-    inventory.dropItem(item);}
+  
 }

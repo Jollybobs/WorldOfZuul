@@ -226,7 +226,7 @@ public class Game {
         } else if (commandWord == commandWord.WAIT) {
             moveGuard();
         } else if (commandWord == commandWord.INVENTORY) {
-            player.getInventory().printInventory();
+            player.inventory.printInventory();
         }
         return wantToQuit;
     }
@@ -306,7 +306,7 @@ public class Game {
     protected boolean CheckForItems() {
         for (Guard gua : guards) { //Checking all Guards
             if (player.getCurrentRoom() == gua.getCurrentRoom()) {
-                if (!player.getInventory().checkEmpty()) {
+                if (!player.inventory.checkEmpty()) {
                     return true;
                 }
             }
