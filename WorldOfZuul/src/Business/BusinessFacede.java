@@ -69,7 +69,7 @@ public class BusinessFacede implements IBusiness {
         if (game == null) {
             return false;
         } else {
-            Player.setScore(currentTimeMillis()-timer.getStartTime);
+            Player.setScore(currentTimeMillis()-timer.getStartTime());
             return game.saveGame();
         }
     }
