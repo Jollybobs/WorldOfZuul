@@ -85,7 +85,7 @@ public class BusinessFacede implements IBusiness {
         if (Player.getCurrentRoom().isEmpty()) {
             return false;
         } else {
-            Player.inventory.addItem(Player.getCurrentRoom().getItem());
+            Player.getInventory().addItem(Player.getCurrentRoom().getItem());
             Player.getCurrentRoom().setItem(null);
             return true;
         }
@@ -97,7 +97,7 @@ public class BusinessFacede implements IBusiness {
      */
     @Override
     public void dropItem() {
-        Player.inventory.EmptyInventory();
+        Player.getInventory().emptyInventory();
     }
 
     @Override
@@ -111,7 +111,7 @@ public class BusinessFacede implements IBusiness {
  */
     @Override
     public String showInventory() {
-        return Player.inventory.printInventory();
+        return Player.getInventory().printInventory();
     }
 
     @Override
