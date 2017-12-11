@@ -83,6 +83,7 @@ public class Player {
         inventory.addItem(item);
     }
     
-    public static void dropItem(Item item){
-    inventory.dropItem(item);}
+    public static void dropAll(){
+        inventory.emptyInventory();
+    }
 }

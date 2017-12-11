@@ -47,6 +47,10 @@ public class Inventory {
         freeSpace += item.getSize();
         return ("you dropped" + item);
     }//m-addItem 
+    
+    public void emptyInventory(){
+        inventory.clear();
+    }
 
     //PRINT INVENTORY
     //prints ArrayList inventory

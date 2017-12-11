@@ -90,7 +90,7 @@ public class BusinessFacede implements IBusiness {
     @Override
     public boolean dropItem() {
         //TODO: gøre så man kan fjerne et eller alle items fra inventory uden at sige hvilke det skal være
-        //Player.dropItem(Player.getInventory().);
+        Player.dropAll();
         return false;
     }
 
