@@ -5,14 +5,14 @@ import Business.ExitDirection;
 import org.junit.Before;
 import org.junit.Test;
 
-import Business.Room;
+//import Business.Room;
 
 /**
  *
  * @author group 14.
  */
 public class Tests {
-    
+    /*
     Room aRoom1;
     Room aRoom2;
     
@@ -22,7 +22,7 @@ public class Tests {
         aRoom1 = new Room("roomStart");
         aRoom2 = new Room("roomEast");
     }
-    
+    */
     /**
      * Testing rooms
      * 

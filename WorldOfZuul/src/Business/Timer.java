@@ -10,18 +10,18 @@ package Business;
  *
  * @author Marc
  */
-public class Timer {
+class Timer {
     double startTime;
     public Timer() {
         startTime = System.currentTimeMillis();
     }
             
     
-    public void resetTime(){
+    protected void resetTime(){
         startTime = System.currentTimeMillis();
     }
     
-    public String getTimeSinceStart(){
+    protected String getTimeSinceStart(){
         double timeSinceStart = System.currentTimeMillis() - startTime;
         double allSecondsSinceStart = timeSinceStart/1000;
         double secondsSinceStart = allSecondsSinceStart%60;
@@ -30,7 +30,7 @@ public class Timer {
         return timeGone;
     }
 
-    public double getStartTime() {
+    protected double getStartTime() {
         return startTime;
     }
     

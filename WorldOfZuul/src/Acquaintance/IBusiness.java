@@ -6,10 +6,6 @@
 package Acquaintance;
 
 import Business.Game;
-import Business.Guard;
-import Business.Inventory;
-import Business.Item;
-import Business.Room;
 import java.util.List;
 
 /**

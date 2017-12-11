@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -52,7 +53,11 @@ public class FXMLDocumentController implements Initializable {
     int intY;
     boolean gameStarted;
     @FXML
+    private TextArea textArea;
+  
+    @FXML
     private MenuItem menuPause;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,6 +86,8 @@ public class FXMLDocumentController implements Initializable {
         buttonShowInventory.setDisable(boo);
         buttonUseItem.setDisable(boo);
         buttonLook.setDisable(boo);
+        textArea.setDisable(boo);
+        textArea.setVisible(!boo);
     }
 
     private void setHighscore(ArrayList aList) {
