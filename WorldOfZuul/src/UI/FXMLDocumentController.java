@@ -181,7 +181,22 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void useClicked(MouseEvent event) {
         System.out.println("You used the mouse to use an item from the inventory");
-        busFace.useItem();
+        if(busFace.miniGameConditionCheck()){
+            //set textfield on
+              buttonWait.setFocusTraversable(false);
+            while(busFace.miniGameRuns()){
+            textArea.appendText("press: "+busFace.miniGameGetChar());
+            //get input
+                if (miniGameCheckInput(input)){
+                textArea.appendText("Right");  
+                }
+                else{textArea.appendText("Wrong!");
+                }
+            }//Runs
+            buttonWait.setFocusTraversable(true);
+            %WRITEBOXHOLDER%.requestFocus();
+            
+        }//conditionCheck
     }
 
     @FXML

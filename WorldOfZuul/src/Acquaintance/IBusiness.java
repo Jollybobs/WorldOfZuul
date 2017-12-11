@@ -40,13 +40,18 @@ public interface IBusiness {
 
     String showInventory();
 
-    void playMiniGame();
-
     void pause();
 
     void interactNPC();
 
     double getTime();
-    
+
     void startTime();
+
+    boolean miniGameConditionCheck();
+
+    boolean miniGameRuns();
+
+    Character miniGameGetChar();
+
 }
