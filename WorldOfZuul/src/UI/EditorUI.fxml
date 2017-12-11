@@ -27,109 +27,81 @@
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <ImageView fx:id="0000" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-border-width: 5; -fx-border-style: solid;" />
+            <ImageView fx:id="0100" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" />
+            <ImageView fx:id="0200" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="2" />
+            <ImageView fx:id="0300" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="3" />
+            <ImageView fx:id="0400" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="4" />
+            <ImageView fx:id="0500" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="5" />
+            <ImageView fx:id="0600" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="6" />
+            <ImageView fx:id="0700" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="7" />
+            <ImageView fx:id="0800" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="8" />
+            <ImageView fx:id="0900" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="9" />
+            <ImageView fx:id="0001" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.rowIndex="1" />
+            <ImageView fx:id="0101" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fx:id="0201" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fx:id="0301" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ImageView fx:id="0401" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ImageView fx:id="0501" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ImageView fx:id="0601" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <ImageView fx:id="0701" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <ImageView fx:id="0801" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <ImageView fx:id="0901" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+         </children>
       </GridPane>
    </center>
    <right>
