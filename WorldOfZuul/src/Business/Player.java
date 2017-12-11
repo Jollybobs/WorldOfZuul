@@ -13,8 +13,6 @@ public class Player {
     private static Inventory inventory;
     private static double score;
 
-    
-
     /**
      *
      * @param room
@@ -96,4 +94,5 @@ public class Player {
         Player.score = score;
     }
     
+
 }

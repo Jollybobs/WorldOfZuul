@@ -85,27 +85,33 @@ public class BusinessFacede implements IBusiness {
         if (Player.getCurrentRoom().isEmpty()) {
             return false;
         } else {
-            Player.addItemInventory(Player.getCurrentRoom().getItem());
+            Player.inventory.addItem(Player.getCurrentRoom().getItem());
             Player.getCurrentRoom().setItem(null);
             return true;
         }
     }
 
+    /**
+     * emptys inventory 
+     * will also remove keys
+     */
     @Override
-    public boolean dropItem() {
-        //TODO: gøre så man kan fjerne et eller alle items fra inventory uden at sige hvilke det skal være
-        Player.dropAll();
-        return false;
+    public void dropItem() {
+        Player.inventory.EmptyInventory();
     }
 
     @Override
     public boolean useItem() {
         return false;
     }
-
+/**
+ * 
+ * @return a string that contains all the items in the inventory in the format:
+ *  "you inventory contains: name, name, name, name,"
+ */
     @Override
-    public Inventory showInventory() {
-        return Player.getInventory();
+    public String showInventory() {
+        return Player.inventory.printInventory();
     }
 
     @Override

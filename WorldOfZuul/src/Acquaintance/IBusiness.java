@@ -38,11 +38,11 @@ public interface IBusiness {
 
     boolean pickUpItem();
 
-    boolean dropItem();
+    void dropItem();
 
     boolean useItem();
 
-    Inventory showInventory();
+    String showInventory();
 
     void playMiniGame();
 
