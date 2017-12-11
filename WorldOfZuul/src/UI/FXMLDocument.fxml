@@ -21,6 +21,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem fx:id="menuPause" mnemonicParsing="false" onAction="#pause" text="Pause" />
               <MenuItem fx:id="menuSave" mnemonicParsing="false" onAction="#saveGame" text="Save Game" />
                   <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitGame" text="Exit Game" />
             </items>
