@@ -100,7 +100,11 @@ public class BusinessFacede implements IBusiness {
     public boolean useItem() {
         return false;
     }
-
+/**
+ * 
+ * @return a string that contains all the items in the inventory in the format:
+ *  "you inventory contains: name, name, name, name,"
+ */
     @Override
     public String showInventory() {
         return Player.inventory.printInventory();
