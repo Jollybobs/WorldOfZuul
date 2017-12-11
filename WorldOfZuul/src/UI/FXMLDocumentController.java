@@ -31,6 +31,8 @@ import java.util.Map;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -57,6 +59,14 @@ public class FXMLDocumentController implements Initializable {
   
     @FXML
     private MenuItem menuPause;
+    
+    @FXML
+    private BorderPane viewPort;
+    @FXML
+    private AnchorPane viewGrid;
+    //@FXML
+    //private AnchorPane anchor;
+    
 
 
     @Override
@@ -74,6 +84,11 @@ public class FXMLDocumentController implements Initializable {
         setControlButtonStatus(true);
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
+
+        setViewScaleable();
+
+        
+        
     }
     
         public void setControlButtonStatus(boolean boo){
@@ -461,5 +476,108 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void pause(ActionEvent event) {
+    }
+
+    private void setViewScaleable() {
+              tile00.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile01.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile02.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile03.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile04.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile05.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile06.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile07.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile08.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile09.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile10.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile11.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile12.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile13.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile14.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile15.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile16.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile17.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile18.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile19.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile20.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile21.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile22.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile23.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile24.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile25.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile26.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile27.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile28.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile29.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile30.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile31.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile32.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile33.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile34.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile35.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile36.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile37.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile38.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile39.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile40.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile41.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile42.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile43.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile44.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile45.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile46.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile47.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile48.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile49.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile50.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile51.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile52.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile53.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile54.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile55.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile56.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile57.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile58.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile59.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile60.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile61.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile62.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile63.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile64.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile65.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile66.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile67.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile68.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile69.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile70.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile71.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile72.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile73.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile74.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile75.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile76.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile77.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile78.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile79.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile80.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile81.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile82.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile83.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile84.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile85.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile86.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile87.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile88.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile89.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile90.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile91.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile92.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile93.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile94.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile95.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile96.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile97.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile98.fitHeightProperty().bind(viewGrid.widthProperty());
+//        tile99.fitHeightProperty().bind(viewGrid.widthProperty());
     }
 }
