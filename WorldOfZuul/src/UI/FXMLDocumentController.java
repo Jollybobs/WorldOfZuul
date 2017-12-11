@@ -51,6 +51,8 @@ public class FXMLDocumentController implements Initializable {
     int intX;
     int intY;
     boolean gameStarted;
+    @FXML
+    private MenuItem menuPause;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -449,4 +451,8 @@ public class FXMLDocumentController implements Initializable {
     private Button buttonNewgame;
     @FXML
     private Button buttonLoadgame;
+
+    @FXML
+    private void pause(ActionEvent event) {
+    }
 }
