@@ -8,33 +8,33 @@ import java.util.HashMap;
  * @author  Michael Kolling and David J. Barnes
  * @version 2006.03.30
  */
-public class Room {
+class Room {
     private String description;
     private HashMap<String, Room> exits;
     private Item item = null;
     
-    public Room(String description) {
+    protected Room(String description) {
         this.description = description;
         exits = new HashMap<>();
     }
 
-    public void setDescription(String description) {
+    protected void setDescription(String description) {
         this.description = description;
     }
 
-    public void setExit(String direction, Room neighbor) {
+    protected void setExit(String direction, Room neighbor) {
         setExit(direction, neighbor, false);
     }
     
-    public void setItem(Item item){
+    protected void setItem(Item item){
         this.item = item;
     }
     
-    public Item getItem(){
+    protected Item getItem(){
         return this.item;
     }
     
-    public boolean isEmpty(){
+    protected boolean isEmpty(){
         if (item == null) {
             return true;
         }
@@ -52,7 +52,7 @@ public class Room {
      * @param neighbor
      * @param backwardExitReference 
      */
-    public void setExit(String direction, Room neighbor, Boolean backwardExitReference) {
+    protected void setExit(String direction, Room neighbor, Boolean backwardExitReference) {
         exits.put(direction, neighbor);
         
         if(backwardExitReference){
@@ -73,15 +73,15 @@ public class Room {
         }
     }
 
-    public String getShortDescription() {
+    protected String getShortDescription() {
         return description;
     }
 
-    public String getLongDescription() {
+    protected String getLongDescription() {
         return "You are " + description + ".\n" + getExitString();
     }
 
-    private String getExitString() {
+    protected String getExitString() {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
@@ -90,7 +90,7 @@ public class Room {
         return returnString;
     }
 
-    public Room getExit(String direction) {
+    protected Room getExit(String direction) {
         return exits.get(direction);
     }
 }

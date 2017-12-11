@@ -5,7 +5,7 @@
  */
 package Business;
 
-public class Player {
+class Player {
 
     private static Player player;
     private static Room currentRoom;
@@ -17,7 +17,7 @@ public class Player {
      *
      * @param room
      */
-    public Player(Room room) {
+    protected Player(Room room) {
         this.currentRoom = room;
         this.inventory = new Inventory();
 
@@ -28,7 +28,7 @@ public class Player {
      * @param room
      * @param name
      */
-    public Player(Room room, String name) {
+    protected Player(Room room, String name) {
         this.currentRoom = room;
         this.name = name;
         this.inventory = new Inventory();
@@ -38,7 +38,7 @@ public class Player {
      *
      * @return
      */
-    public static Room getCurrentRoom() {
+    protected static Room getCurrentRoom() {
         return currentRoom;
     }
 
@@ -46,7 +46,7 @@ public class Player {
      *
      * @param currentRoom
      */
-    public static void setCurrentRoom(Room currentRoom) {
+    protected static void setCurrentRoom(Room currentRoom) {
         currentRoom = currentRoom;
     }
 
@@ -54,7 +54,7 @@ public class Player {
      *
      * @return
      */
-    public static String getName() {
+    protected static String getName() {
         return name;
     }
 
@@ -62,7 +62,7 @@ public class Player {
      *
      * @param name
      */
-    public static void setName(String name) {
+    protected static void setName(String name) {
         name = name;
     }
 
@@ -70,7 +70,7 @@ public class Player {
      *
      * @return
      */
-    public static Inventory getInventory() {
+    protected static Inventory getInventory() {
        return inventory;
     }
 
@@ -78,19 +78,19 @@ public class Player {
      *
      * @param item
      */
-    public static void addItemInventory(Item item) {
+    protected static void addItemInventory(Item item) {
         inventory.addItem(item);
     }
     
-    public static void dropAll(){
+    protected static void dropAll(){
         inventory.emptyInventory();
     }
 
-    public static double getScore() {
+    protected static double getScore() {
         return score;
     }
 
-    public static void setScore(double score) {
+    protected static void setScore(double score) {
         Player.score = score;
     }
     
