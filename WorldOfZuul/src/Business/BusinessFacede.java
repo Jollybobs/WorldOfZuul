@@ -6,6 +6,8 @@
 package Business;
 
 import Acquaintance.*;
+import static java.lang.System.currentTimeMillis;
+import java.sql.Time;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 public class BusinessFacede implements IBusiness {
     
     Game game;
+    Timer timer;
 
     public void printTest(String input) {
         System.out.println("WORKS"+input);
@@ -66,6 +69,7 @@ public class BusinessFacede implements IBusiness {
         if (game == null) {
             return false;
         } else {
+            Player.setScore(currentTimeMillis()-timer.getStartTime);
             return game.saveGame();
         }
     }
@@ -117,5 +121,15 @@ public class BusinessFacede implements IBusiness {
     @Override
     public void interactNPC() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public double getTime(){
+        return currentTimeMillis()- timer.getStartTime();
+    }
+    
+    @Override
+    public void startTime(){
+        timer = new Timer();
     }
 }

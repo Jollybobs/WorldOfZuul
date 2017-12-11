@@ -11,6 +11,7 @@ public class Player {
     private static Room currentRoom;
     private static String name;
     private static Inventory inventory;
+    private static double score;
 
     
 
@@ -86,4 +87,13 @@ public class Player {
     public static void dropAll(){
         inventory.emptyInventory();
     }
+
+    public static double getScore() {
+        return score;
+    }
+
+    public static void setScore(double score) {
+        Player.score = score;
+    }
+    
 }

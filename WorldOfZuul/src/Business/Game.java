@@ -20,6 +20,9 @@ public class Game {
     private Guard[] guards = new Guard[10];
     private boolean TimerRunOut;
 
+    // Defines room variables.
+    protected Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
+    
     /**
      * Constructor for Game Class. At instantiation the rooms are created and a
      * parser for handling the command line input is instantiated. After
@@ -35,9 +38,6 @@ public class Game {
         allObjects = new ArrayList(aList);
         
         player = (Player)allObjects.get(0);
-        
-        // Defines room variables.
-        Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
       
         // Instantiates room variables.
         cell = (Room)allObjects.get(1);
@@ -76,10 +76,6 @@ public class Game {
     protected void createRooms()
     {
         allObjects.add(player);
-        
-
-        // Defines room variables.
-        Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
 
         // Instantiates room variables.
         cell = new Room("in your cell, the door to the hall is to the east");

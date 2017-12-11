@@ -27,4 +27,9 @@ public class Timer {
         String timeGone = (int)minutesSinceStart + ":" + (int)secondsSinceStart;
         return timeGone;
     }
+
+    public double getStartTime() {
+        return startTime;
+    }
+    
 }
