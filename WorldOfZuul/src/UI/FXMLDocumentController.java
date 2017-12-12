@@ -12,8 +12,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -21,21 +19,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import Business.BusinessFacede;
 import DataLayer.DataFacede;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
 /**
  *
@@ -51,8 +44,6 @@ public class FXMLDocumentController implements Initializable {
     HashMap<String, String> vackgroundMap;
     HashMap<String, Image> dynamicMap;
     
-    
-    
     HashMap<String, ImageView> levelMap;
     int intX;
     int intY;
@@ -67,11 +58,11 @@ public class FXMLDocumentController implements Initializable {
     private BorderPane viewPort;
     @FXML
     private AnchorPane viewGrid;
+    @FXML
+    private GridPane controlPanel;
     //@FXML
     //private AnchorPane anchor;
     
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -90,6 +81,7 @@ public class FXMLDocumentController implements Initializable {
         setControlButtonStatus(true);
         //gameView.setVisible(false);
         //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
+//        controlPanel.setFocusTraversable(false);
 
         setViewScaleable();
 
@@ -98,6 +90,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
         public void setControlButtonStatus(boolean boo){
+//            boo = true;
         buttonEast.setDisable(boo);
         buttonNorth.setDisable(boo);
         buttonSouth.setDisable(boo);
@@ -107,8 +100,9 @@ public class FXMLDocumentController implements Initializable {
         buttonShowInventory.setDisable(boo);
         buttonUseItem.setDisable(boo);
         buttonLook.setDisable(boo);
-        textArea.setDisable(boo);
+        textArea.setDisable(true);
         textArea.setVisible(!boo);
+        
     }
 
     private void setHighscore(ArrayList aList) {
@@ -282,6 +276,7 @@ public class FXMLDocumentController implements Initializable {
         Time4.setVisible(false);
         Time5.setVisible(false);
         //gameView.setVisible(true);
+//        controlPanel.setFocusTraversable(false);
     }
     
     @FXML
@@ -316,6 +311,7 @@ public class FXMLDocumentController implements Initializable {
     
     private void redrawViewPort() {
         levelMap.forEach((String k, ImageView v) -> {
+            System.out.println("k: " + k);
             int x = Integer.parseInt(k.substring(1,2));
             int y = Integer.parseInt(k.substring(0,1));
             String dynamicplacement = new String(Integer.toString(y) + Integer.toString(x));
@@ -340,9 +336,9 @@ public class FXMLDocumentController implements Initializable {
             }
             
             
-            System.out.println(placement);
-            System.out.println(backgroundMap.get(placement));
-            System.out.println(vackgroundMap.get(placement));
+//            System.out.println(placement);
+//            System.out.println(backgroundMap.get(placement));
+//            System.out.println(vackgroundMap.get(placement));
             v.setImage(new Image(vackgroundMap.get(placement)));
             if(dynamicMap.get(dynamicplacement) != null) {
                 v.setImage(dynamicMap.get(dynamicplacement));
