@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -27,6 +28,8 @@ public class EditorUIController implements Initializable {
     private VBox box1;
     @FXML
     private VBox box2;
+    @FXML
+    private GridPane viewGrid;
     String setTile;
     HashMap<String, String> levelMap;
     DataFacede data;
@@ -151,8 +154,14 @@ public class EditorUIController implements Initializable {
     }
     
     private void setImg(String place, String tile) {
-        System.out.println("place: " + place + ", tile: " + tile);
-        //Todo - Ref for iv
+        // Worst performing hack ever ;)
+        viewGrid.getChildren().forEach(e -> {
+            ImageView iv = (ImageView) e;
+            System.out.println("iv.getId() " + iv.getId());
+            if(iv.getId().equals(place)) {
+                iv.setImage(new Image(tile));
+            }
+        });
         levelMap.put(place, tile);
     }
     
