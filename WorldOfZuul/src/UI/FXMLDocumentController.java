@@ -25,6 +25,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import Business.BusinessFacede;
+import DataLayer.DataFacede;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +44,7 @@ import javafx.scene.layout.VBox;
 public class FXMLDocumentController implements Initializable {
 
     BusinessFacede busFace = new BusinessFacede();
+    DataFacede data;
     private String BGpng = "/UI/background.png";
     Image image;
     HashMap<String, Image> backgroundMap;
@@ -71,13 +73,16 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        data = new DataFacede();
         gameStarted = false;
         intX = 0;
         intY = 0;
         levelMap = new HashMap<>();
         initViewPort();
         BackgroundMap gm = new BackgroundMap();
-        backgroundMap = gm.getMap();
+//        backgroundMap = gm.getMap();
+        backgroundMap = data.loadMap();
         DynamicMap dm = new DynamicMap();
         dynamicMap = dm.getMap();
         redrawViewPort();
