@@ -69,8 +69,8 @@ public class FXMLDocumentController implements Initializable {
         
         data = new DataFacede();
         gameStarted = false;
-        intX = 0;
-        intY = 0;
+        intX = 7;
+        intY = 12;
         levelMap = new HashMap<>();
         initViewPort();
         BackgroundMap gm = new BackgroundMap();
@@ -300,11 +300,12 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void setPlacer(int x, int y) {
-        if(x > -5 && intX < 25 || x < 0 && intX > 0) {
+        System.out.println("intY: " + intY + ", y: " + y);
+        if(-4 < intX && intX < 23 || x > 0 && intX < -3 || x < 0 && intX > 22) {
             intX = intX + x;
             redrawViewPort();
         }
-        if(y > -5 && intY < 15 || y < 0 && intY > 0) {
+        if(-4 < intY && intY < 13 || y > 0 && intY < -3 || y < 0 && intY > 12) {
             intY = intY + y;
             redrawViewPort();
         }
@@ -317,33 +318,33 @@ public class FXMLDocumentController implements Initializable {
             int y = Integer.parseInt(k.substring(0,1));
             String dynamicplacement = new String(Integer.toString(y) + Integer.toString(x));
             
-            System.out.println("k: " + k + ", x: " + x + ", y: " + y + ", dynamic placement: " + dynamicplacement);
+//            System.out.println("k: " + k + ", x: " + x + ", y: " + y + ", dynamic placement: " + dynamicplacement);
             
             x = x + intX;
             y = y + intY;
             
-            System.out.println("x: " + x + ", y: " + y);
+//            System.out.println("x: " + x + ", y: " + y);
             
             String placement;
                     
             if(y < 10 && x < 10) {
-                System.out.println("1");
+//                System.out.println("1");
                 placement = new String("0" + Integer.toString(x) + "0" + Integer.toString(y));
             } else if(x < 10 && y >= 10) {
-                System.out.println("2");
+//                System.out.println("2");
                 placement = new String("0" + Integer.toString(x) + Integer.toString(y));
             } else if(x >= 10 && y < 10) {
-                System.out.println("3");
+//                System.out.println("3");
                 placement = new String(Integer.toString(x) + "0" + Integer.toString(y));
             } else {
-                System.out.println("4");
+//                System.out.println("4");
                 placement = new String(Integer.toString(x) + Integer.toString(y));
             }
             
             
-            System.out.println(placement);
+//            System.out.println(placement);
 //            System.out.println(backgroundMap.get(placement));
-            System.out.println(vackgroundMap.get(placement));
+//            System.out.println(vackgroundMap.get(placement));
             if(vackgroundMap.get(placement) != null) {
                 v.setImage(new Image(vackgroundMap.get(placement)));
             } else {
