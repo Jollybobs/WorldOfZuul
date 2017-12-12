@@ -299,11 +299,11 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void setPlacer(int x, int y) {
-        if(x > 0 && intX < 10 || x < 0 && intX > 0) {
+        if(x > 0 && intX < 20 || x < 0 && intX > 0) {
             intX = intX + x;
             redrawViewPort();
         }
-        if(y > 0 && intY < 20 || y < 0 && intY > 0) {
+        if(y > 0 && intY < 10 || y < 0 && intY > 0) {
             intY = intY + y;
             redrawViewPort();
         }
