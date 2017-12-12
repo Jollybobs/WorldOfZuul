@@ -91,7 +91,6 @@ public class FXMLDocumentController implements Initializable {
     }
     
         public void setControlButtonStatus(boolean boo){
-//            boo = true;
         buttonEast.setDisable(boo);
         buttonNorth.setDisable(boo);
         buttonSouth.setDisable(boo);
@@ -258,6 +257,7 @@ public class FXMLDocumentController implements Initializable {
 //        stage.setScene(gameScene);        
 //        drawRoom();
 //    }
+    
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
         gameStarted = true;
@@ -328,23 +328,14 @@ public class FXMLDocumentController implements Initializable {
             String placement;
                     
             if(y < 10 && x < 10) {
-//                System.out.println("1");
                 placement = new String("0" + Integer.toString(x) + "0" + Integer.toString(y));
             } else if(x < 10 && y >= 10) {
-//                System.out.println("2");
                 placement = new String("0" + Integer.toString(x) + Integer.toString(y));
             } else if(x >= 10 && y < 10) {
-//                System.out.println("3");
                 placement = new String(Integer.toString(x) + "0" + Integer.toString(y));
             } else {
-//                System.out.println("4");
                 placement = new String(Integer.toString(x) + Integer.toString(y));
             }
-            
-            
-//            System.out.println(placement);
-//            System.out.println(backgroundMap.get(placement));
-//            System.out.println(vackgroundMap.get(placement));
             if(vackgroundMap.get(placement) != null) {
                 v.setImage(new Image(vackgroundMap.get(placement)));
             } else {
@@ -383,32 +374,6 @@ public class FXMLDocumentController implements Initializable {
         levelMap.put("88", tile88);levelMap.put("89", tile89);levelMap.put("90", tile90);levelMap.put("91", tile91);
         levelMap.put("92", tile92);levelMap.put("93", tile93);levelMap.put("94", tile94);levelMap.put("95", tile95);
         levelMap.put("96", tile96);levelMap.put("97", tile97);levelMap.put("98", tile98);levelMap.put("99", tile99);
-        
-//        levelMap.put("001", tile001);levelMap.put("011", tile011);levelMap.put("021", tile021);levelMap.put("031", tile031);
-//        levelMap.put("041", tile041);levelMap.put("051", tile051);levelMap.put("061", tile061);levelMap.put("071", tile071);
-//        levelMap.put("081", tile081);levelMap.put("091", tile091);levelMap.put("101", tile101);levelMap.put("111", tile111);
-//        levelMap.put("121", tile121);levelMap.put("131", tile131);levelMap.put("141", tile141);levelMap.put("151", tile151);
-//        levelMap.put("161", tile161);levelMap.put("171", tile171);levelMap.put("181", tile181);levelMap.put("191", tile191);
-//        levelMap.put("201", tile201);levelMap.put("211", tile211);levelMap.put("221", tile221);levelMap.put("231", tile231);
-//        levelMap.put("241", tile241);levelMap.put("251", tile251);levelMap.put("261", tile261);levelMap.put("271", tile271);
-//        levelMap.put("281", tile281);levelMap.put("291", tile291);levelMap.put("301", tile301);levelMap.put("311", tile311);
-//        levelMap.put("321", tile321);levelMap.put("331", tile331);levelMap.put("341", tile341);levelMap.put("351", tile351);
-//        levelMap.put("361", tile361);levelMap.put("371", tile371);levelMap.put("381", tile381);levelMap.put("391", tile391);
-//        levelMap.put("401", tile401);levelMap.put("411", tile411);levelMap.put("421", tile421);levelMap.put("431", tile431);
-//        levelMap.put("441", tile441);levelMap.put("451", tile451);levelMap.put("461", tile461);levelMap.put("471", tile471);
-//        levelMap.put("481", tile481);levelMap.put("491", tile491);levelMap.put("501", tile501);levelMap.put("511", tile511);
-//        levelMap.put("521", tile521);levelMap.put("531", tile531);levelMap.put("541", tile541);levelMap.put("551", tile551);
-//        levelMap.put("561", tile561);levelMap.put("571", tile571);levelMap.put("581", tile581);levelMap.put("591", tile591);
-//        levelMap.put("601", tile601);levelMap.put("611", tile611);levelMap.put("621", tile621);levelMap.put("631", tile631);
-//        levelMap.put("641", tile641);levelMap.put("651", tile651);levelMap.put("661", tile661);levelMap.put("671", tile671);
-//        levelMap.put("681", tile681);levelMap.put("691", tile691);levelMap.put("701", tile701);levelMap.put("711", tile711);
-//        levelMap.put("721", tile721);levelMap.put("731", tile731);levelMap.put("741", tile741);levelMap.put("751", tile751);
-//        levelMap.put("761", tile761);levelMap.put("771", tile771);levelMap.put("781", tile781);levelMap.put("791", tile791);
-//        levelMap.put("801", tile801);levelMap.put("811", tile811);levelMap.put("821", tile821);levelMap.put("831", tile831);
-//        levelMap.put("841", tile841);levelMap.put("851", tile851);levelMap.put("861", tile861);levelMap.put("871", tile871);
-//        levelMap.put("881", tile881);levelMap.put("891", tile891);levelMap.put("901", tile901);levelMap.put("911", tile911);
-//        levelMap.put("921", tile921);levelMap.put("931", tile931);levelMap.put("941", tile941);levelMap.put("951", tile951);
-//        levelMap.put("961", tile961);levelMap.put("971", tile971);levelMap.put("981", tile981);levelMap.put("991", tile991);
     }
 
     // FXML-pointer to tiles.
