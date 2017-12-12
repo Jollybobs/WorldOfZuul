@@ -311,32 +311,36 @@ public class FXMLDocumentController implements Initializable {
     
     private void redrawViewPort() {
         levelMap.forEach((String k, ImageView v) -> {
-            System.out.println("k: " + k);
+            
             int x = Integer.parseInt(k.substring(1,2));
             int y = Integer.parseInt(k.substring(0,1));
             String dynamicplacement = new String(Integer.toString(y) + Integer.toString(x));
             
+            System.out.println("k: " + k + ", x: " + x + ", y: " + y + ", dynamic placement: " + dynamicplacement);
+            
             x = x + intX;
             y = y + intY;
+            
+            System.out.println("x: " + x + ", y: " + y);
             
             String placement;
                     
             if(y < 10 && x < 10) {
                 System.out.println("1");
-                placement = new String("0" + Integer.toString(y) + "0" + Integer.toString(x));
-            } else if(y < 10 && x >= 10) {
+                placement = new String("0" + Integer.toString(x) + "0" + Integer.toString(y));
+            } else if(x < 10 && y >= 10) {
                 System.out.println("2");
-                placement = new String("0" + Integer.toString(y) + Integer.toString(x));
-            } else if(y >= 10 && x < 10) {
+                placement = new String("0" + Integer.toString(x) + Integer.toString(y));
+            } else if(x >= 10 && y < 10) {
                 System.out.println("3");
-                placement = new String(Integer.toString(y) + "0" + Integer.toString(x));
+                placement = new String(Integer.toString(x) + "0" + Integer.toString(y));
             } else {
                 System.out.println("4");
-                placement = new String(Integer.toString(y) + Integer.toString(x));
+                placement = new String(Integer.toString(x) + Integer.toString(y));
             }
             
             
-//            System.out.println(placement);
+            System.out.println(placement);
 //            System.out.println(backgroundMap.get(placement));
 //            System.out.println(vackgroundMap.get(placement));
             v.setImage(new Image(vackgroundMap.get(placement)));
