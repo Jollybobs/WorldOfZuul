@@ -21,6 +21,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import Business.BusinessFacede;
 import DataLayer.DataFacede;
+import UI.Tiles.TileEnum;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.control.Alert;
@@ -299,11 +300,11 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void setPlacer(int x, int y) {
-        if(x > 0 && intX < 20 || x < 0 && intX > 0) {
+        if(x > -5 && intX < 25 || x < 0 && intX > 0) {
             intX = intX + x;
             redrawViewPort();
         }
-        if(y > 0 && intY < 10 || y < 0 && intY > 0) {
+        if(y > -5 && intY < 15 || y < 0 && intY > 0) {
             intY = intY + y;
             redrawViewPort();
         }
@@ -342,8 +343,12 @@ public class FXMLDocumentController implements Initializable {
             
             System.out.println(placement);
 //            System.out.println(backgroundMap.get(placement));
-//            System.out.println(vackgroundMap.get(placement));
-            v.setImage(new Image(vackgroundMap.get(placement)));
+            System.out.println(vackgroundMap.get(placement));
+            if(vackgroundMap.get(placement) != null) {
+                v.setImage(new Image(vackgroundMap.get(placement)));
+            } else {
+                v.setImage(new Image("/UI/Tiles/Sprites/Background.png"));// + TileEnum.BACKGROUND.toString());
+            }
             if(dynamicMap.get(dynamicplacement) != null) {
                 v.setImage(dynamicMap.get(dynamicplacement));
             }
