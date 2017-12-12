@@ -146,7 +146,7 @@ public class EditorUIController implements Initializable {
     @FXML
     private void setImg(MouseEvent e) {
         ImageView iv = (ImageView) e.getSource();
-        String s = iv.getId();
+        String s = iv.getId().substring(1,5);
         Image i = new Image(setTile);
         iv.setImage(i);
         System.out.println("place: " + s + ", tile: " + setTile);
@@ -158,7 +158,7 @@ public class EditorUIController implements Initializable {
         viewGrid.getChildren().forEach(e -> {
             ImageView iv = (ImageView) e;
             System.out.println("iv.getId() " + iv.getId());
-            if(iv.getId().equals(place)) {
+            if(iv.getId().substring(1,5).equals(place)) {
                 iv.setImage(new Image(tile));
             }
         });
