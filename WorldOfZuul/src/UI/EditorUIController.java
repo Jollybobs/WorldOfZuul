@@ -5,6 +5,7 @@
  */
 package UI;
 
+import DataLayer.DataFacede;
 import UI.Tiles.TileEnum;
 import java.net.URL;
 import java.util.HashMap;
@@ -27,9 +28,15 @@ public class EditorUIController implements Initializable {
     @FXML
     private VBox box2;
     String setTile;
-    HashMap<String, Image> levelMap = new HashMap<>();
+    HashMap<String, String> levelMap;
+    DataFacede data;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        data = new DataFacede();
+        levelMap = new HashMap<>();
+        loadMap();
+        updateView();
         
         ImageView iv01 = new ImageView(new Image(TileEnum.BACKGROUND.toString()));        iv01.setOnMouseClicked(e -> chooseImg(TileEnum.BACKGROUND.toString()));
         ImageView iv02 = new ImageView(new Image(TileEnum.DOOREASTEND.toString()));       iv02.setOnMouseClicked(e -> chooseImg(TileEnum.DOOREASTEND.toString()));
@@ -139,15 +146,32 @@ public class EditorUIController implements Initializable {
         String s = iv.getId();
         Image i = new Image(setTile);
         iv.setImage(i);
-//        System.out.println("id: " +s);
-        
-        
-        //levelMap.put(setTile);
-//        System.err.println("s: " + setTile);
+        System.out.println("place: " + s + ", tile: " + setTile);
+        levelMap.put(s, setTile);
     }
     
-    private void saveMap(String s) {
-        setTile = s;
-        System.err.println("s: " + setTile);
+    private void setImg(String place, String tile) {
+        System.out.println("place: " + place + ", tile: " + tile);
+        //Todo - Ref for iv
+        levelMap.put(place, tile);
+    }
+    
+    @FXML
+    private void saveMap() {
+        boolean b = data.saveMap(levelMap);
+        System.out.println("files saved = " + b);
+    }
+    
+    @FXML
+    private void loadMap() {
+        if(data.loadMap() != null) {
+            levelMap = data.loadMap();
+        }
+    }
+    
+    private void updateView() {
+        levelMap.forEach((k,v) -> {
+            setImg(k, v);
+        });
     }
 }

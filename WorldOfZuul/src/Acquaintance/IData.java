@@ -5,6 +5,7 @@
  */
 package Acquaintance;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -16,6 +17,10 @@ public interface IData {
     boolean save(List aList);
 
     List load();
+    
+    boolean saveMap(HashMap aMap);
+
+    HashMap loadMap();
 
     boolean saveScore(List hList);
 
