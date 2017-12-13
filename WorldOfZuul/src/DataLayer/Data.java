@@ -63,7 +63,6 @@ public class Data {
         ArrayList aList = new ArrayList();
         
         File desktop = new File(System.getProperty("user.home"), "Desktop");
-        //System.out.println(desktop.toString());
         
         try {
            FileInputStream fileIn = new FileInputStream(desktop + "\\data\\data.ser");
@@ -91,7 +90,6 @@ public class Data {
     protected boolean saveMap(HashMap aMap) {
         
         File file = new File("src\\resources", "newfile.ser");
-        System.out.println("path: " + file.getAbsolutePath());
         
         if(!file.exists()){
             try {
@@ -107,7 +105,6 @@ public class Data {
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(aMap);
             out.close();
-            System.out.println("path" + file.getAbsolutePath());
             fileOut.close();
             return true;
         } catch (IOException i) {
@@ -124,7 +121,6 @@ public class Data {
         HashMap<String, String> aMap = new HashMap<>();
         
         File file = new File("src\\resources", "newfile.ser");
-        System.out.println("path: " + file.getAbsolutePath());
         
         try {
            FileInputStream fileIn = new FileInputStream(file);

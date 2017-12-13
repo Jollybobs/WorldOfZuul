@@ -291,18 +291,33 @@ public class FXMLDocumentController implements Initializable {
     
     private void setPlacer(int x, int y) {
         
+        String tile;
+        // Check tile before move.
         if(x > 0) {
-            System.out.println(vackgroundMap.get(checkPlacementString(1, 0)));
-            if(!(vackgroundMap.get(checkPlacementString(1, 0)).equals(TileEnum.BACKGROUND.toString()))){return;}
+            tile = vackgroundMap.get(checkPlacementString(1, 0));
+            if(!(tile.equals(TileEnum.BACKGROUND.toString()))){
+                if(!(tile.equals(TileEnum.Key.toString()))){vackgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());}
+                else if(!(tile.equals(TileEnum.HAMMER_CHISEL.toString()))){vackgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());}
+                else {return;}
+            }
         } else if(x < 0) {
-            System.out.println(vackgroundMap.get(checkPlacementString(-1, 0)));
-            if(!(vackgroundMap.get(checkPlacementString(-1, 0)).equals(TileEnum.BACKGROUND.toString()))){return;}
+            tile = vackgroundMap.get(checkPlacementString(-1, 0));
+            if(!(tile.equals(TileEnum.BACKGROUND.toString()))){if(!(tile.equals(TileEnum.Key.toString()))){vackgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());}
+                else if(!(tile.equals(TileEnum.HAMMER_CHISEL.toString()))){vackgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());}
+                else {return;}
+            }
         } else if(y > 0) {
-            System.out.println(vackgroundMap.get(checkPlacementString(0, 1)));
-            if(!(vackgroundMap.get(checkPlacementString(0, 1)).equals(TileEnum.BACKGROUND.toString()))){return;}
+            tile = vackgroundMap.get(checkPlacementString(0, 1));
+            if(!(tile.equals(TileEnum.BACKGROUND.toString()))){if(!(tile.equals(TileEnum.Key.toString()))){vackgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());}
+                else if(!(tile.equals(TileEnum.HAMMER_CHISEL.toString()))){vackgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());}
+                else {return;}
+            }
         } else {
-            System.out.println(vackgroundMap.get(checkPlacementString(0, -1)));
-            if(!(vackgroundMap.get(checkPlacementString(0, -1)).equals(TileEnum.BACKGROUND.toString()))){return;}
+            tile = vackgroundMap.get(checkPlacementString(0, -1));
+            if(!(tile.equals(TileEnum.BACKGROUND.toString()))){if(!(tile.equals(TileEnum.Key.toString()))){vackgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());}
+                else if(!(tile.equals(TileEnum.HAMMER_CHISEL.toString()))){vackgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());}
+                else {return;}
+            }
         }
         
         if(-4 < intX && intX < 23 || x > 0 && intX < -3 || x < 0 && intX > 22) {
@@ -362,10 +377,6 @@ public class FXMLDocumentController implements Initializable {
                 v.setImage(dynamicMap.get(dynamicplacement));
             }
         });
-        System.out.println("intX: " + intX + ", intY: " + intY + ", North: " + vackgroundMap.get(checkPlacementString(0, -1)));
-        System.out.println("intX: " + intX + ", intY: " + intY + ", East:  " + vackgroundMap.get(checkPlacementString(1, 0)));
-        System.out.println("intX: " + intX + ", intY: " + intY + ", South: " + vackgroundMap.get(checkPlacementString(0, 1)));
-        System.out.println("intX: " + intX + ", intY: " + intY + ", West:  " + vackgroundMap.get(checkPlacementString(-1, 0)));
     }
     
     private boolean isTileBackground(TileEnum tileEnum) {
