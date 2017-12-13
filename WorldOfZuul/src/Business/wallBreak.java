@@ -1,4 +1,3 @@
-
 package Business;
 
 import java.util.Collections;
@@ -37,6 +36,7 @@ public class wallBreak {
      * @return
      */
     public boolean conditionCheck() {
+        /*
         for (Item items: Player.getInventory().getInventory()) {
             if (items.checkFor(hammer_Chisel) && Player.getCurrentRoom().equals("Cell")) {
                 return true;
@@ -44,7 +44,12 @@ public class wallBreak {
                 return false;
             }
         }
+            
+         */
+        
+        return false;
     }
+
     /**
      * changes to false when game is won
      *
@@ -66,11 +71,13 @@ public class wallBreak {
     public Character getChar() {
         return charList.peek();
     }
-/**
- * checks if the input matches the displayed char
- * @param input
- * @return boolean 
- */
+
+    /**
+     * checks if the input matches the displayed char
+     *
+     * @param input
+     * @return boolean
+     */
     public boolean checkInput(String input) {
         if (input.equals(charList.peek())) {
             charList.pop();

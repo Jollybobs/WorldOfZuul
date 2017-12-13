@@ -46,6 +46,8 @@ public class Ironbar {
      * @return
      */
     public boolean conditionCheck() {
+     /* 
+        
         for (Item items: Player.getInventory().getInventory()) {
             if (items.checkFor(saw) && Player.getCurrentRoom().equals("sewerExit")) {
                 return true;
@@ -54,6 +56,9 @@ public class Ironbar {
                 return false;
             }
         }
+        
+        */
+     
         return false;
     }
     /**
