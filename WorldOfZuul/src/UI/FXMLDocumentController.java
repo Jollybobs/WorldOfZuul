@@ -198,7 +198,9 @@ public class FXMLDocumentController implements Initializable {
                 if (miniGameInput = true) {
                     try {
                         String input = miniGameTextInput.getText();
-                        if (busFace.miniGameConditionCheck()) {
+                        miniGameTextInput.clear();
+                        miniGameInput=false;
+                        if (busFace.checkInput(input)) {
                             textArea.appendText("right");
                         }//conCheck
                         else {
@@ -1084,7 +1086,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private KeyEvent handelMiniGameInput(KeyEvent event) {
-        return event;
+    private void handelMiniGameInput(KeyEvent event) {
+        miniGameInput=true;
     }
 }

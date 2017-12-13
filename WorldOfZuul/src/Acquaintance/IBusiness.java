@@ -14,6 +14,8 @@ import java.util.List;
  */
 public interface IBusiness {
 
+     boolean checkInput(String input);
+    
     void injectData(IData Data);
 
     void play(Game game);
@@ -52,6 +54,6 @@ public interface IBusiness {
 
     boolean miniGameRuns();
 
-    Character miniGameGetChar();
+    String miniGameGetChar();
 
 }

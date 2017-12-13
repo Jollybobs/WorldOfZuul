@@ -27,6 +27,7 @@ public class wallBreak {
         charList.add('z');
         charList.add('x');
         charList.add('c');
+        Collections.shuffle(charList);
 
     }//constructor    
 
@@ -69,7 +70,7 @@ public class wallBreak {
  * @param input
  * @return boolean 
  */
-    public boolean checkInput(Character input) {
+    public boolean checkInput(String input) {
         if (input.equals(charList.peek())) {
             charList.pop();
             winCount++;
