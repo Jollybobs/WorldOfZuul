@@ -37,13 +37,14 @@ public class wallBreak {
      * @return
      */
     public boolean conditionCheck() {
-        if (Player.getInventory().checkFor( % PLACEHOLDEr %) && Player.getCurrentRoom().equals( % PLACEHOLDER %)) {
-            return true;
-        } else {
-            return false;
+        for (Item items: Player.getInventory().getInventory()) {
+            if (items.checkFor(hammer_Chisel) && Player.getCurrentRoom().equals("Cell")) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
-
     /**
      * changes to false when game is won
      *
