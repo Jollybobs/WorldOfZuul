@@ -108,7 +108,7 @@ public class BusinessFacede implements IBusiness {
     /**
      *
      * @return a string that contains all the items in the inventory in the
-     * format: "you inventory contains: name, name, name, name,"
+     * format: "you'r inventory contains: name, name, name, name,"
      */
     @Override
     public String showInventory() {
