@@ -4,11 +4,8 @@ package Business;
 import java.util.Collections;
 import java.util.Stack;
 
-/**
- *
- * @author Unknown
- */
-public class wallBreak {
+
+public class Ironbar {
 
     private Stack<Character> charList;
 
@@ -17,16 +14,28 @@ public class wallBreak {
     /**
      * adds Characters to the stack
      */
-    public wallBreak() {
-        charList.add('q');
+    public Ironbar() {
         charList.add('w');
-        charList.add('e');
-        charList.add('a');
         charList.add('s');
-        charList.add('d');
-        charList.add('z');
-        charList.add('x');
-        charList.add('c');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        charList.add('w');
+        charList.add('s');
+        
         Collections.shuffle(charList);
 
     }//constructor    
@@ -37,27 +46,28 @@ public class wallBreak {
      * @return
      */
     public boolean conditionCheck() {
-        /*
+     /* 
+        
         for (Item items: Player.getInventory().getInventory()) {
-            if (items.checkFor(hammer_Chisel) && Player.getCurrentRoom().equals("Cell")) {
+            if (items.checkFor(saw) && Player.getCurrentRoom().equals("sewerExit")) {
                 return true;
-            } else {
+            } 
+            else {
                 return false;
             }
         }
-            
-         */
         
+        */
+     
         return false;
     }
-
     /**
      * changes to false when game is won
      *
      * @return boolean
      */
     public boolean runs() {
-        if (winCount <= 9) {
+        if (winCount <= 20) {
             return true;
         } else {
             return false;
@@ -72,13 +82,11 @@ public class wallBreak {
     public Character getChar() {
         return charList.peek();
     }
-
-    /**
-     * checks if the input matches the displayed char
-     *
-     * @param input
-     * @return boolean
-     */
+/**
+ * checks if the input matches the displayed char
+ * @param input
+ * @return boolean 
+ */
     public boolean checkInput(String input) {
         if (input.equals(charList.peek())) {
             charList.pop();
@@ -92,4 +100,3 @@ public class wallBreak {
     }
 
 }//c-wallBreaker
-

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Inventory {
 
     private int freeSpace = 1;
-    ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory = new ArrayList<Item>();
 
     /**
      * if no args default inventory freeSpace=1
@@ -84,4 +84,9 @@ public class Inventory {
         return result;
     }//m-checkEmpty
 
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+    
+    
 }//c-inventory
