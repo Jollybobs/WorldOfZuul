@@ -13,7 +13,7 @@ import java.util.List;
  * @author 103020
  */
 public class DataFacede implements IData {
-    Data data;
+    Data data = new Data();
     @Override
     public boolean save(List aList) {
         return data.saveGame(aList);

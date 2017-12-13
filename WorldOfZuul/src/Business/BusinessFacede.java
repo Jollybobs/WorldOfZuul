@@ -6,6 +6,7 @@
 package Business;
 
 import Acquaintance.*;
+import DataLayer.DataFacede;
 import static java.lang.System.currentTimeMillis;
 import java.sql.Time;
 import java.util.List;
@@ -17,17 +18,18 @@ import java.util.ArrayList;
  */
 public class BusinessFacede implements IBusiness {
     
-    Game game;
+    Game game = new Game();
     Timer timer;
+    DataLayer.DataFacede data = new DataFacede();
 
     public void printTest(String input) {
         System.out.println("WORKS"+input);
     }
 
   
-    IData data;
+    //IData data;
     public void injectData(IData Data) {
-        this.data=data;
+        //this.data=data;
     }
 
     @Override

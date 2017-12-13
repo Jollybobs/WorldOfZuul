@@ -14,7 +14,7 @@ public class Game {
     DataFacede data = new DataFacede();
 
     private ArrayList allObjects = new ArrayList();
-    private ArrayList highscore = (ArrayList) data.loadScore();
+    private ArrayList highscore;
     private Player player;
     private Parser parser;
     private Guard[] guards = new Guard[10];
@@ -326,6 +326,7 @@ public class Game {
     }
 
     protected boolean saveHighscore() {
+        highscore = (ArrayList) data.loadScore();
         return data.saveScore(highscore);
     }
 

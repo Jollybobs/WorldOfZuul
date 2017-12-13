@@ -73,7 +73,7 @@ public class FXMLDocumentController implements Initializable {
         redrawViewPort();
         setControlButtonStatus(true);
         //gameView.setVisible(false);
-        //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
+        setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
     }
     
         public void setControlButtonStatus(boolean boo){
@@ -94,25 +94,25 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 0; i < 10; i++) {
             switch (i+1) { //i did not wante to change all 10 case's
                 case 1:
-                    HighScore1.setText((String)aList.get(i));
+                    HighScore1.setText(aList.get(i).toString());
                 case 2:
-                    Time1.setText((String)aList.get(i));
+                    Time1.setText(aList.get(i).toString());
                 case 3:
-                    HighScore2.setText((String)aList.get(i));
+                    HighScore2.setText(aList.get(i).toString());
                 case 4:
-                    Time2.setText((String)aList.get(i));
+                    Time2.setText(aList.get(i).toString());
                 case 5:
-                    HighScore3.setText((String)aList.get(i));
+                    HighScore3.setText(aList.get(i).toString());
                 case 6:
-                    Time3.setText((String)aList.get(i));
+                    Time3.setText(aList.get(i).toString());
                 case 7:
-                    HighScore4.setText((String)aList.get(i));
+                    HighScore4.setText(aList.get(i).toString());
                 case 8:
-                    Time4.setText((String)aList.get(i));
+                    Time4.setText(aList.get(i).toString());
                 case 9:
-                    HighScore5.setText((String)aList.get(i));
+                    HighScore5.setText(aList.get(i).toString());
                 case 10:
-                    Time5.setText((String)aList.get(i));
+                    Time5.setText(aList.get(i).toString());
             }
         }
     }
