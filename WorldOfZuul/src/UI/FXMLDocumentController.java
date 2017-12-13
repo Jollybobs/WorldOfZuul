@@ -73,7 +73,7 @@ public class FXMLDocumentController implements Initializable {
         redrawViewPort();
         setControlButtonStatus(true);
         //gameView.setVisible(false);
-        setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
+        setHighscore((ArrayList) busFace.loadHighscore());
     }
     
         public void setControlButtonStatus(boolean boo){
