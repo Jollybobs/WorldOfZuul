@@ -14,7 +14,7 @@ public class Item {
  public Item(){}
   
  /**
- returns the size(int) that the item wil take up in the inventory
+ returns the size(int) that the item will take up in the inventory
  */
  public int getSize(){
  return this.size;} //Nemmere at se
