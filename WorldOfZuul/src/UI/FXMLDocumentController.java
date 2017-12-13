@@ -80,14 +80,10 @@ public class FXMLDocumentController implements Initializable {
         dynamicMap = dm.getMap();
         redrawViewPort();
         setControlButtonStatus(true);
-        //gameView.setVisible(false);
-        //setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
+//        gameView.setVisible(false);
+//        setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
 //        controlPanel.setFocusTraversable(false);
-
         setViewScaleable();
-
-        
-        
     }
     
         public void setControlButtonStatus(boolean boo){
@@ -155,28 +151,24 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void eastClicked(MouseEvent event) {
-//        System.out.println("You used the mouse to move East");
         setPlacer(1,0);
         busFace.move("east");
     }
 
     @FXML
     private void southClicked(MouseEvent event) {
-//        System.out.println("You used the mouse to move South");
         setPlacer(0,1);
         busFace.move("south");
     }
 
     @FXML
     private void westClicked(MouseEvent event) {
-//        System.out.println("You used the mouse to move West");
         setPlacer(-1,0);
         busFace.move("west");
     }
 
     @FXML
     private void northClicked(MouseEvent event) {
-//        System.out.println("You used the mouse to move North");
         setPlacer(0,-1);
         busFace.move("north");
     }
@@ -276,8 +268,6 @@ public class FXMLDocumentController implements Initializable {
         Time3.setVisible(false);
         Time4.setVisible(false);
         Time5.setVisible(false);
-        //gameView.setVisible(true);
-//        controlPanel.setFocusTraversable(false);
     }
     
     @FXML
@@ -300,15 +290,47 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void setPlacer(int x, int y) {
-        System.out.println("intY: " + intY + ", y: " + y);
+        
+        if(x > 0) {
+            System.out.println(vackgroundMap.get(checkPlacementString(1, 0)));
+            if(!(vackgroundMap.get(checkPlacementString(1, 0)).equals(TileEnum.BACKGROUND.toString()))){return;}
+        } else if(x < 0) {
+            System.out.println(vackgroundMap.get(checkPlacementString(-1, 0)));
+            if(!(vackgroundMap.get(checkPlacementString(-1, 0)).equals(TileEnum.BACKGROUND.toString()))){return;}
+        } else if(y > 0) {
+            System.out.println(vackgroundMap.get(checkPlacementString(0, 1)));
+            if(!(vackgroundMap.get(checkPlacementString(0, 1)).equals(TileEnum.BACKGROUND.toString()))){return;}
+        } else {
+            System.out.println(vackgroundMap.get(checkPlacementString(0, -1)));
+            if(!(vackgroundMap.get(checkPlacementString(0, -1)).equals(TileEnum.BACKGROUND.toString()))){return;}
+        }
+        
         if(-4 < intX && intX < 23 || x > 0 && intX < -3 || x < 0 && intX > 22) {
             intX = intX + x;
-            redrawViewPort();
         }
         if(-4 < intY && intY < 13 || y > 0 && intY < -3 || y < 0 && intY > 12) {
             intY = intY + y;
-            redrawViewPort();
         }
+        redrawViewPort();
+    }
+    
+    private String checkPlacementString(int x, int y) {
+        
+        String dynamicplacement = Integer.toString(y) + Integer.toString(x);
+            
+            x = x + intX + 5;
+            y = y + intY + 5;
+        String placement;
+            if(y < 10 && x < 10) {
+                placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
+            } else if(x < 10 && y >= 10) {
+                placement = "0" + Integer.toString(x) + Integer.toString(y);
+            } else if(x >= 10 && y < 10) {
+                placement = Integer.toString(x) + "0" + Integer.toString(y);
+            } else {
+                placement = Integer.toString(x) + Integer.toString(y);
+            }
+        return placement;
     }
     
     private void redrawViewPort() {
@@ -316,25 +338,20 @@ public class FXMLDocumentController implements Initializable {
             
             int x = Integer.parseInt(k.substring(1,2));
             int y = Integer.parseInt(k.substring(0,1));
-            String dynamicplacement = new String(Integer.toString(y) + Integer.toString(x));
-            
-//            System.out.println("k: " + k + ", x: " + x + ", y: " + y + ", dynamic placement: " + dynamicplacement);
+            String dynamicplacement = Integer.toString(y) + Integer.toString(x);
             
             x = x + intX;
             y = y + intY;
             
-//            System.out.println("x: " + x + ", y: " + y);
-            
             String placement;
-                    
             if(y < 10 && x < 10) {
-                placement = new String("0" + Integer.toString(x) + "0" + Integer.toString(y));
+                placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
             } else if(x < 10 && y >= 10) {
-                placement = new String("0" + Integer.toString(x) + Integer.toString(y));
+                placement = "0" + Integer.toString(x) + Integer.toString(y);
             } else if(x >= 10 && y < 10) {
-                placement = new String(Integer.toString(x) + "0" + Integer.toString(y));
+                placement = Integer.toString(x) + "0" + Integer.toString(y);
             } else {
-                placement = new String(Integer.toString(x) + Integer.toString(y));
+                placement = Integer.toString(x) + Integer.toString(y);
             }
             if(vackgroundMap.get(placement) != null) {
                 v.setImage(new Image(vackgroundMap.get(placement)));
@@ -345,6 +362,18 @@ public class FXMLDocumentController implements Initializable {
                 v.setImage(dynamicMap.get(dynamicplacement));
             }
         });
+        System.out.println("intX: " + intX + ", intY: " + intY + ", North: " + vackgroundMap.get(checkPlacementString(0, -1)));
+        System.out.println("intX: " + intX + ", intY: " + intY + ", East:  " + vackgroundMap.get(checkPlacementString(1, 0)));
+        System.out.println("intX: " + intX + ", intY: " + intY + ", South: " + vackgroundMap.get(checkPlacementString(0, 1)));
+        System.out.println("intX: " + intX + ", intY: " + intY + ", West:  " + vackgroundMap.get(checkPlacementString(-1, 0)));
+    }
+    
+    private boolean isTileBackground(TileEnum tileEnum) {
+        if(tileEnum.toString().equals("background.png")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
