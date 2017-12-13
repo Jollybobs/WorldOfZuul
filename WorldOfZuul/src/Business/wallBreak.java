@@ -35,7 +35,7 @@
 //    }//constructor    
 //
 //    /**
-//     * check if the player is in the right room and has the rightr item
+//     * check if the player is in the right room and has the right item
 //     *
 //     * @return
 //     */
