@@ -10,7 +10,7 @@ import java.util.Stack;
  */
 public class WallBreak {
 
-    private Stack<Character> charList;
+    private Stack<Character> charList = new Stack();
 
     private int winCount = 0;
 
