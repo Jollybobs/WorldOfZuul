@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Acquaintance;
 
 import Business.Game;
@@ -10,10 +5,12 @@ import java.util.List;
 
 /**
  *
- * @author Bruger
+ * List of method that are used for allowing communication between the UI and the business layer
  */
 public interface IBusiness {
 
+     boolean checkInput(String input);
+    
     void injectData(IData Data);
 
     void play(Game game);
@@ -40,13 +37,18 @@ public interface IBusiness {
 
     String showInventory();
 
-    void playMiniGame();
-
     void pause();
 
     void interactNPC();
 
     double getTime();
-    
+
     void startTime();
+
+    boolean miniGameConditionCheck();
+
+    boolean miniGameRuns();
+
+    String miniGameGetChar();
+
 }

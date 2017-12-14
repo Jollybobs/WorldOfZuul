@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Inventory {
 
     private int freeSpace = 1;
-    ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory = new ArrayList<Item>();
 
     /**
-     * if no args default inventorys frespace=1
+     * if no args default inventory freeSpace=1
      */
     public Inventory() {
     }  // no args constructor
@@ -18,8 +18,8 @@ public class Inventory {
     }
 
     /**
-     * Checks if the inventory has Freespace, and adds an Item to the ArrayList
-     * inventory if there is not space. returns a String with text explaining
+     * Checks if the inventory has freeSpace, and adds an Item to the ArrayList
+     * inventory if there is not space. Returns a String with text explaining
      * the outcome.
      */
     public String addItem(Item item) throws IllegalArgumentException {
@@ -39,7 +39,7 @@ public class Inventory {
     }//m-addItem
 
     /*
-    *romves Item from ArrayList inventory & and adds the items size back to freeSpace
+    *removes Item from ArrayList inventory & and adds the items size back to freeSpace
      *returns a String with text explaining the outcome.
      */
     public void dropItem(Item item) {
@@ -62,7 +62,7 @@ public class Inventory {
     }//PrintInventory
 
     /**
-     * check if ArrayList inventory containts Item
+     * check if ArrayList inventory contains Item
      */
     public boolean checkFor(Item item) {
         boolean result = false;
@@ -84,4 +84,9 @@ public class Inventory {
         return result;
     }//m-checkEmpty
 
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+    
+    
 }//c-inventory

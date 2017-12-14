@@ -233,7 +233,7 @@ public class Game {
      */
     protected void printHelp() {
         System.out.println("You wander around the prison and");
-        System.out.println("you want to find a way to break out.");
+        System.out.println("You want to find a way to break out.");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();

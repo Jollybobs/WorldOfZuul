@@ -6,6 +6,7 @@
 package DataLayer;
 
 import Acquaintance.*;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -13,7 +14,12 @@ import java.util.List;
  * @author 103020
  */
 public class DataFacede implements IData {
-    Data data = new Data();
+    Data data;
+    
+    public DataFacede() {
+        data = new Data();
+    }
+    
     @Override
     public boolean save(List aList) {
         return data.saveGame(aList);
@@ -32,6 +38,16 @@ public class DataFacede implements IData {
     @Override
     public List loadScore() {
         return data.loadHighscore();
+    }
+
+    @Override
+    public boolean saveMap(HashMap aMap) {
+        return data.saveMap(aMap);
+    }
+
+    @Override
+    public HashMap loadMap() {
+        return data.loadMap();
     }
     
     

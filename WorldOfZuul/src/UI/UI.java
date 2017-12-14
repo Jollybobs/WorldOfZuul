@@ -40,10 +40,9 @@ public class UI extends Application implements IUI {
         
 //        TileMap map = TileMapReader.readMap(“path/to/my/map.tmx”);
 
-
+        root.requestFocus();
         aStage.setScene(rootScene);
         aStage.show();
-        root.requestFocus();
     }
 
     /**
