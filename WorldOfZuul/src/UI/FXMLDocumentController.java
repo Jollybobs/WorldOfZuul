@@ -121,16 +121,16 @@ public class FXMLDocumentController implements Initializable {
         if (gameStarted) {
             switch (e.getCode()) {
                 case UP:
-                    setPlacer(0, -1);
+                    moveMap(0, -1);
                     break;
                 case RIGHT:
-                    setPlacer(1, 0);
+                    moveMap(1, 0);
                     break;
                 case DOWN:
-                    setPlacer(0, 1);
+                    moveMap(0, 1);
                     break;
                 case LEFT:
-                    setPlacer(-1, 0);
+                    moveMap(-1, 0);
                     break;
             }
         }
@@ -138,25 +138,25 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void eastClicked(MouseEvent event) {
-        setPlacer(1, 0);
+        moveMap(1, 0);
         busFace.move("east");
     }
 
     @FXML
     private void southClicked(MouseEvent event) {
-        setPlacer(0, 1);
+        moveMap(0, 1);
         busFace.move("south");
     }
 
     @FXML
     private void westClicked(MouseEvent event) {
-        setPlacer(-1, 0);
+        moveMap(-1, 0);
         busFace.move("west");
     }
 
     @FXML
     private void northClicked(MouseEvent event) {
-        setPlacer(0, -1);
+        moveMap(0, -1);
         busFace.move("north");
     }
 
@@ -274,8 +274,8 @@ public class FXMLDocumentController implements Initializable {
         alert.showAndWait();
     }
     
-    private void setPlacer(int x, int y) {
-        tileEngine.setPlacer(x, y);
+    private void moveMap(int x, int y) {
+        tileEngine.moveMap(x, y);
     }
 
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.

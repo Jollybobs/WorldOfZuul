@@ -36,7 +36,7 @@ public class TileEngine {
         redrawViewPort();
     }
         
-    public void setPlacer(int x, int y) {
+    public void moveMap(int x, int y) {
         
         String tile;
         // Check tile before move.
