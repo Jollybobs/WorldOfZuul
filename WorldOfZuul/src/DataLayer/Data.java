@@ -99,7 +99,12 @@ public class Data {
      */
     protected boolean saveMap(HashMap aMap) {
         
-        File file = new File("src\\resources", "newfile.ser");
+        File file;
+        if ((System.getProperty("os.name").substring(0, 7)).equals("Windows")) {
+                file = new File("src\\resources", "newfile.ser");
+            } else {
+                file = new File("src/resources/newfile.ser");
+            }
         
         if(!file.exists()){
             try {
@@ -129,8 +134,12 @@ public class Data {
      */
     protected HashMap loadMap(){
         HashMap<String, String> aMap = new HashMap<>();
-        
-        File file = new File("src\\resources", "newfile.ser");
+        File file;
+        if ((System.getProperty("os.name").substring(0, 7)).equals("Windows")) {
+                file = new File("src\\resources", "newfile.ser");
+            } else {
+                file = new File("src/resources/newfile.ser");
+            }
         
         try {
            FileInputStream fileIn = new FileInputStream(file);
