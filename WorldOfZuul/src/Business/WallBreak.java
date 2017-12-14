@@ -8,7 +8,7 @@ import java.util.Stack;
  *
  * @author Unknown
  */
-public class wallBreak {
+public class WallBreak {
 
     private Stack<Character> charList;
 
@@ -17,7 +17,7 @@ public class wallBreak {
     /**
      * adds Characters to the stack
      */
-    public wallBreak() {
+    public WallBreak() {
         charList.add('q');
         charList.add('w');
         charList.add('e');

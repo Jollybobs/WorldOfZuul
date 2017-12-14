@@ -6,6 +6,7 @@
 package Business;
 
 import Acquaintance.*;
+import DataLayer.DataFacede;
 import static java.lang.System.currentTimeMillis;
 import java.sql.Time;
 import java.util.List;
@@ -16,19 +17,19 @@ import java.util.ArrayList;
  * @author Bruger
  */
 public class BusinessFacede implements IBusiness {
-
-    Game game;
+    
+    Game game = new Game();
     Timer timer;
-    wallBreak wallBreak; //minigame
+    DataLayer.DataFacede data = new DataFacede();
 
     public void printTest(String input) {
         System.out.println("WORKS" + input);
     }
 
-    IData data;
-
+  
+    //IData data;
     public void injectData(IData Data) {
-        this.data = data;
+        //this.data=data;
     }
 
     @Override
@@ -137,19 +138,20 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public boolean miniGameConditionCheck() {
-      return wallBreak.conditionCheck();
+      return WallBreak.conditionCheck();
     }
 
     @Override
     public boolean miniGameRuns() {
-       return wallBreak.runs();
+       return WallBreak.runs();
     }
 
     @Override
     public String miniGameGetChar() {
-      return Character.toString(wallBreak.getChar()) ;
+      return Character.toString(WallBreak.getChar()) ;
     }
+    @Override
     public boolean checkInput(String input) {
-      return  wallBreak.checkInput(input);
+      return  WallBreak.checkInput(input);
     }
 }
