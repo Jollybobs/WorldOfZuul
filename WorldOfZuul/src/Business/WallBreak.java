@@ -18,6 +18,7 @@ public class WallBreak {
      * adds Characters to the stack
      */
     public WallBreak() {
+        charList = new Stack<>();
         charList.add('q');
         charList.add('w');
         charList.add('e');

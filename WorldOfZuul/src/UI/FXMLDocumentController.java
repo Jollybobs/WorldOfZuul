@@ -22,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import Business.BusinessFacede;
 import DataLayer.DataFacede;
 import UI.Tiles.TileEnum;
+import UI.tileengine.TileEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.control.Alert;
@@ -39,18 +40,11 @@ import javafx.scene.layout.GridPane;
 public class FXMLDocumentController implements Initializable {
 
     BusinessFacede busFace = new BusinessFacede();
-    DataFacede data;
-    private String BGpng = "/UI/background.png";
-    Image image;
-    HashMap<String, Image> backgroundMap;
-    HashMap<String, String> vackgroundMap;
-    HashMap<String, Image> dynamicMap;
     boolean miniGameInput = false;
 
     HashMap<String, ImageView> levelMap;
-    int intX;
-    int intY;
     boolean gameStarted;
+    TileEngine tileEngine;
     @FXML
     private TextArea textArea;
 
@@ -63,31 +57,19 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane viewGrid;
     @FXML
     private TextField miniGameTextInput;
-    //@FXML
-    //private AnchorPane anchor;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        data = new DataFacede();
         gameStarted = false;
-        intX = 7;
-        intY = 12;
         levelMap = new HashMap<>();
         initViewPort();
+        tileEngine = new TileEngine(levelMap);
         BackgroundMap gm = new BackgroundMap();
-        backgroundMap = gm.getMap();
-        vackgroundMap = data.loadMap();
-        DynamicMap dm = new DynamicMap();
-        dynamicMap = dm.getMap();
-        redrawViewPort();
+        initViewPort();
         setControlButtonStatus(true);
-        //gameView.setVisible(false);
         setHighscore((ArrayList) busFace.loadHighscore());
-//        gameView.setVisible(false);
-//        setHighscore((ArrayList) busFace.loadHighscore()); //TODO: no file to load yet
-//        controlPanel.setFocusTraversable(false);
-        setViewScaleable();
+//      setViewScaleable();
     }
 
     public void setControlButtonStatus(boolean boo) {
@@ -252,16 +234,7 @@ public class FXMLDocumentController implements Initializable {
             System.exit(0);
         }
     }
-
-//    @FXML
-//    private void startNewGame(ActionEvent event) throws IOException {
-//        System.out.println("new game");
-//        drawRoom();
-//        Stage stage = UI.getStage();
-//        Scene gameScene = UI.getGameScene();
-//        stage.setScene(gameScene);        
-//        drawRoom();
-//    }
+    
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
         gameStarted = true;
@@ -300,122 +273,9 @@ public class FXMLDocumentController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "The different control in the game...", ButtonType.OK);
         alert.showAndWait();
     }
-
+    
     private void setPlacer(int x, int y) {
-
-        String tile;
-        // Check tile before move.
-        if (x > 0) {
-            tile = vackgroundMap.get(checkPlacementString(1, 0));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
-                if ((tile.equals(TileEnum.Key.toString()))) {
-                    vackgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());
-                } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    vackgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());
-                } else {
-                    return;
-                }
-            }
-        } else if (x < 0) {
-            tile = vackgroundMap.get(checkPlacementString(-1, 0));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
-                if ((tile.equals(TileEnum.Key.toString()))) {
-                    vackgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
-                } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    vackgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
-                } else {
-                    return;
-                }
-            }
-        } else if (y > 0) {
-            tile = vackgroundMap.get(checkPlacementString(0, 1));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
-                if ((tile.equals(TileEnum.Key.toString()))) {
-                    vackgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());
-                } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    vackgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());
-                } else {
-                    return;
-                }
-            }
-        } else {
-            tile = vackgroundMap.get(checkPlacementString(0, -1));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
-                if ((tile.equals(TileEnum.Key.toString()))) {
-                    vackgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());
-                } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    vackgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());
-                } else {
-                    return;
-                }
-            }
-        }
-
-        if (-4 < intX && intX < 23 || x > 0 && intX < -3 || x < 0 && intX > 22) {
-            intX = intX + x;
-        }
-        if (-4 < intY && intY < 13 || y > 0 && intY < -3 || y < 0 && intY > 12) {
-            intY = intY + y;
-        }
-        redrawViewPort();
-    }
-
-    private String checkPlacementString(int x, int y) {
-
-        String dynamicplacement = Integer.toString(y) + Integer.toString(x);
-
-        x = x + intX + 5;
-        y = y + intY + 5;
-        String placement;
-        if (y < 10 && x < 10) {
-            placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
-        } else if (x < 10 && y >= 10) {
-            placement = "0" + Integer.toString(x) + Integer.toString(y);
-        } else if (x >= 10 && y < 10) {
-            placement = Integer.toString(x) + "0" + Integer.toString(y);
-        } else {
-            placement = Integer.toString(x) + Integer.toString(y);
-        }
-        return placement;
-    }
-
-    private void redrawViewPort() {
-        levelMap.forEach((String k, ImageView v) -> {
-
-            int x = Integer.parseInt(k.substring(1, 2));
-            int y = Integer.parseInt(k.substring(0, 1));
-            String dynamicplacement = Integer.toString(y) + Integer.toString(x);
-
-            x = x + intX;
-            y = y + intY;
-
-            String placement;
-            if (y < 10 && x < 10) {
-                placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
-            } else if (x < 10 && y >= 10) {
-                placement = "0" + Integer.toString(x) + Integer.toString(y);
-            } else if (x >= 10 && y < 10) {
-                placement = Integer.toString(x) + "0" + Integer.toString(y);
-            } else {
-                placement = Integer.toString(x) + Integer.toString(y);
-            }
-            if (vackgroundMap.get(placement) != null) {
-                v.setImage(new Image(vackgroundMap.get(placement)));
-            } else {
-                v.setImage(new Image("/UI/Tiles/Sprites/Background.png"));// + TileEnum.BACKGROUND.toString());
-            }
-            if (dynamicMap.get(dynamicplacement) != null) {
-                v.setImage(dynamicMap.get(dynamicplacement));
-            }
-        });
-    }
-
-    private boolean isTileBackground(TileEnum tileEnum) {
-        if (tileEnum.toString().equals("background.png")) {
-            return true;
-        } else {
-            return false;
-        }
+        tileEngine.setPlacer(x, y);
     }
 
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
