@@ -220,7 +220,7 @@ public class Game {
         } else if (commandWord == commandWord.LOOK) {
             lookRoom();
         } else if (commandWord == commandWord.WAIT) {
-            moveGuard();
+//            moveGuard();
         } else if (commandWord == commandWord.INVENTORY) {
             player.getInventory().printInventory();
         }
@@ -269,9 +269,9 @@ public class Game {
         else {
             player.setCurrentRoom(nextRoom);
             System.out.println(player.getCurrentRoom().getLongDescription());
-            moveGuard();
+//            moveGuard();
         }
-        moveGuard();
+//        moveGuard();
     }
 
     // TODO - Unfinished method.
@@ -282,11 +282,11 @@ public class Game {
         }
     }
 
-    protected void moveGuard() {
-        for (Guard guard : guards) {
-            guard.moveToNextRoom();
-        }
-    }
+//    protected void moveGuard() {
+//        for (Guard guard : guards) {
+//            guard.moveToNextRoom();
+//        }
+//    }
 
     // In order to quit, there can't be a second word.
     private boolean quit(Command command) {

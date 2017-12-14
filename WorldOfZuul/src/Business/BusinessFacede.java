@@ -67,7 +67,7 @@ public class BusinessFacede implements IBusiness {
      */
     @Override
     public void waitGuard() {
-        game.moveGuard();
+//        game.moveGuard();
     }
 
     /**
