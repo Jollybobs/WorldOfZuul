@@ -1,4 +1,3 @@
-
 package Business;
 
 import java.util.Collections;
@@ -10,7 +9,7 @@ import java.util.Stack;
  */
 public class WallBreak {
 
-    private Stack<Character> charList;
+    private Stack<Character> charList = new Stack();
 
     private int winCount = 0;
 
@@ -18,7 +17,6 @@ public class WallBreak {
      * adds Characters to the stack
      */
     public WallBreak() {
-        charList = new Stack<>();
         charList.add('q');
         charList.add('w');
         charList.add('e');

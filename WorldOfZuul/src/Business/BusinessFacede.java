@@ -182,7 +182,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public String miniGameGetChar() {
-      return Character.toString(wallBreak.getChar());
+    return Character.toString(wallBreak.getChar());
     }
     @Override
     public boolean checkInput(String input) {

@@ -20,7 +20,7 @@ public class MapEditor {
      public static void main(String[] args) {
          IData Data = new DataFacede();
          IBusiness business = new BusinessFacede();
-          business.injectData(Data);
+         business.injectData(Data);
           
          IUI UI = (IUI) new EditorUI();
          UI.injectBusiness(business);
