@@ -181,6 +181,27 @@ public class Data {
         File desktop = new File(System.getProperty("user.home"), "Desktop");
         //System.out.println(desktop.toString());
         
+        String folderName = "data";
+        
+        File filePath = new File(desktop.toString(),folderName);
+       
+        if(!filePath.exists()){ //a defalt list if a list do not exist to begin with
+            filePath.mkdirs();
+            ArrayList hList = new ArrayList();
+            hList.add("Bob");
+            hList.add(10);
+            hList.add("Jack");
+            hList.add(7);
+            hList.add("John");
+            hList.add(5);
+            hList.add("Tim");
+            hList.add(3);
+            hList.add("Tom");
+            hList.add(1);
+            saveHighscore(hList);
+        }
+        
+        
         try {
            FileInputStream fileIn = new FileInputStream(desktop + "\\data\\high.ser");
            ObjectInputStream in = new ObjectInputStream(fileIn);
