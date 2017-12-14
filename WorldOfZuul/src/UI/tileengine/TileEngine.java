@@ -5,6 +5,7 @@
  */
 package UI.tileengine;
 
+import Business.BusinessFacede;
 import DataLayer.DataFacede;
 import UI.DynamicMap;
 import UI.Tiles.TileEnum;
@@ -18,6 +19,8 @@ import javafx.scene.image.ImageView;
  */
 public class TileEngine {
     
+    BusinessFacede bfacade;
+    
     int intX;
     int intY;
     HashMap<String, ImageView> levelMap;
@@ -28,6 +31,7 @@ public class TileEngine {
     public TileEngine(HashMap<String, ImageView> lvlMap) {
         intX = 7;
         intY = 12;
+        bfacade = new BusinessFacede();
         DynamicMap dm = new DynamicMap();
         dynamicMap = dm.getMap();
         data = new DataFacede();
@@ -37,6 +41,11 @@ public class TileEngine {
     }
         
     public void moveMap(int x, int y) {
+        
+        int roomX = intX%5;
+        int roomY = intY%5;
+        
+//        System.out.println("roomX: " + roomX + "roomY: " + roomY);
         
         String tile;
         // Check tile before move.
@@ -53,7 +62,7 @@ public class TileEngine {
             }
         } else if (x < 0) {
             tile = backgroundMap.get(checkPlacementString(-1, 0));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()) || tile.equals(TileEnum.GRASS.toString()) )) {
+            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
@@ -85,15 +94,20 @@ public class TileEngine {
                 }
             }
         }
-
         if (-4 < intX && intX < 23 || x > 0 && intX < -3 || x < 0 && intX > 22) {
             intX = intX + x;
         }
         if (-4 < intY && intY < 13 || y > 0 && intY < -3 || y < 0 && intY > 12) {
             intY = intY + y;
         }
-        System.out.println("redraw");
+        
+        roomChangeHandler(x, y);
+        
         redrawViewPort();
+    }
+    
+    private void moveRoom() {
+        
     }
     
     private String checkPlacementString(int x, int y) {
@@ -124,8 +138,6 @@ public class TileEngine {
 
             x = x + intX;
             y = y + intY;
-
-            System.out.println("v: " + v);
             
             String placement;
             if (y < 10 && x < 10) {
@@ -155,4 +167,16 @@ public class TileEngine {
 //            return false;
 //        }
 //    }
+
+    private void roomChangeHandler(int x, int y) {
+        if(intX%5 == 0 && x == 1) {
+            bfacade.move("East");
+        } else if((intX%5 == 4 || intX%5 == -1) && x == -1) {
+            bfacade.move("West");
+        } else if(intY%5 == 0 && y == 1) {
+            bfacade.move("South");
+        } else if((intY%5 == 4 || intY%5 == -1) && y == -1) {
+            bfacade.move("North");
+        }
+    }
 }
