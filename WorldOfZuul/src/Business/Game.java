@@ -321,6 +321,10 @@ public class Game {
         }
     }*/
 
+    /**
+     * savegame gets the list that it will save from here
+     * @return true if it saved succsesfully
+     */
     protected boolean saveGame() {
         return data.save(allObjects);
     }
@@ -337,16 +341,32 @@ public class Game {
 
             System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
         } else {
-            //int time = timer(); //Ingen timer endnu
-            int time = 2; //temp to avoid an error
-            if (time > 0) {
-                System.out.println("You made it, Congratz! Your time was " + time);
-
-            } else {
-                System.out.println("");
-            }
+            System.out.println("You made it, Congratz! Your time was " + Player.getScore());
+            sortHighScore(highscore);
         }
         System.out.println("Game over");
+    }
+    private void sortHighScore(ArrayList highScore){
+        boolean highSet = false;
+        double temp = 0;
+        double temp2;
+        String name = "";
+        String name2;
+        for (int i = 1; i < 10; i = i+2) {
+            if (highSet) {
+                temp2 = (double)highScore.get(i);
+                name2 = (String)highScore.get(i-1);
+                highScore.set(i, temp);
+                highScore.set(i-1, name);
+                temp = temp2;
+                name = name2;
+            } else if ((double)highScore.get(i) > Player.getScore()) {
+                temp = (double)highScore.get(i);
+                name = (String)highScore.get(i-1);
+                highScore.set(i, Player.getScore());
+                highSet = true;
+            }
+        }
     }
 
 }
