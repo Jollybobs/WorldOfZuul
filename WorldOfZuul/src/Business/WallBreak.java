@@ -57,11 +57,7 @@ public class WallBreak {
      * @return boolean
      */
     public boolean runs() {
-        if (winCount <= 9) {
-            return true;
-        } else {
-            return false;
-        }
+        return winCount <= 9;
     }
 
     /**

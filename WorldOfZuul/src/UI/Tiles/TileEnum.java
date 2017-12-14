@@ -45,7 +45,8 @@ public enum TileEnum {
     WALL_SOUTH_EAST   ("WallSouthEast.png"),
     WALL_SOUTH_WEST   ("WallSouthWest.png"),
     WALL_WEST         ("WallWest.png"),
-    WALL_WITH_PIPE    ("WallWithPipe.png");
+    WALL_WITH_PIPE    ("WallWithPipe.png"),
+    GRASS             ("Grass.png");
     
     private final String path;
     
