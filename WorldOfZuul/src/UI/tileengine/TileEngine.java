@@ -51,7 +51,7 @@ public class TileEngine {
         // Check tile before move.
         if (x > 0) {
             tile = backgroundMap.get(checkPlacementString(1, 0));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
+            if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
@@ -62,7 +62,7 @@ public class TileEngine {
             }
         } else if (x < 0) {
             tile = backgroundMap.get(checkPlacementString(-1, 0));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
+            if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
@@ -73,7 +73,7 @@ public class TileEngine {
             }
         } else if (y > 0) {
             tile = backgroundMap.get(checkPlacementString(0, 1));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
+            if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
@@ -84,7 +84,7 @@ public class TileEngine {
             }
         } else {
             tile = backgroundMap.get(checkPlacementString(0, -1));
-            if (!(tile.equals(TileEnum.BACKGROUND.toString()))) {
+            if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
@@ -102,7 +102,6 @@ public class TileEngine {
         }
         
         roomChangeHandler(x, y);
-        
         redrawViewPort();
     }
     
