@@ -68,7 +68,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         data = new DataFacede();
         gameStarted = false;
         intX = 7;
@@ -102,6 +102,7 @@ public class FXMLDocumentController implements Initializable {
         buttonLook.setDisable(boo);
         textArea.setDisable(true);
         textArea.setVisible(!boo);
+        
 
     }
 
