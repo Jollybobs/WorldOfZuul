@@ -138,20 +138,24 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public boolean miniGameConditionCheck() {
-      return WallBreak.conditionCheck();
+      //return WallBreak.conditionCheck();
+      return false;
     }
 
     @Override
     public boolean miniGameRuns() {
-       return WallBreak.runs();
+       //return WallBreak.runs();
+       return false;
     }
 
     @Override
     public String miniGameGetChar() {
-      return Character.toString(WallBreak.getChar()) ;
+      //return Character.toString(WallBreak.getChar());
+      return null;
     }
     @Override
     public boolean checkInput(String input) {
-      return  WallBreak.checkInput(input);
+      //return  WallBreak.checkInput(input);
+      return false;
     }
 }
