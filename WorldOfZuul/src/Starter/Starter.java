@@ -21,6 +21,7 @@ public class Starter {
          IData Data = new DataFacede();
          IBusiness business = new BusinessFacede();
           business.injectData(Data);
+          business.play();
           
          IUI UI = (IUI) new UI();
          UI.injectBusiness(business);
