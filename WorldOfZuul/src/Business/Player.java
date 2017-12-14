@@ -41,8 +41,8 @@ class Player {
      *
      * @param currentRoom
      */
-    protected static void setCurrentRoom(Room currentRoom) {
-        currentRoom = currentRoom;
+    protected static void setCurrentRoom(Room room) {
+        currentRoom = room;
     }
 
     /**

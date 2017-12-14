@@ -8,7 +8,6 @@ package Business;
 import Acquaintance.*;
 import DataLayer.DataFacede;
 import static java.lang.System.currentTimeMillis;
-import java.sql.Time;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -59,8 +58,8 @@ public class BusinessFacede implements IBusiness {
      * @param direction to go to another room in that direction
      */
     @Override
-    public void move(String direction) {
-//        game.goRoom(new Command(CommandWord.GO, room));
+    public void move(String direction) { System.out.println("here");
+        game.goRoom(new Command(CommandWord.GO, direction));
     }
 
     /**
