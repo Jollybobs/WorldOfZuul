@@ -41,9 +41,14 @@ public class Data {
         if(!filePath.exists()){
             filePath.mkdirs();
         }
-        
+        System.out.println(System.getProperty("os.name"));
         try {
-            FileOutputStream fileOut = new FileOutputStream(filePath + "\\data.ser");
+            FileOutputStream fileOut;
+            if ((System.getProperty("os.name").substring(0, 7)).equals("Windows")) {
+                fileOut = new FileOutputStream(filePath + "\\data.ser");
+            } else {
+                fileOut = new FileOutputStream(filePath + "/data.ser");
+            }
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(aList);
             out.close();
@@ -65,9 +70,14 @@ public class Data {
         File desktop = new File(System.getProperty("user.home"), "Desktop");
         
         try {
-           FileInputStream fileIn = new FileInputStream(desktop + "\\data\\data.ser");
-           ObjectInputStream in = new ObjectInputStream(fileIn);
-           Object temp = in.readObject();
+            FileInputStream fileIn;
+            if ((System.getProperty("os.name").substring(0, 7)).equals("Windows")) {
+                fileIn = new FileInputStream(desktop + "\\data\\data.ser");
+            } else {
+                fileIn = new FileInputStream(desktop + "/data/data.ser");
+            }
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Object temp = in.readObject();
             if (temp instanceof ArrayList) {
                 aList = (ArrayList) temp;
             }
@@ -160,7 +170,12 @@ public class Data {
         }
         
         try {
-            FileOutputStream fileOut = new FileOutputStream(filePath + "\\high.ser");
+            FileOutputStream fileOut;
+            if ((System.getProperty("os.name").substring(0, 7)).equals("Windows")) {
+                fileOut = new FileOutputStream(filePath + "\\high.ser");
+            } else {
+                fileOut = new FileOutputStream(filePath + "/high.ser");
+            }
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(aList);
             out.close();
@@ -203,17 +218,23 @@ public class Data {
         
         
         try {
-           FileInputStream fileIn = new FileInputStream(desktop + "\\data\\high.ser");
-           ObjectInputStream in = new ObjectInputStream(fileIn);
-           Object temp = in.readObject();
+            FileInputStream fileIn;
+            if ((System.getProperty("os.name").substring(0, 7)).equals("Windows")) {
+                fileIn = new FileInputStream(desktop + "\\data\\high.ser");
+            } else {
+                fileIn = new FileInputStream(desktop + "/data/high.ser");
+            }
+            //FileInputStream fileIn = new FileInputStream(desktop + "\\data\\high.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            Object temp = in.readObject();
             if (temp instanceof ArrayList) {
                 aList = (ArrayList) temp;
             }
-           in.close();
-           fileIn.close();
-           return aList;
+            in.close();
+            fileIn.close();
+            return aList;
         } catch (IOException i) {
-           i.printStackTrace();
+            i.printStackTrace();
         } catch (ClassNotFoundException c) {
            c.printStackTrace();
         }

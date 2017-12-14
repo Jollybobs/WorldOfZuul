@@ -33,11 +33,18 @@ public class BusinessFacede implements IBusiness {
         //this.data=data;
     }
 
+    /**
+     * called when a new game starts
+     */
     @Override
-    public void play(Game game) {
-        this.game = new Game();
+    public void play() {
+        game.createRooms();
     }
 
+    /**
+     * gets the description from the room the player is currently in
+     * @return a string so it can be outputted to the player
+     */
     @Override
     public String look() {
         if (Player.getCurrentRoom() == null) {
@@ -47,16 +54,27 @@ public class BusinessFacede implements IBusiness {
         }
     }
 
+    /**
+     * moves the player to another room
+     * @param direction to go to another room in that direction
+     */
     @Override
-    public void move(String room) {
+    public void move(String direction) {
 //        game.goRoom(new Command(CommandWord.GO, room));
     }
 
+    /**
+     * lets the guard move along his patrol
+     */
     @Override
     public void waitGuard() {
         game.moveGuard();
     }
 
+    /**
+     * to save the highscore of the game in its file
+     * @return 
+     */
     @Override
     public boolean saveHighscore() {
         return game.saveHighscore();
@@ -67,6 +85,10 @@ public class BusinessFacede implements IBusiness {
         return data.loadScore();
     }
 
+    /**
+     * saves the game
+     * @return a true if the save was succeful and a false if it was not
+     */
     @Override
     public boolean saveGame() {
         if (game == null) {
@@ -77,12 +99,19 @@ public class BusinessFacede implements IBusiness {
         }
     }
 
+    /**
+     * loads the game
+     */
     @Override
     public void loadGame() {
         ArrayList alist = new ArrayList((ArrayList) data.load());
         game.loadRooms(alist);
     }
 
+    /**
+     * picks up an item in the room that the player is
+     * @return a true if the item was picked up succefully
+     */
     @Override
     public boolean pickUpItem() {
         if (Player.getCurrentRoom().isEmpty()) {
@@ -102,6 +131,10 @@ public class BusinessFacede implements IBusiness {
         Player.getInventory().emptyInventory();
     }
 
+    /**
+     * uses the item that the player have in their inventory
+     * @return a true if it was succesful
+     */
     @Override
     public boolean useItem() {
         return false;
@@ -139,8 +172,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public boolean miniGameConditionCheck() {
-      //return WallBreak.conditionCheck();
-      return false;
+      return wallBreak.conditionCheck();
     }
 
     @Override
@@ -150,7 +182,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public String miniGameGetChar() {
-      return Character.toString(wallBreak.getChar()) ;
+    return Character.toString(wallBreak.getChar());
     }
     @Override
     public boolean checkInput(String input) {

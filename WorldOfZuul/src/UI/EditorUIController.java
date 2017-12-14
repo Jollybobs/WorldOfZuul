@@ -29,6 +29,8 @@ public class EditorUIController implements Initializable {
     @FXML
     private VBox box2;
     @FXML
+    private VBox box3;
+    @FXML
     private GridPane viewGrid;
     String setTile;
     HashMap<String, String> levelMap;
@@ -121,28 +123,28 @@ public class EditorUIController implements Initializable {
         box1.getChildren().add(iv09);
         box1.getChildren().add(iv10);
         box1.getChildren().add(iv11);
-        box1.getChildren().add(iv12);
-        box1.getChildren().add(iv13);
-        box1.getChildren().add(iv14);
-        box1.getChildren().add(iv15);
-        box1.getChildren().add(iv16);
+        box2.getChildren().add(iv12);
+        box2.getChildren().add(iv13);
+        box2.getChildren().add(iv14);
+        box2.getChildren().add(iv15);
+        box2.getChildren().add(iv16);
         box2.getChildren().add(iv17);
         box2.getChildren().add(iv18);
         box2.getChildren().add(iv19);
         box2.getChildren().add(iv20);
         box2.getChildren().add(iv21);
         box2.getChildren().add(iv22);
-        box2.getChildren().add(iv23);
-        box2.getChildren().add(iv24);
-        box2.getChildren().add(iv25);
-        box2.getChildren().add(iv26);
-        box2.getChildren().add(iv27);
-        box2.getChildren().add(iv28);
-        box2.getChildren().add(iv29);
-        box2.getChildren().add(iv30);
-        box2.getChildren().add(iv31);
-        box2.getChildren().add(iv32);
-        box2.getChildren().add(iv33);
+        box3.getChildren().add(iv23);
+        box3.getChildren().add(iv24);
+        box3.getChildren().add(iv25);
+        box3.getChildren().add(iv26);
+        box3.getChildren().add(iv27);
+        box3.getChildren().add(iv28);
+        box3.getChildren().add(iv29);
+        box3.getChildren().add(iv30);
+        box3.getChildren().add(iv31);
+        box3.getChildren().add(iv32);
+        box3.getChildren().add(iv33);
     }
 
     private void chooseImg(String s) {
