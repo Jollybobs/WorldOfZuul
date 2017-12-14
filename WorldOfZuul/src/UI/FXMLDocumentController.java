@@ -78,7 +78,6 @@ public class FXMLDocumentController implements Initializable {
         buttonSouth.setDisable(boo);
         buttonWait.setDisable(boo);
         buttonWest.setDisable(boo);
-        buttonPickUp.setDisable(boo);
         buttonShowInventory.setDisable(boo);
         buttonUseItem.setDisable(boo);
         buttonLook.setDisable(boo);
@@ -201,11 +200,6 @@ public class FXMLDocumentController implements Initializable {
             buttonWait.requestFocus();
         }//conditionCheck
     }//useClick
-
-    @FXML
-    private void pickUpClicked(MouseEvent event) {
-        busFace.pickUpItem();
-    }
 
     @FXML
     private void lookClicked(MouseEvent event) {
@@ -812,8 +806,6 @@ public class FXMLDocumentController implements Initializable {
     private Label Time5;
     @FXML
     private Button buttonShowInventory;
-    @FXML
-    private Button buttonPickUp;
     @FXML
     private Button buttonUseItem;
     @FXML

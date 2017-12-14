@@ -87,7 +87,6 @@
                            </GridPane.margin>
                         </Button>
                         <Button fx:id="buttonShowInventory" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#inventoryClicked" text="Items" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="buttonLook" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#lookClicked" text="Look" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="3">
@@ -145,7 +144,7 @@
                            </GridPane.margin>
                         </Button>
                         <Button fx:id="buttonUseItem" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#useClicked" text="Use" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="buttonPickUp" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#pickUpClicked" text="Pick up" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="buttonLook" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#lookClicked" text="Look" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </children>
