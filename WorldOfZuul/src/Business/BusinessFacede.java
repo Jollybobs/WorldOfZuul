@@ -21,7 +21,7 @@ public class BusinessFacede implements IBusiness {
     Game game = new Game();
     Timer timer;
     DataLayer.DataFacede data = new DataFacede();
-    WallBreak WallBreak = new WallBreak();
+    WallBreak wallBreak = new WallBreak();
 
     public void printTest(String input) {
         System.out.println("WORKS" + input);
@@ -172,24 +172,20 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public boolean miniGameConditionCheck() {
-      //return WallBreak.conditionCheck();
-      return false;
+      return wallBreak.conditionCheck();
     }
 
     @Override
     public boolean miniGameRuns() {
-       //return WallBreak.runs();
-       return false;
+       return wallBreak.runs();
     }
 
     @Override
     public String miniGameGetChar() {
-      //return Character.toString(WallBreak.getChar());
-      return null;
+      return Character.toString(wallBreak.getChar());
     }
     @Override
     public boolean checkInput(String input) {
-      //return  WallBreak.checkInput(input);
-      return false;
+      return  wallBreak.checkInput(input);
     }
 }
