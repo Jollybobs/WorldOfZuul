@@ -13,7 +13,7 @@ public interface IBusiness {
     
     void injectData(IData Data);
 
-    void play(Game game);
+    void play();
 
     String look();
 
