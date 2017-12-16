@@ -49,6 +49,7 @@ public class BusinessFacede implements IBusiness {
         if (Player.getCurrentRoom() == null) {
             return "You are in the void a place no man should be";
         } else {
+            System.out.println("long description: " + Player.getCurrentRoom().getLongDescription() + ", get item: " + Player.getCurrentRoom().getExitString());
             return Player.getCurrentRoom().getLongDescription() + Player.getCurrentRoom().getItem();
         }
     }
@@ -58,7 +59,7 @@ public class BusinessFacede implements IBusiness {
      * @param direction to go to another room in that direction
      */
     @Override
-    public void move(String direction) { System.out.println("here");
+    public void move(String direction) { 
         game.goRoom(new Command(CommandWord.GO, direction));
     }
 

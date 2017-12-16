@@ -169,13 +169,13 @@ public class TileEngine {
 
     private void roomChangeHandler(int x, int y) {
         if(intX%5 == 0 && x == 1) {
-            bfacade.move("East");
+            bfacade.move("east");
         } else if((intX%5 == 4 || intX%5 == -1) && x == -1) {
-            bfacade.move("West");
+            bfacade.move("west");
         } else if(intY%5 == 0 && y == 1) {
-            bfacade.move("South");
+            bfacade.move("south");
         } else if((intY%5 == 4 || intY%5 == -1) && y == -1) {
-            bfacade.move("North");
+            bfacade.move("north");
         }
     }
 }

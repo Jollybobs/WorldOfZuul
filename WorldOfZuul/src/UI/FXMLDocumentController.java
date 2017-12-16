@@ -138,25 +138,21 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void eastClicked(MouseEvent event) {
         moveMap(1, 0);
-        busFace.move("east");
     }
 
     @FXML
     private void southClicked(MouseEvent event) {
         moveMap(0, 1);
-        busFace.move("south");
     }
 
     @FXML
     private void westClicked(MouseEvent event) {
         moveMap(-1, 0);
-        busFace.move("west");
     }
 
     @FXML
     private void northClicked(MouseEvent event) {
         moveMap(0, -1);
-        busFace.move("north");
     }
 
     @FXML
