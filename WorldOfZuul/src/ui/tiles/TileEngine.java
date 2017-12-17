@@ -25,6 +25,7 @@ public class TileEngine {
     
     int offsetX;
     int offsetY;
+    String centerPosition;
     String tile;
     boolean move;
     HashMap<String, ImageView> levelMap;
@@ -142,7 +143,7 @@ public class TileEngine {
         y = y + offsetY + screenOffset;
         
         // Handles the shift from possible 2-int tileplacer-format to 4-int tileplacer-format.
-        String centerPosition;
+        
         if (y < 10 && x < 10) {
             centerPosition = "0" + Integer.toString(x) + "0" + Integer.toString(y);
         } else if (x < 10 && y >= 10) {
@@ -210,7 +211,6 @@ public class TileEngine {
                 placement = Integer.toString(x) + Integer.toString(y);
             }
             if (bMapWithGuard.get(placement) != null) {
-                System.out.println("path: " + bMapWithGuard.get(placement));
                 v.setImage(new Image(bMapWithGuard.get(placement)));
             } else {
                 v.setImage(new Image("/ui/tiles/sprites/Background.png"));// + TileEnum.BACKGROUND.toString());
@@ -227,5 +227,11 @@ public class TileEngine {
 
     private void insertGuardInMap(HashMap<String, String> map) {
         map.put(UI.getBusiness().getGuardPosition(), "/ui/tiles/sprites/Guard.gif" /*+ TileEnum.GUARD.toString()*/);
+    }
+
+    public void isCapture() {
+        if(UI.getBusiness().getGuardPosition().equals(centerPosition)) {
+            System.err.println("Game Over!!!");
+        }
     }
 }

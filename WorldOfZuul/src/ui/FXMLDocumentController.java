@@ -285,7 +285,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void handlePlayerCapture() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tileEngine.isCapture();
     }
 
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
