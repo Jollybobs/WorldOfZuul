@@ -25,6 +25,9 @@ import UI.Tiles.TileEnum;
 import UI.tileengine.TileEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
@@ -32,6 +35,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 /**
  *
@@ -227,6 +231,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
+        startGuardHandler(); 
         gameStarted = true;
         setControlButtonStatus(false);
         buttonNewgame.setVisible(false);
@@ -266,6 +271,30 @@ public class FXMLDocumentController implements Initializable {
     
     private void moveMap(int x, int y) {
         tileEngine.moveMap(x, y);
+    }
+    
+    @FXML
+    private void handelMiniGameInput(KeyEvent event) {
+        miniGameInput=true;
+    }
+
+    private void startGuardHandler() {
+        Timeline timeline = new Timeline(new KeyFrame(
+        Duration.millis(2000),
+        ae -> {
+            moveGuard();
+            handlePlayerCapture();
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    private void moveGuard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private void handlePlayerCapture() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
@@ -934,10 +963,5 @@ public class FXMLDocumentController implements Initializable {
 //        tile97.fitHeightProperty().bind(viewGrid.widthProperty());
 //        tile98.fitHeightProperty().bind(viewGrid.widthProperty());
 //        tile99.fitHeightProperty().bind(viewGrid.widthProperty());
-    }
-
-    @FXML
-    private void handelMiniGameInput(KeyEvent event) {
-        miniGameInput=true;
     }
 }
