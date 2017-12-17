@@ -40,17 +40,17 @@ import javafx.util.Duration;
 public class FXMLDocumentController implements Initializable {
 
 //    BusinessFacede busFace = new BusinessFacede();
+//    @FXML
+//    private MenuItem menuPause;
+//    @FXML
+//    private BorderPane viewPort;
+    
     boolean miniGameInput = false;
-
     HashMap<String, ImageView> levelMap;
     boolean gameStarted;
     TileEngine tileEngine;
     @FXML
     private TextArea textArea;
-    @FXML
-    private MenuItem menuPause;
-    @FXML
-    private BorderPane viewPort;
     @FXML
     private AnchorPane viewGrid;
     @FXML
@@ -58,7 +58,6 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         gameStarted = false;
         levelMap = new HashMap<>();
         initViewPort();
@@ -66,11 +65,12 @@ public class FXMLDocumentController implements Initializable {
         BackgroundMap gm = new BackgroundMap();
         initViewPort();
         setControlButtonStatus(true);
-        setHighscore((ArrayList) UI.getBusiness().loadHighscore());// busFace.loadHighscore());
+        setHighscore((ArrayList) UI.getBusiness().loadHighscore());
 //      setViewScaleable();
     }
 
-    public void setControlButtonStatus(boolean boo) {
+    
+    private void setControlButtonStatus(boolean boo) {
         buttonEast.setDisable(boo);
         buttonNorth.setDisable(boo);
         buttonSouth.setDisable(boo);
@@ -81,8 +81,6 @@ public class FXMLDocumentController implements Initializable {
         buttonLook.setDisable(boo);
         textArea.setDisable(true);
         textArea.setVisible(!boo);
-        
-
     }
 
     private void setHighscore(ArrayList aList) {
@@ -277,15 +275,11 @@ public class FXMLDocumentController implements Initializable {
         Duration.millis(2000),
         ae -> {
             System.out.println("Guard moved");
-            moveGuard();
+            tileEngine.moveGuard();
             handlePlayerCapture();
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-    }
-
-    private void moveGuard() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     private void handlePlayerCapture() {

@@ -11,6 +11,7 @@ import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import ui.map.BackgroundMap;
 
 /**
  *
@@ -188,6 +189,9 @@ public class TileEngine {
             x = x + offsetX;
             y = y + offsetY;
             
+            HashMap<String, String> bMapWithGuard = backgroundMap;
+            insertGuard();
+            
             String placement;
             if (y < 10 && x < 10) {
                 placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
@@ -207,5 +211,14 @@ public class TileEngine {
                 v.setImage(dynamicMap.get(dynamicplacement));
             }
         });
+        
+    }
+
+    public void moveGuard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void insertGuard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
