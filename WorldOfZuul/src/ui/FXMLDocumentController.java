@@ -5,7 +5,7 @@
  */
 package ui;
 
-import ui.map.BackgroundMap;
+import ui.mapHandlers.BackgroundMap;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

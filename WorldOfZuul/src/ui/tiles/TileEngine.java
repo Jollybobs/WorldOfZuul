@@ -7,8 +7,7 @@ package ui.tiles;
 
 import business.BusinessFacede;
 import dataLayer.DataFacede;
-import ui.map.DynamicMap;
-import ui.tiles.TileEnum;
+import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
