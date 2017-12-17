@@ -7,6 +7,7 @@ package ui;
 
 import acquaintance.IBusiness;
 import acquaintance.IUI;
+import business.BusinessFacede;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +21,8 @@ import javafx.geometry.Rectangle2D;
  */
 public class UI extends Application implements IUI {
 
-    IBusiness business;
+    static IBusiness business;
+    static BusinessFacede businessFacade;
     static UI ui;
     static Stage aStage;
     static Scene rootScene; 
@@ -49,44 +51,46 @@ public class UI extends Application implements IUI {
      * @param args the command line arguments
      */
     public void startAplication(String[] args) {
+        businessFacade = new BusinessFacede();
         ui = this;
         launch(args);
-    }
-    /**
-     * 
-     * @return 
-     */
-    public static Stage getStage() {
-        return aStage;
-    }
-/**
- * 
- * @return 
- */
-    public static Scene getRootScene() {
-        return rootScene;
-    }
-   /**
-    * 
-    * @return 
-    */  
-    public static Scene getGameScene() {
-        return gameScene;
     }
         
     /**
      * 
      * @param business 
      */
-    public void injectBusiness(IBusiness business) {
-        this.business = business;
+    public void injectBusiness(IBusiness businessInterface) {
+        business = businessInterface;
     }
 
     /**
      * 
      * @return 
      */
-    public IBusiness GetBusiness() {
-        return this.business;
+    public static BusinessFacede getBusiness() {
+        return businessFacade;
     }
+    
+    //    /**
+//     * 
+//     * @return 
+//     */
+//    public static Stage getStage() {
+//        return aStage;
+//    }
+///**
+// * 
+// * @return 
+// */
+//    public static Scene getRootScene() {
+//        return rootScene;
+//    }
+//   /**
+//    * 
+//    * @return 
+//    */  
+//    public static Scene getGameScene() {
+//        return gameScene;
+//    }
 }

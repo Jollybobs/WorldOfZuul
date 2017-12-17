@@ -16,13 +16,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import business.BusinessFacede;
-import dataLayer.DataFacede;
-import ui.tiles.TileEnum;
 import ui.tiles.TileEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,7 +31,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 /**
@@ -44,7 +39,7 @@ import javafx.util.Duration;
  */
 public class FXMLDocumentController implements Initializable {
 
-    BusinessFacede busFace = new BusinessFacede();
+//    BusinessFacede busFace = new BusinessFacede();
     boolean miniGameInput = false;
 
     HashMap<String, ImageView> levelMap;
@@ -52,10 +47,8 @@ public class FXMLDocumentController implements Initializable {
     TileEngine tileEngine;
     @FXML
     private TextArea textArea;
-
     @FXML
     private MenuItem menuPause;
-
     @FXML
     private BorderPane viewPort;
     @FXML
@@ -73,7 +66,7 @@ public class FXMLDocumentController implements Initializable {
         BackgroundMap gm = new BackgroundMap();
         initViewPort();
         setControlButtonStatus(true);
-        setHighscore((ArrayList) busFace.loadHighscore());
+        setHighscore((ArrayList) UI.getBusiness().loadHighscore());// busFace.loadHighscore());
 //      setViewScaleable();
     }
 
@@ -124,16 +117,16 @@ public class FXMLDocumentController implements Initializable {
     private void handleOnKeyPressed(KeyEvent e) {
         if (gameStarted) {
             switch (e.getCode()) {
-                case UP:
+                case W:
                     moveMap(0, -1);
                     break;
-                case RIGHT:
+                case D:
                     moveMap(1, 0);
                     break;
-                case DOWN:
+                case S:
                     moveMap(0, 1);
                     break;
-                case LEFT:
+                case A:
                     moveMap(-1, 0);
                     break;
             }
@@ -163,29 +156,29 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void waitClicked(MouseEvent event) {
         System.out.println("You used the mouse to Wait");
-        busFace.waitGuard();
+        UI.getBusiness().waitGuard();
     }
 
     @FXML
     private void inventoryClicked(MouseEvent event) {
         System.out.println("You used the mouse to check the inventory");
-        System.out.println(busFace.showInventory());
+        System.out.println(UI.getBusiness().showInventory());
     }
 
     @FXML
     private void useClicked(MouseEvent event) {
-           if (busFace.miniGameConditionCheck()) {
+           if (UI.getBusiness().miniGameConditionCheck()) {
             miniGameTextInput.setDisable(false);
             buttonWait.setFocusTraversable(false);
             miniGameTextInput.requestFocus();
-            while (busFace.miniGameRuns()) {
-                textArea.appendText("press: " + busFace.miniGameGetChar());
+            while (UI.getBusiness().miniGameRuns()) {
+                textArea.appendText("press: " + UI.getBusiness().miniGameGetChar());
                 if (miniGameInput = true) {
                     try {
                         String input = miniGameTextInput.getText();
                         miniGameTextInput.clear();
                         miniGameInput=false;
-                        if (busFace.checkInput(input)) {
+                        if (UI.getBusiness().checkInput(input)) {
                             textArea.appendText("right");
                         }//conCheck
                         else {
@@ -204,13 +197,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void lookClicked(MouseEvent event) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, busFace.look(), ButtonType.OK);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, UI.getBusiness().look(), ButtonType.OK);
         alert.showAndWait();
     }
 
     @FXML
     private void saveGame(ActionEvent event) {
-        if (busFace.saveGame() == false) {
+        if (UI.getBusiness().saveGame() == false) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "There was an error during the saveing of the game!", ButtonType.OK);
             alert.showAndWait();
         } else {
@@ -253,7 +246,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loadGame(ActionEvent event) {
-        busFace.loadGame();
+        UI.getBusiness().loadGame();
     }
 
     @FXML
