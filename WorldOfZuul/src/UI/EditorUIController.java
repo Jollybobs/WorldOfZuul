@@ -81,6 +81,7 @@ public class EditorUIController implements Initializable {
         ImageView iv36 = new ImageView(new Image(TileEnum.SEWER_FLOOR.toString()));       iv36.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_FLOOR.toString()));
         ImageView iv37 = new ImageView(new Image(TileEnum.LADDER_WALL.toString()));       iv37.setOnMouseClicked(e -> chooseImg(TileEnum.LADDER_WALL.toString()));
         ImageView iv38 = new ImageView(new Image(TileEnum.SEWER_LADDER.toString()));      iv38.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_LADDER.toString()));
+        ImageView iv39 = new ImageView(new Image(TileEnum.SEWER_BARS.toString()));        iv38.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_BARS.toString()));
         
         iv01.fitHeightProperty().bind(box1.widthProperty()); iv01.fitWidthProperty().bind(box1.widthProperty());
         iv02.fitHeightProperty().bind(box1.widthProperty()); iv02.fitWidthProperty().bind(box1.widthProperty());
@@ -117,6 +118,7 @@ public class EditorUIController implements Initializable {
         iv33.fitHeightProperty().bind(box1.widthProperty()); iv34.fitWidthProperty().bind(box1.widthProperty());
         iv35.fitHeightProperty().bind(box1.widthProperty()); iv36.fitWidthProperty().bind(box1.widthProperty());
         iv37.fitHeightProperty().bind(box1.widthProperty()); iv38.fitWidthProperty().bind(box1.widthProperty());
+        iv39.fitHeightProperty().bind(box1.widthProperty());
         
         box1.getChildren().add(iv01);
         box1.getChildren().add(iv02);
@@ -130,10 +132,10 @@ public class EditorUIController implements Initializable {
         box1.getChildren().add(iv10);
         box1.getChildren().add(iv11);
         box1.getChildren().add(iv12);
-        box2.getChildren().add(iv13);
-        box2.getChildren().add(iv14);
-        box2.getChildren().add(iv15);
-        box2.getChildren().add(iv16);
+        box1.getChildren().add(iv13);
+        box1.getChildren().add(iv14);
+        box1.getChildren().add(iv15);
+        box1.getChildren().add(iv16);
         box2.getChildren().add(iv17);
         box2.getChildren().add(iv18);
         box2.getChildren().add(iv19);
@@ -141,11 +143,11 @@ public class EditorUIController implements Initializable {
         box2.getChildren().add(iv21);
         box2.getChildren().add(iv22);
         box2.getChildren().add(iv23);
-        box3.getChildren().add(iv24);
-        box3.getChildren().add(iv25);
-        box3.getChildren().add(iv26);
-        box3.getChildren().add(iv27);
-        box3.getChildren().add(iv28);
+        box2.getChildren().add(iv24);
+        box2.getChildren().add(iv25);
+        box2.getChildren().add(iv26);
+        box2.getChildren().add(iv27);
+        box2.getChildren().add(iv28);
         box3.getChildren().add(iv29);
         box3.getChildren().add(iv30);
         box3.getChildren().add(iv31);
@@ -156,6 +158,7 @@ public class EditorUIController implements Initializable {
         box3.getChildren().add(iv36);
         box3.getChildren().add(iv37);
         box3.getChildren().add(iv38);
+        box3.getChildren().add(iv39);
     }
 
     private void chooseImg(String s) {
