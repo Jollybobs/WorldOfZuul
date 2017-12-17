@@ -11,7 +11,7 @@ import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ui.map.BackgroundMap;
+import ui.mapHandlers.BackgroundMap;
 
 /**
  *
@@ -215,10 +215,10 @@ public class TileEngine {
     }
 
     public void moveGuard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private void insertGuard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
