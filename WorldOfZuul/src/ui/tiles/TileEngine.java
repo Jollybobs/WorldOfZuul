@@ -10,9 +10,12 @@ import dataLayer.DataFacede;
 import java.util.ArrayList;
 import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
+import javafx.animation.Timeline;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ui.mapHandlers.BackgroundMap;
+import ui.FXMLDocumentController;
 import ui.UI;
 
 /**
@@ -22,28 +25,39 @@ import ui.UI;
 public class TileEngine {
     
     BusinessFacede bfacade;
-    
     int offsetX;
     int offsetY;
+    FXMLDocumentController controller;
     String centerPosition;
+//    Timeline timeline;
+//    Label gameOver;
+//    Label youWon;
+//    Label paused;
     String tile;
     boolean move;
-    HashMap<String, ImageView> levelMap;
+//    HashMap<String, ImageView> levelMap;
     HashMap<String, String> backgroundMap;
     HashMap<String, Image> dynamicMap;
     DataFacede data;
     
     
     /**
-     * Engine to handle the updating of Tile in the games viewport.
      * 
-     * @param lvlMap The levelMap containing references to the viewport tiles.
+     * @param lvlMap
+     * @param gOver
+     * @param uWon
+     * @param pause 
      */
-    public TileEngine(HashMap<String, ImageView> lvlMap) {
+    public TileEngine(FXMLDocumentController cont) {
         // Set Values.
+        controller = cont;
         offsetX = 7;
         offsetY = 12;
-        levelMap = lvlMap;
+//        timeline = tline;
+//        gameOver = gOver;
+//        youWon = uWon;
+//        paused = pause;
+//        levelMap = lvlMap;
         
         // Instantiate used objects.
         DynamicMap dm = new DynamicMap();
@@ -67,6 +81,24 @@ public class TileEngine {
         movePlayer(move, x, y);
         changeRoom(x, y);
         redrawViewPort();
+    }
+    
+    public void setPause(boolean b) {
+        controller.getPausedLabel().setVisible(b);
+        if(controller.getTimeline().getStatus().equals(controller.getTimeline().getStatus().PAUSED)) {
+           controller.getTimeline().pause();
+        } else {
+            controller.getTimeline().play();
+        }
+    }
+    
+    public void stopGame() {
+        controller.getTimeline().pause();
+    }
+    
+    public void setYouWon(boolean b) {
+        stopGame();
+        controller.getYouWonLabel().setVisible(b);
     }
     
     private boolean checkTileAndMovePlayer(int x, int y) {
@@ -142,6 +174,13 @@ public class TileEngine {
         x = x + offsetX + screenOffset;
         y = y + offsetY + screenOffset;
         
+        System.out.println("x: " + x + ", y: " + y);
+        
+        if(x == 2 && y == 13) {
+            controller.getYouWonLabel().setVisible(true);
+            
+        }
+        
         // Handles the shift from possible 2-int tileplacer-format to 4-int tileplacer-format.
         
         if (y < 10 && x < 10) {
@@ -189,7 +228,7 @@ public class TileEngine {
         moveGuard();
         insertGuardInMap(bMapWithGuard);
         
-        levelMap.forEach((String k, ImageView v) -> {
+        controller.getLevelMap().forEach((String k, ImageView v) -> {
 
             int x = Integer.parseInt(k.substring(1, 2));
             int y = Integer.parseInt(k.substring(0, 1));
@@ -213,7 +252,7 @@ public class TileEngine {
             if (bMapWithGuard.get(placement) != null) {
                 v.setImage(new Image(bMapWithGuard.get(placement)));
             } else {
-                v.setImage(new Image("/ui/tiles/sprites/Background.png"));// + TileEnum.BACKGROUND.toString());
+                v.setImage(new Image("/ui/tiles/sprites/Background.png"));
             }
             if (dynamicMap.get(dynamicplacement) != null) {
                 v.setImage(dynamicMap.get(dynamicplacement));
@@ -226,12 +265,13 @@ public class TileEngine {
     }
 
     private void insertGuardInMap(HashMap<String, String> map) {
-        map.put(UI.getBusiness().getGuardPosition(), "/ui/tiles/sprites/Guard.gif" /*+ TileEnum.GUARD.toString()*/);
+        map.put(UI.getBusiness().getGuardPosition(), "/ui/tiles/sprites/Guard.gif");
     }
 
     public void isCapture() {
         if(UI.getBusiness().getGuardPosition().equals(centerPosition)) {
-            System.err.println("Game Over!!!");
+            stopGame();
+            controller.getGameOverLabel().setVisible(true);
         }
     }
 }

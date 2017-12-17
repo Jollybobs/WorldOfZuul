@@ -25,6 +25,7 @@ import java.util.HashMap;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.Event;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
@@ -46,8 +47,10 @@ public class FXMLDocumentController implements Initializable {
 //    private BorderPane viewPort;
     
     boolean miniGameInput = false;
+    Timeline timeline;
+    ArrayList<Label> statePointers;
     HashMap<String, ImageView> levelMap;
-    boolean gameStarted;
+    boolean gameRunning;
     TileEngine tileEngine;
     @FXML
     private TextArea textArea;
@@ -55,20 +58,51 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane viewGrid;
     @FXML
     private TextField miniGameTextInput;
+    @FXML
+    private Label gameOver;
+    @FXML
+    private Label youWon;
+    @FXML
+    private Label paused;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        gameStarted = false;
+        gameRunning = false;
         levelMap = new HashMap<>();
         initViewPort();
-        tileEngine = new TileEngine(levelMap);
+        initGuardHandler();
+        tileEngine = new TileEngine(this);
         BackgroundMap gm = new BackgroundMap();
         initViewPort();
         setControlButtonStatus(true);
         setHighscore((ArrayList) UI.getBusiness().loadHighscore());
 //      setViewScaleable();
     }
+    
+    public HashMap<String, ImageView> getLevelMap() {
+        return levelMap;
+    }
+    
+    public Timeline getTimeline() {
+        return timeline;
+    }
 
+    public Label getGameOverLabel() {
+        return gameOver;
+    }
+    
+    public Label getYouWonLabel() {
+        return youWon;
+    }
+    
+    public Label getPausedLabel() {
+        return paused;
+    }
+    
+
+    public void setGameRunning(boolean b) {
+        gameRunning = b;
+    }
     
     private void setControlButtonStatus(boolean boo) {
         buttonEast.setDisable(boo);
@@ -112,21 +146,43 @@ public class FXMLDocumentController implements Initializable {
 
     // Handles arrow keys user input.
     @FXML
-    private void handleOnKeyPressed(KeyEvent e) {
-        if (gameStarted) {
-            switch (e.getCode()) {
-                case W:
-                    moveMap(0, -1);
-                    break;
-                case D:
-                    moveMap(1, 0);
-                    break;
-                case S:
-                    moveMap(0, 1);
-                    break;
-                case A:
-                    moveMap(-1, 0);
-                    break;
+    private void handleOnKeyPressed(Event e) {
+        if (gameRunning) {
+            if(e instanceof KeyEvent) {
+                KeyEvent ke = (KeyEvent) e;
+                switch (ke.getCode()) {
+                    case W:
+                        moveMap(0, -1);
+                        break;
+                    case D:
+                        moveMap(1, 0);
+                        break;
+                    case S:
+                        moveMap(0, 1);
+                        break;
+                    case A:
+                        moveMap(-1, 0);
+                        break;
+                }
+            }
+            if(e instanceof MouseEvent) {
+                MouseEvent me = (MouseEvent) e;
+                System.out.println("MouseEvent");
+                System.out.println(me.getSource().toString().substring(16, 20));
+                switch (me.getSource().toString().substring(16, 20)) {
+                    case "W":
+                        moveMap(0, -1);
+                        break;
+                    case "D":
+                        moveMap(1, 0);
+                        break;
+                    case "S":
+                        moveMap(0, 1);
+                        break;
+                    case "A":
+                        moveMap(-1, 0);
+                        break;
+                }
             }
         }
     }
@@ -153,8 +209,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void waitClicked(MouseEvent event) {
-        System.out.println("You used the mouse to Wait");
         UI.getBusiness().waitGuard();
+        if(timeline.getStatus().equals(timeline.getStatus().RUNNING)) {
+            timeline.pause();
+            tileEngine.setPause(true);
+        } else {
+            timeline.play();
+            tileEngine.setPause(true);
+        }
     }
 
     @FXML
@@ -212,7 +274,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void exitGame(ActionEvent event) {
-        gameStarted = false;
+        gameRunning = false;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit the game?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
@@ -224,7 +286,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
         startGuardHandler(); 
-        gameStarted = true;
+        gameRunning = true;
         setControlButtonStatus(false);
         buttonNewgame.setVisible(false);
         buttonLoadgame.setVisible(false);
@@ -270,17 +332,18 @@ public class FXMLDocumentController implements Initializable {
         miniGameInput=true;
     }
 
-    private void startGuardHandler() {
-        Timeline timeline = new Timeline(new KeyFrame(
+    private void initGuardHandler() {
+        timeline = new Timeline(new KeyFrame(
         Duration.millis(500),
         ae -> {
-//            System.out.println("Guard moved");
-//            tileEngine.moveGuard();
             UI.getBusiness().moveGuard();
             handlePlayerCapture();
             tileEngine.redrawViewPort();
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
+    }
+
+    private void startGuardHandler() {
         timeline.play();
     }
     
