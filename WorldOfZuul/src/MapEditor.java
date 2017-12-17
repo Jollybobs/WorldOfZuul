@@ -8,9 +8,9 @@
 import acquaintance.IUI;
 import acquaintance.IBusiness;
 import acquaintance.IData;
-import business.BusinessFacede;
-import dataLayer.DataFacede;
-import ui.mapEditor.EditorUI;
+import businesss.BusinessFacede;
+import dataLayers.DataFacede;
+import uis.mapEditors.EditorUI;
 
 /**
  *
