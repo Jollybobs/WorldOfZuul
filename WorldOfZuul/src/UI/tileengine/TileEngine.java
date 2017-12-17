@@ -30,6 +30,12 @@ public class TileEngine {
     HashMap<String, Image> dynamicMap;
     DataFacede data;
     
+    
+    /**
+     * Engine to handle the updating of Tile in the games viewport.
+     * 
+     * @param lvlMap The levelMap containing references to the viewport tiles.
+     */
     public TileEngine(HashMap<String, ImageView> lvlMap) {
         // Set Values.
         offsetX = 7;
@@ -37,8 +43,8 @@ public class TileEngine {
         levelMap = lvlMap;
         
         // Instantiate used objects.
-        bfacade = new BusinessFacede();
         DynamicMap dm = new DynamicMap();
+        bfacade = new BusinessFacede();
         data = new DataFacede();
         
         // Get data from objects.
@@ -61,46 +67,62 @@ public class TileEngine {
     
     private boolean checkTileAndMovePlayer(int x, int y) {
         boolean ableToMove = true;
+        // Check tile to the east if x>0.
         if (x > 0) {
-            tile = backgroundMap.get(checkPlacementString(1, 0));
+            tile = backgroundMap.get(updateCenterPosition(1, 0));
+            // If tile equals a stepable tile, nothing will happen and abteToMove will be returned as true.
             if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
+                // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
-                    backgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(1, 0), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    backgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(1, 0), TileEnum.BACKGROUND.toString());
+                // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
                 }
             }
+        // Check tile to the west if x<0.
         } else if (x < 0) {
-            tile = backgroundMap.get(checkPlacementString(-1, 0));
+            tile = backgroundMap.get(updateCenterPosition(-1, 0));
+            // If tile equals a stepable tile, nothing will happen and abteToMove will be returned as true.
             if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
+                // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
-                    backgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(-1, 0), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    backgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(-1, 0), TileEnum.BACKGROUND.toString());
+                // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
                 }
             }
+        // Check tile to the south if y>0.
         } else if (y > 0) {
-            tile = backgroundMap.get(checkPlacementString(0, 1));
+            tile = backgroundMap.get(updateCenterPosition(0, 1));
+            // If tile equals a stepable tile, nothing will happen and abteToMove will be returned as true.
             if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
+                // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
-                    backgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(0, 1), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    backgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(0, 1), TileEnum.BACKGROUND.toString());
+                // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
                 }
             }
+        // Check tile to the north if y<0.
         } else {
-            tile = backgroundMap.get(checkPlacementString(0, -1));
+            tile = backgroundMap.get(updateCenterPosition(0, -1));
+            // If tile equals a stepable tile, nothing will happen and abteToMove will be returned as true.
             if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
+                // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
-                    backgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(0, -1), TileEnum.BACKGROUND.toString());
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
-                    backgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());
+                    backgroundMap.put(updateCenterPosition(0, -1), TileEnum.BACKGROUND.toString());
+                // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
                 }
@@ -109,26 +131,29 @@ public class TileEngine {
         return ableToMove;
     }
     
-    private String checkPlacementString(int x, int y) {
-
-//        String dynamicplacement = Integer.toString(y) + Integer.toString(x);
-
-        x = x + offsetX + 5;
-        y = y + offsetY + 5;
-        String placement;
+    private String updateCenterPosition(int x, int y) {
+        // Offset to center of screen, for the checker not to check tile in upper left corner.
+        int screenOffset = 5;
+        // Update center.
+        x = x + offsetX + screenOffset;
+        y = y + offsetY + screenOffset;
+        
+        // Handles the shift from possible 2-int tileplacer-format to 4-int tileplacer-format.
+        String centerPosition;
         if (y < 10 && x < 10) {
-            placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
+            centerPosition = "0" + Integer.toString(x) + "0" + Integer.toString(y);
         } else if (x < 10 && y >= 10) {
-            placement = "0" + Integer.toString(x) + Integer.toString(y);
+            centerPosition = "0" + Integer.toString(x) + Integer.toString(y);
         } else if (x >= 10 && y < 10) {
-            placement = Integer.toString(x) + "0" + Integer.toString(y);
+            centerPosition = Integer.toString(x) + "0" + Integer.toString(y);
         } else {
-            placement = Integer.toString(x) + Integer.toString(y);
+            centerPosition = Integer.toString(x) + Integer.toString(y);
         }
-        return placement;
+        return centerPosition;
     }
     
     private void movePlayer(boolean canMove, int x, int y) {
+        // Move player if tile is inside constraints of map.
         if(canMove) {
             if (-4 < offsetX && offsetX < 23 || x > 0 && offsetX < -3 || x < 0 && offsetX > 22) {
                 offsetX = offsetX + x;
@@ -140,6 +165,7 @@ public class TileEngine {
     }
     
     private void roomChangeHandler(int x, int y) {
+        // Calls legacy code when room is chaged, to ensure syncronization between old and new code.
         if(offsetX%5 == 0 && x == 1) {
             bfacade.move("east");
         } else if((offsetX%5 == 4 || offsetX%5 == -1) && x == -1) {
@@ -152,6 +178,8 @@ public class TileEngine {
     }
     
     private void redrawViewPort() {
+        // Redraw tiles by setting new images in the ImageView containers, 
+        // based upon updated pointers to the backgroundMap HashMap.
         levelMap.forEach((String k, ImageView v) -> {
 
             int x = Integer.parseInt(k.substring(1, 2));
