@@ -21,34 +21,46 @@ public class TileEngine {
     
     BusinessFacede bfacade;
     
-    int intX;
-    int intY;
+    int offsetX;
+    int offsetY;
+    String tile;
+    boolean move;
     HashMap<String, ImageView> levelMap;
     HashMap<String, String> backgroundMap;
     HashMap<String, Image> dynamicMap;
     DataFacede data;
     
     public TileEngine(HashMap<String, ImageView> lvlMap) {
-        intX = 7;
-        intY = 12;
+        // Set Values.
+        offsetX = 7;
+        offsetY = 12;
+        levelMap = lvlMap;
+        
+        // Instantiate used objects.
         bfacade = new BusinessFacede();
         DynamicMap dm = new DynamicMap();
-        dynamicMap = dm.getMap();
         data = new DataFacede();
-        levelMap = lvlMap;
+        
+        // Get data from objects.
+        dynamicMap = dm.getMap();
         backgroundMap = data.loadMap();
+        
+        // Update map with data.
         redrawViewPort();
     }
         
     public void moveMap(int x, int y) {
+        // Get logik values.
+        move = checkTileAndMovePlayer(x, y);
         
-        int roomX = intX%5;
-        int roomY = intY%5;
-        
-//        System.out.println("roomX: " + roomX + "roomY: " + roomY);
-        
-        String tile;
-        // Check tile before move.
+        // Do method-logik.
+        movePlayer(move, x, y);
+        roomChangeHandler(x, y);
+        redrawViewPort();
+    }
+    
+    private boolean checkTileAndMovePlayer(int x, int y) {
+        boolean ableToMove = true;
         if (x > 0) {
             tile = backgroundMap.get(checkPlacementString(1, 0));
             if (!(tile.equals(TileEnum.BACKGROUND.toString()) || tile.equals(TileEnum.GRASS.toString()) || tile.equals(TileEnum.SEWER_FLOOR.toString()) || tile.equals(TileEnum.LADDER_WALL.toString()))) {
@@ -57,7 +69,7 @@ public class TileEngine {
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(checkPlacementString(1, 0), TileEnum.BACKGROUND.toString());
                 } else {
-                    return;
+                    ableToMove = false;
                 }
             }
         } else if (x < 0) {
@@ -68,7 +80,7 @@ public class TileEngine {
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(checkPlacementString(-1, 0), TileEnum.BACKGROUND.toString());
                 } else {
-                    return;
+                    ableToMove = false;
                 }
             }
         } else if (y > 0) {
@@ -79,7 +91,7 @@ public class TileEngine {
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(checkPlacementString(0, 1), TileEnum.BACKGROUND.toString());
                 } else {
-                    return;
+                    ableToMove = false;
                 }
             }
         } else {
@@ -90,31 +102,19 @@ public class TileEngine {
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(checkPlacementString(0, -1), TileEnum.BACKGROUND.toString());
                 } else {
-                    return;
+                    ableToMove = false;
                 }
             }
         }
-        if (-4 < intX && intX < 23 || x > 0 && intX < -3 || x < 0 && intX > 22) {
-            intX = intX + x;
-        }
-        if (-4 < intY && intY < 13 || y > 0 && intY < -3 || y < 0 && intY > 12) {
-            intY = intY + y;
-        }
-        
-        roomChangeHandler(x, y);
-        redrawViewPort();
-    }
-    
-    private void moveRoom() {
-        
+        return ableToMove;
     }
     
     private String checkPlacementString(int x, int y) {
 
 //        String dynamicplacement = Integer.toString(y) + Integer.toString(x);
 
-        x = x + intX + 5;
-        y = y + intY + 5;
+        x = x + offsetX + 5;
+        y = y + offsetY + 5;
         String placement;
         if (y < 10 && x < 10) {
             placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
@@ -128,6 +128,29 @@ public class TileEngine {
         return placement;
     }
     
+    private void movePlayer(boolean canMove, int x, int y) {
+        if(canMove) {
+            if (-4 < offsetX && offsetX < 23 || x > 0 && offsetX < -3 || x < 0 && offsetX > 22) {
+                offsetX = offsetX + x;
+            }
+            if (-4 < offsetY && offsetY < 13 || y > 0 && offsetY < -3 || y < 0 && offsetY > 12) {
+                offsetY = offsetY + y;
+            }
+        }
+    }
+    
+    private void roomChangeHandler(int x, int y) {
+        if(offsetX%5 == 0 && x == 1) {
+            bfacade.move("east");
+        } else if((offsetX%5 == 4 || offsetX%5 == -1) && x == -1) {
+            bfacade.move("west");
+        } else if(offsetY%5 == 0 && y == 1) {
+            bfacade.move("south");
+        } else if((offsetY%5 == 4 || offsetY%5 == -1) && y == -1) {
+            bfacade.move("north");
+        }
+    }
+    
     private void redrawViewPort() {
         levelMap.forEach((String k, ImageView v) -> {
 
@@ -135,8 +158,8 @@ public class TileEngine {
             int y = Integer.parseInt(k.substring(0, 1));
             String dynamicplacement = Integer.toString(y) + Integer.toString(x);
 
-            x = x + intX;
-            y = y + intY;
+            x = x + offsetX;
+            y = y + offsetY;
             
             String placement;
             if (y < 10 && x < 10) {
@@ -157,25 +180,5 @@ public class TileEngine {
                 v.setImage(dynamicMap.get(dynamicplacement));
             }
         });
-    }
-    
-////    private boolean isTileBackground(TileEnum tileEnum) {
-//        if (tileEnum.toString().equals("background.png")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
-    private void roomChangeHandler(int x, int y) {
-        if(intX%5 == 0 && x == 1) {
-            bfacade.move("east");
-        } else if((intX%5 == 4 || intX%5 == -1) && x == -1) {
-            bfacade.move("west");
-        } else if(intY%5 == 0 && y == 1) {
-            bfacade.move("south");
-        } else if((intY%5 == 4 || intY%5 == -1) && y == -1) {
-            bfacade.move("north");
-        }
     }
 }
