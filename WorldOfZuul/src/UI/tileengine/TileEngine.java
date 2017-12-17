@@ -61,7 +61,7 @@ public class TileEngine {
         
         // Do method-logik.
         movePlayer(move, x, y);
-        roomChangeHandler(x, y);
+        changeRoom(x, y);
         redrawViewPort();
     }
     
@@ -164,7 +164,7 @@ public class TileEngine {
         }
     }
     
-    private void roomChangeHandler(int x, int y) {
+    private void changeRoom(int x, int y) {
         // Calls legacy code when room is chaged, to ensure syncronization between old and new code.
         if(offsetX%5 == 0 && x == 1) {
             bfacade.move("east");
