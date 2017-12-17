@@ -282,6 +282,7 @@ public class FXMLDocumentController implements Initializable {
         Timeline timeline = new Timeline(new KeyFrame(
         Duration.millis(2000),
         ae -> {
+            System.out.println("Guard moved");
             moveGuard();
             handlePlayerCapture();
         }));
@@ -290,11 +291,11 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private void moveGuard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     private void handlePlayerCapture() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // initViewPort(): Organizes the tiles in a HashMap called lavelMap.
