@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Starter;
 
-import Acquaintance.IUI;
-import Acquaintance.IBusiness;
-import Acquaintance.IData;
-import Business.BusinessFacede;
-import DataLayer.DataFacede;
-import UI.mapEditor.EditorUI;
+
+import acquaintance.IUI;
+import acquaintance.IBusiness;
+import acquaintance.IData;
+import business.BusinessFacede;
+import dataLayer.DataFacede;
+import ui.mapEditor.EditorUI;
 
 /**
  *

@@ -1,7 +1,7 @@
 package dk.sdu.group14;
 
 
-import Business.ExitDirection;
+import business.ExitDirection;
 import org.junit.Before;
 import org.junit.Test;
 
