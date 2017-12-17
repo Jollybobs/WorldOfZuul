@@ -7,11 +7,13 @@ package ui.tiles;
 
 import business.BusinessFacede;
 import dataLayer.DataFacede;
+import java.util.ArrayList;
 import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ui.mapHandlers.BackgroundMap;
+import ui.UI;
 
 /**
  *
@@ -46,6 +48,7 @@ public class TileEngine {
         DynamicMap dm = new DynamicMap();
         bfacade = new BusinessFacede();
         data = new DataFacede();
+        
         
         // Get data from objects.
         dynamicMap = dm.getMap();
@@ -177,9 +180,14 @@ public class TileEngine {
         }
     }
     
-    private void redrawViewPort() {
+    public void redrawViewPort() {
         // Redraw tiles by setting new images in the ImageView containers, 
         // based upon updated pointers to the backgroundMap HashMap.
+        
+        HashMap<String, String> bMapWithGuard = (HashMap<String, String>) backgroundMap.clone();
+        moveGuard();
+        insertGuardInMap(bMapWithGuard);
+        
         levelMap.forEach((String k, ImageView v) -> {
 
             int x = Integer.parseInt(k.substring(1, 2));
@@ -189,8 +197,7 @@ public class TileEngine {
             x = x + offsetX;
             y = y + offsetY;
             
-            HashMap<String, String> bMapWithGuard = backgroundMap;
-            insertGuard();
+            
             
             String placement;
             if (y < 10 && x < 10) {
@@ -202,23 +209,23 @@ public class TileEngine {
             } else {
                 placement = Integer.toString(x) + Integer.toString(y);
             }
-            if (backgroundMap.get(placement) != null) {
-                v.setImage(new Image(backgroundMap.get(placement)));
+            if (bMapWithGuard.get(placement) != null) {
+                System.out.println("path: " + bMapWithGuard.get(placement));
+                v.setImage(new Image(bMapWithGuard.get(placement)));
             } else {
-                v.setImage(new Image("/UI/Tiles/Sprites/Background.png"));// + TileEnum.BACKGROUND.toString());
+                v.setImage(new Image("/ui/tiles/sprites/Background.png"));// + TileEnum.BACKGROUND.toString());
             }
             if (dynamicMap.get(dynamicplacement) != null) {
                 v.setImage(dynamicMap.get(dynamicplacement));
             }
         });
-        
     }
 
     public void moveGuard() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
-    private void insertGuard() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void insertGuardInMap(HashMap<String, String> map) {
+        map.put(UI.getBusiness().getGuardPosition(), "/ui/tiles/sprites/Guard.gif" /*+ TileEnum.GUARD.toString()*/);
     }
 }

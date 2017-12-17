@@ -12,7 +12,7 @@ import acquaintance.IBusiness;
 import acquaintance.IData;
 import business.BusinessFacede;
 import dataLayer.DataFacede;
-import ui.mapEditors.EditorUI;
+import ui.mapEditorTool.EditorUI;
 
 /**
  *

@@ -1,60 +1,88 @@
 
 package business;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 103020
  */
 public class Guard {
-    private Room currentRoom;
-    private Room[] patrol;
-    private int numOfRooms = 0;
-    private int roomsToPatrol = 0;
+    ArrayList<String> guardPath;
+    String guardPosition;
+    boolean iterateForward;
+    int index;
+    
     
     /**
      * This class's constuctor
      * @param room the room the guard starts in
      */
-    public Guard(Room room){
-        this.currentRoom = room;
-        patrol = new Room[10];
-        patrol[numOfRooms] = room; // Siger hvilket rum han er i nu
-        numOfRooms++;
-    }
-
-    /**
-     * A getter 
-     * @return the room the guard is in
-     */
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-    
-    /**
-     * Addes rooms that the guard will move to when it is called with a methode
-     * @param room the new room that the guard can move to
-     */
-    public void addToPatrol(Room room){
-        if (numOfRooms == patrol.length) { //can be change so the list gets exstended
-            System.out.println("A guard can only guard so many rooms");
-        } else {
-            patrol[numOfRooms] = room;
-            numOfRooms++;
-        }
+    public Guard(/*Room room*/){
+//        this.currentRoom = room;
+//        patrol = new Room[10];
+//        patrol[numOfRooms] = room; // Siger hvilket rum han er i nu
+//        numOfRooms++;
+        initGuardPath();
+        guardPosition = "2207";
+        iterateForward = true;
     }
     
     /**
      * Moves to the next room on the list but only if there was added a room to the Room[] patrol
      */
-    public void moveToNextRoom(){
-        if (numOfRooms <= 1) {
-            System.out.println("A guard only have one room, so can't move to another one");
-        } else if (roomsToPatrol+1 <= numOfRooms) {
-            currentRoom = patrol[++numOfRooms];
+    public void move(){
+        index = guardPath.indexOf(guardPosition);
+        if(guardPosition.equals("2207")) {
+            iterateForward = true;
         }
- {
-            
+        if(guardPosition.equals("2117")) {
+            iterateForward = false;
+        }
+        if(iterateForward) {
+            guardPosition = guardPath.get(index+1);
+        } else  {
+            guardPosition = guardPath.get(index-1);
         }
     }
     
+    public ArrayList getGuardPath() {
+        
+        return guardPath;
+    }
+
+    private ArrayList initGuardPath() {
+        guardPath = new ArrayList();
+        guardPath.add("2207");
+        guardPath.add("2107");
+        guardPath.add("2007");
+        guardPath.add("1907");
+        guardPath.add("1807");
+        guardPath.add("1707");
+        guardPath.add("1708");
+        guardPath.add("1709");
+        guardPath.add("1710");
+        guardPath.add("1711");
+        guardPath.add("1712");
+        guardPath.add("1713");
+        guardPath.add("1714");
+        guardPath.add("1715");
+        guardPath.add("1716");
+        guardPath.add("1717");
+        guardPath.add("1817");
+        guardPath.add("1917");
+        guardPath.add("2017");
+        guardPath.add("2117");
+        guardPath.add("2217");
+        return guardPath;
+    }
+    
+    public String getPosition(){
+        System.out.println(guardPosition);
+        return guardPosition;
+    }
+
+    void stop() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

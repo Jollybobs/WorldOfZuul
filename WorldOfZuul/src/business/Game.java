@@ -141,15 +141,15 @@ public class Game {
         player.setCurrentRoom(cell);
 
         //inventory.add(new Item("key", 0));
-        Guard guard = new Guard(northHall);
-        guards[0] = guard;
-        guard.addToPatrol(canteen);
-        guard.addToPatrol(yard);
-        guard.addToPatrol(bathroom);
-        guard.addToPatrol(southHall);
-        guard.addToPatrol(hall);
-
-        allObjects.add(guards);
+//        Guard guard = new Guard(northHall);
+//        guards[0] = guard;
+//        guard.addToPatrol(canteen);
+//        guard.addToPatrol(yard);
+//        guard.addToPatrol(bathroom);
+//        guard.addToPatrol(southHall);
+//        guard.addToPatrol(hall);
+//
+//        allObjects.add(guards);
     }
 
     /**
@@ -299,16 +299,16 @@ public class Game {
         }
     }
 
-    protected boolean CheckForItems() {
-        for (Guard gua : guards) { //Checking all Guards
-            if (player.getCurrentRoom() == gua.getCurrentRoom()) {
-                if (!player.getInventory().checkEmpty()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+//    protected boolean CheckForItems() {
+//        for (Guard gua : guards) { //Checking all Guards
+//            if (player.getCurrentRoom() == gua.getCurrentRoom()) {
+//                if (!player.getInventory().checkEmpty()) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
     
     /*protected boolean PickUpItem(){
         if (player.getCurrentRoom().isEmpty()) {
@@ -337,9 +337,9 @@ public class Game {
     protected void GameOver() {
         if (TimerRunOut) {
             System.out.println("You didn't make it in time. Hurry up and surrender, before they shoot you");
-        } else if (CheckForItems()) {
-
-            System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
+//        } else if (CheckForItems()) {
+//
+//            System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
         } else {
             System.out.println("You made it, Congratz! Your time was " + Player.getScore());
             sortHighScore(highscore);

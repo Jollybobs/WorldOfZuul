@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class BusinessFacede implements IBusiness {
     
     Game game = new Game();
+    Guard guard = new Guard();
     Timer timer;
     dataLayer.DataFacede data = new DataFacede();
     WallBreak wallBreak = new WallBreak();
@@ -69,8 +70,25 @@ public class BusinessFacede implements IBusiness {
      */
     @Override
     public void waitGuard() {
-//        game.moveGuard();
+        guard.stop();
     }
+    
+    /**
+     * lets the guard move along his patrol
+     */
+//    @Override
+    public void moveGuard() {
+        guard.move();
+    }
+
+    /**
+     * lets the guard move along his patrol
+     */
+//    @Override
+    public String getGuardPosition() {
+        return guard.getPosition();
+    }    
+    
 
     /**
      * to save the highscore of the game in its file

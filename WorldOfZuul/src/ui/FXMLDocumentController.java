@@ -272,11 +272,13 @@ public class FXMLDocumentController implements Initializable {
 
     private void startGuardHandler() {
         Timeline timeline = new Timeline(new KeyFrame(
-        Duration.millis(2000),
+        Duration.millis(500),
         ae -> {
-            System.out.println("Guard moved");
-            tileEngine.moveGuard();
+//            System.out.println("Guard moved");
+//            tileEngine.moveGuard();
+            UI.getBusiness().moveGuard();
             handlePlayerCapture();
+            tileEngine.redrawViewPort();
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();

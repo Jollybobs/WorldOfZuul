@@ -19,7 +19,7 @@ public enum TileEnum {
     DOORSOUTHSTART    ("DoorSouthStart.png"),
     DOORWESTEND       ("DoorWestEnd.png"),
     DOORWESTSRTART    ("DoorWestStart.png"),
-    GUARD             ("Guard.png"),
+    GUARD             ("Guard.gif"),
     HAMMER_CHISEL     ("Hammer_Chisel.png"),
     Key               ("Key.png"),
     LADDER            ("Ladder.png"),

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.mapEditors;
+package ui.mapEditorTool;
 
 import dataLayer.DataFacede;
 import ui.tiles.TileEnum;
