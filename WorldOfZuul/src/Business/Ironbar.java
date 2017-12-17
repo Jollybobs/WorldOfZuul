@@ -91,10 +91,8 @@ public class Ironbar {
         if (input.equals(charList.peek())) {
             charList.pop();
             winCount++;
-            Collections.shuffle(charList);
             return true;
         } else {
-            Collections.shuffle(charList);
             return false;
         }
     }
