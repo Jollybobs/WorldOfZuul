@@ -5,6 +5,7 @@
  */
 package UI;
 
+import UI.map.BackgroundMap;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +23,7 @@ import javafx.scene.input.MouseEvent;
 import Business.BusinessFacede;
 import DataLayer.DataFacede;
 import UI.Tiles.TileEnum;
-import UI.tileengine.TileEngine;
+import UI.Tiles.TileEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.animation.Animation;

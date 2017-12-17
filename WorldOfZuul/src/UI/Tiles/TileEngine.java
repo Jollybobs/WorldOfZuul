@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI.tileengine;
+package UI.Tiles;
 
 import Business.BusinessFacede;
 import DataLayer.DataFacede;
-import UI.DynamicMap;
+import UI.map.DynamicMap;
 import UI.Tiles.TileEnum;
 import java.util.HashMap;
 import javafx.scene.image.Image;

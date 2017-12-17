@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UI.map;
 
 import UI.Tiles.Tile;
 import UI.Tiles.TileEnum;
