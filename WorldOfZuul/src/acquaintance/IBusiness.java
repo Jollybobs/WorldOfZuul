@@ -1,6 +1,6 @@
 package acquaintance;
 
-import businesss.Game;
+import business.Game;
 import java.util.List;
 
 /**
