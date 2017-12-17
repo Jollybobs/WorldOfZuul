@@ -78,7 +78,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#northClicked" text="North" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button fx:id="buttonNorth" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#handleOnKeyPressed" text="North" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -99,7 +99,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#westClicked" text="West" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button fx:id="buttonWest" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#handleOnKeyPressed" text="West" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -115,7 +115,7 @@
                               <Insets />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#eastClicked" text="East" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button fx:id="buttonEast" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#handleOnKeyPressed" text="East" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -135,7 +135,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#southClicked" text="South" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Button fx:id="buttonSouth" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#handleOnKeyPressed" text="South" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="13.0" />
                            </font>

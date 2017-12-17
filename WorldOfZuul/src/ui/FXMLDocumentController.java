@@ -167,44 +167,22 @@ public class FXMLDocumentController implements Initializable {
             }
             if(e instanceof MouseEvent) {
                 MouseEvent me = (MouseEvent) e;
-                System.out.println("MouseEvent");
-                System.out.println(me.getSource().toString().substring(16, 20));
                 switch (me.getSource().toString().substring(16, 20)) {
-                    case "W":
+                    case "Nort":
                         moveMap(0, -1);
                         break;
-                    case "D":
+                    case "East":
                         moveMap(1, 0);
                         break;
-                    case "S":
+                    case "Sout":
                         moveMap(0, 1);
                         break;
-                    case "A":
+                    case "West":
                         moveMap(-1, 0);
                         break;
                 }
             }
         }
-    }
-
-    @FXML
-    private void eastClicked(MouseEvent event) {
-        moveMap(1, 0);
-    }
-
-    @FXML
-    private void southClicked(MouseEvent event) {
-        moveMap(0, 1);
-    }
-
-    @FXML
-    private void westClicked(MouseEvent event) {
-        moveMap(-1, 0);
-    }
-
-    @FXML
-    private void northClicked(MouseEvent event) {
-        moveMap(0, -1);
     }
 
     @FXML
