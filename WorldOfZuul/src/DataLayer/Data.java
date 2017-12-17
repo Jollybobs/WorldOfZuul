@@ -213,15 +213,15 @@ public class Data {
             filePath.mkdirs();
             ArrayList hList = new ArrayList();
             hList.add("Bob");
-            hList.add(10);
+            hList.add(1);
             hList.add("Jack");
-            hList.add(7);
+            hList.add(3);
             hList.add("John");
             hList.add(5);
             hList.add("Tim");
-            hList.add(3);
+            hList.add(7);
             hList.add("Tom");
-            hList.add(1);
+            hList.add(10);
             saveHighscore(hList);
         }
         
