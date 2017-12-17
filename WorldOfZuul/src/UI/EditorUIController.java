@@ -81,7 +81,7 @@ public class EditorUIController implements Initializable {
         ImageView iv36 = new ImageView(new Image(TileEnum.SEWER_FLOOR.toString()));       iv36.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_FLOOR.toString()));
         ImageView iv37 = new ImageView(new Image(TileEnum.LADDER_WALL.toString()));       iv37.setOnMouseClicked(e -> chooseImg(TileEnum.LADDER_WALL.toString()));
         ImageView iv38 = new ImageView(new Image(TileEnum.SEWER_LADDER.toString()));      iv38.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_LADDER.toString()));
-        ImageView iv39 = new ImageView(new Image(TileEnum.SEWER_BARS.toString()));        iv38.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_BARS.toString()));
+        ImageView iv39 = new ImageView(new Image(TileEnum.SEWER_BARS.toString()));        iv39.setOnMouseClicked(e -> chooseImg(TileEnum.SEWER_BARS.toString()));
         
         iv01.fitHeightProperty().bind(box1.widthProperty()); iv01.fitWidthProperty().bind(box1.widthProperty());
         iv02.fitHeightProperty().bind(box1.widthProperty()); iv02.fitWidthProperty().bind(box1.widthProperty());
