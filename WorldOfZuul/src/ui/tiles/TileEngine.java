@@ -15,7 +15,8 @@ import ui.FXMLDocumentController;
 import ui.UI;
 
 /**
- *
+ * a ImageView draw engine to handle tiles in viewport.
+ * 
  * @author jollybob
  */
 public class TileEngine {
@@ -34,8 +35,9 @@ public class TileEngine {
     
     
     /**
-     * 
-     * @param cont 
+     * An ImageView draw engine to handle tiles in viewport.
+     *
+     * @param cont Controller of the FXML-root, to enable access to @FXML pointers etc.
      */
     public TileEngine(FXMLDocumentController cont) {
     // Set Values.
@@ -53,7 +55,11 @@ public class TileEngine {
         redrawViewPort();
     }
     
-    // Game state handlers.
+    /**
+     * Pause controller
+     * 
+     * @param b true = pause game.
+     */
     public void setPause(boolean b) {
         controller.getPausedLabel().setVisible(b);
         if(controller.getTimeline().getStatus().equals(controller.getTimeline().getStatus().PAUSED)) {
@@ -63,11 +69,9 @@ public class TileEngine {
         }
     }
     
-    private void setYouWon() {
-        stopGame();
-        controller.getYouWonLabel().setVisible(true);
-    }
-    
+    /**
+     * Player is captured.
+     */
     public void isCapture() {
         if(UI.getBusiness().getGuardPosition().equals(centerPosition)) {
             stopGame();
@@ -75,12 +79,12 @@ public class TileEngine {
         }
     }
     
-    private void stopGame() {
-        controller.getTimeline().pause();
-        controller.setGameRunning(false);
-    }
-    
-    // Movement handlers.
+    /**
+     * Move player in map.
+     * 
+     * @param x horizontally positive is east.
+     * @param y vertically positive is south.
+     */
     public void moveMap(int x, int y) {
         // Get logik values.
         move = checkTileAndMovePlayer(x, y);
@@ -88,6 +92,64 @@ public class TileEngine {
         movePlayer(move, x, y);
         changeRoom(x, y);
         redrawViewPort();
+    }
+    
+    /**
+     * Set Player starting position.
+     */
+    public void setStartPosition() {
+        offsetX = 7;
+        offsetY = 12;
+    }    
+    
+    /**
+     * Updates viewport.
+     */
+    public void redrawViewPort() {
+        // Redraw tiles by setting new images in the ImageView containers, 
+        // based upon updated pointers to the backgroundMap HashMap.
+        
+        HashMap<String, String> bMapWithGuard = (HashMap<String, String>) backgroundMap.clone();
+        insertGuardInMap(bMapWithGuard);
+        
+        controller.getLevelMap().forEach((String k, ImageView v) -> {
+
+            int x = Integer.parseInt(k.substring(1, 2));
+            int y = Integer.parseInt(k.substring(0, 1));
+            String dynamicplacement = Integer.toString(y) + Integer.toString(x);
+
+            x = x + offsetX;
+            y = y + offsetY;
+            
+            String placement;
+            if (y < 10 && x < 10) {
+                placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
+            } else if (x < 10 && y >= 10) {
+                placement = "0" + Integer.toString(x) + Integer.toString(y);
+            } else if (x >= 10 && y < 10) {
+                placement = Integer.toString(x) + "0" + Integer.toString(y);
+            } else {
+                placement = Integer.toString(x) + Integer.toString(y);
+            }
+            if (bMapWithGuard.get(placement) != null) {
+                v.setImage(new Image(bMapWithGuard.get(placement)));
+            } else {
+                v.setImage(new Image("/ui/tiles/sprites/Background.png"));
+            }
+            if (dynamicMap.get(dynamicplacement) != null) {
+                v.setImage(dynamicMap.get(dynamicplacement));
+            }
+        });
+    }
+    
+    private void setYouWon() {
+        stopGame();
+        controller.getYouWonLabel().setVisible(true);
+    }
+    
+    private void stopGame() {
+        controller.getTimeline().pause();
+        controller.setGameRunning(false);
     }
     
     private boolean checkTileAndMovePlayer(int x, int y) {
@@ -189,12 +251,6 @@ public class TileEngine {
         return centerPosition;
     }
     
-
-    public void setStartPosition() {
-        offsetX = 7;
-        offsetY = 12;
-    }
-    
     private void movePlayer(boolean canMove, int x, int y) {
         // Move player if tile is inside constraints of map.
         if(canMove) {
@@ -218,48 +274,6 @@ public class TileEngine {
         } else if((offsetY%5 == 4 || offsetY%5 == -1) && y == -1) {
             bfacade.move("north");
         }
-    }
-    
-    public void redrawViewPort() {
-        // Redraw tiles by setting new images in the ImageView containers, 
-        // based upon updated pointers to the backgroundMap HashMap.
-        
-        HashMap<String, String> bMapWithGuard = (HashMap<String, String>) backgroundMap.clone();
-        moveGuard();
-        insertGuardInMap(bMapWithGuard);
-        
-        controller.getLevelMap().forEach((String k, ImageView v) -> {
-
-            int x = Integer.parseInt(k.substring(1, 2));
-            int y = Integer.parseInt(k.substring(0, 1));
-            String dynamicplacement = Integer.toString(y) + Integer.toString(x);
-
-            x = x + offsetX;
-            y = y + offsetY;
-            
-            String placement;
-            if (y < 10 && x < 10) {
-                placement = "0" + Integer.toString(x) + "0" + Integer.toString(y);
-            } else if (x < 10 && y >= 10) {
-                placement = "0" + Integer.toString(x) + Integer.toString(y);
-            } else if (x >= 10 && y < 10) {
-                placement = Integer.toString(x) + "0" + Integer.toString(y);
-            } else {
-                placement = Integer.toString(x) + Integer.toString(y);
-            }
-            if (bMapWithGuard.get(placement) != null) {
-                v.setImage(new Image(bMapWithGuard.get(placement)));
-            } else {
-                v.setImage(new Image("/ui/tiles/sprites/Background.png"));
-            }
-            if (dynamicMap.get(dynamicplacement) != null) {
-                v.setImage(dynamicMap.get(dynamicplacement));
-            }
-        });
-    }
-
-    public void moveGuard() {
-        
     }
 
     private void insertGuardInMap(HashMap<String, String> map) {

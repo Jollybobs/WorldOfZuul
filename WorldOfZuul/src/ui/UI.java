@@ -15,11 +15,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
- * @author paul
+ * JavaFX FXML starter for Prison Escape Game.
+ * 
+ * @author Jonathan
  */
 public class UI extends Application implements IUI {
-
     static IBusiness business;
     static BusinessFacade businessFacade;
     static UI ui;
@@ -28,26 +28,24 @@ public class UI extends Application implements IUI {
     static Scene gameScene;
             
     /**
+     * starter method class from JavaFX's Application class.
      * 
-     * @param stage
-     * @throws Exception 
+     * @param stage Auto generated stage from JavaFX Application to add content.
+     * @throws Exception is not handled since file is within package.
      */
     @Override
     public void start(Stage stage) throws Exception {
         aStage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
         rootScene = new Scene(root);
-        
-//        TileMap map = TileMapReader.readMap(“path/to/my/map.tmx”);
-
-//        root.requestFocus();
         aStage.setScene(rootScene);
         aStage.show();
     }
 
     /**
-     * @param args the command line arguments
+     * External accessor of start through IUI interface, to ensure correct layering.
+     * 
+     * @param args not used.
      */
     public void startAplication(String[] args) {
         businessFacade = new BusinessFacade();
@@ -56,40 +54,20 @@ public class UI extends Application implements IUI {
     }
         
     /**
+     * Inject business data interface to UI.
      * 
-     * @param business 
+     * @param business Interface for Business.
      */
     public void injectBusiness(IBusiness businessInterface) {
         business = businessInterface;
     }
 
     /**
+     * Enables getter for BusinessFacade in UI.
      * 
-     * @return 
+     * @return instance of BusinessFacade.
      */
     public static BusinessFacade getBusiness() {
         return businessFacade;
     }
-    
-    //    /**
-//     * 
-//     * @return 
-//     */
-//    public static Stage getStage() {
-//        return aStage;
-//    }
-///**
-// * 
-// * @return 
-// */
-//    public static Scene getRootScene() {
-//        return rootScene;
-//    }
-//   /**
-//    * 
-//    * @return 
-//    */  
-//    public static Scene getGameScene() {
-//        return gameScene;
-//    }
 }

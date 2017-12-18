@@ -5,32 +5,30 @@
  */
 package ui.mapHandlers;
 
-import ui.tiles.TileEnum;
 import java.util.HashMap;
 import javafx.scene.image.Image;
 
 /**
- * Dynamic map containing player only.
+ * Placeholder for references of background map.
  * 
  * @author Jonathan
  */
-public class DynamicMap {
-    //todo - Delete class and add player in backgroundMap after other tiles.
+public class initBackgroundMap {
     
     static HashMap<String, Image> levelMap;
     
     /**
-     * Initializes a Map with player in the middle.
+     * Initialize a background map without references.
+     * will be added from serialized file when instantiated by the program.
      */
-    public DynamicMap() {
+    public initBackgroundMap() {
         levelMap = new HashMap<>();
-        levelMap.put("55", new Image(TileEnum.PLAYER.toString()));
     }
     
     /**
-     * getter for dynamical player map.
+     * getter for backgroundMap.
      * 
-     * @return HashMap<String, Image>
+     * @return empty HashMap<String, Image>
      */
     public static HashMap getMap() {
         return levelMap;
