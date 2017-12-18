@@ -30,7 +30,7 @@ public class DynamicMap {
     /**
      * getter for dynamical player map.
      * 
-     * @return HashMap<String, Image>
+     * @return HashMap - Dynamical map containing player tile.
      */
     public static HashMap getMap() {
         return levelMap;

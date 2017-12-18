@@ -34,7 +34,7 @@ public class Game {
     /**
      * Load Rooms to list.
      * 
-     * @param aList 
+     * @param aList - List of rooms.
      */
     protected void loadRooms(ArrayList aList){
         allObjects = new ArrayList(aList);
@@ -205,7 +205,7 @@ public class Game {
         } else if (commandWord == commandWord.WAIT) {
 //            moveGuard();
         } else if (commandWord == commandWord.INVENTORY) {
-            player.getInventory().printInventory();
+            player.getInventory().getInventoryListString();
         }
         return wantToQuit;
     }
@@ -227,7 +227,7 @@ public class Game {
      * supplied with the Command object this method extracts the Secondword.
      * This is used to determine the direction to execute the goRoom method in.
      *
-     * @param command
+     * @param command - command to be executed.
      */
     protected void goRoom(Command command) {
         // Null-point Guard to make sure the Command object has a SecondWord.

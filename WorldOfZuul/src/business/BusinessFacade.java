@@ -74,6 +74,8 @@ public class BusinessFacade implements IBusiness {
 
     /**
      * lets the guard move along his patrol
+     *
+     * @return String - Guard's position.
      */
 //    @Override
     public String getGuardPosition() {
@@ -81,8 +83,9 @@ public class BusinessFacade implements IBusiness {
     }    
     
     /**
-     * to save the highscore of the game in its file
-     * @return 
+     * to save the highscore of the game in its file.
+     * 
+     * @return boolean - Success of save operation.
      */
     @Override
     public boolean saveHighscore() {
@@ -140,7 +143,7 @@ public class BusinessFacade implements IBusiness {
      */
     @Override
     public String showInventory() {
-        return player.getInventory().printInventory();
+        return player.getInventory().getInventoryListString();
     }
 
     /**

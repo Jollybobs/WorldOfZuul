@@ -41,9 +41,10 @@ public class Ironbar {
     }//constructor    
 
     /**
+     * Not Implemented.
      * check if the player is in the right room and has the rightr item
      *
-     * @return
+     * @return false - method not yet implemented.
      */
     public boolean conditionCheck() {
      /* 
@@ -82,11 +83,13 @@ public class Ironbar {
     public Character getChar() {
         return charList.peek();
     }
-/**
- * checks if the input matches the displayed char
- * @param input
- * @return boolean 
- */
+    
+    /**
+     * checks if the input matches the displayed char
+     * @param input String of char to match.
+     * 
+     * @return boolean false - not yet implemented.
+     */
     public boolean checkInput(String input) {
         if (input.equals(charList.peek())) {
             charList.pop();
@@ -96,5 +99,4 @@ public class Ironbar {
             return false;
         }
     }
-
-}//c-wallBreaker
+}

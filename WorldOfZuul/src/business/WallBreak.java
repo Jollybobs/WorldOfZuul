@@ -33,7 +33,7 @@ public class WallBreak {
     /**
      * check if the player is in the right room and has the rightr item
      *
-     * @return
+     * @return false - not yet implemented.
      */
     public boolean conditionCheck() {
         /*
@@ -71,8 +71,9 @@ public class WallBreak {
     /**
      * checks if the input matches the displayed char
      *
-     * @param input
-     * @return boolean
+     * @param input String - To be matched with the displayed char.
+     * 
+     * @return boolean - replies if the input matches with the char.
      */
     public boolean checkInput(String input) {
         if (input.equals(charList.peek())) {

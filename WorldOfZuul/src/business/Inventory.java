@@ -17,6 +17,9 @@ public class Inventory {
      * Checks if the inventory has freeSpace, and adds an Item to the ArrayList
      * inventory if there is not space. Returns a String with text explaining
      * the outcome.
+     * 
+     * @param item - Item to be added to inventory.
+     * @return String - a description of the item added to inventory
      */
     public String addItem(Item item) {
             inventory.add(item);
@@ -27,8 +30,14 @@ public class Inventory {
     }//m-addItem
 
     //PRINT INVENTORY
-    //prints ArrayList inventory
-    public String printInventory() {
+    //
+    
+    /**
+     * Concatenates a string of items in the inventory ArrayList.
+     * 
+     * @return String - with the results
+     */
+    public String getInventoryListString() {
         String result = ("you inventory contains: \n");
         if(inventory.size() > 0) {
             for (Item item : inventory) {
@@ -40,6 +49,9 @@ public class Inventory {
 
     /**
      * check if ArrayList inventory contains Item
+     * @param item - Item to be checked.
+     * 
+     * @return boolean - true if ArrayList contains item.
      */
     public boolean checkFor(Item item) {
         boolean result = false;

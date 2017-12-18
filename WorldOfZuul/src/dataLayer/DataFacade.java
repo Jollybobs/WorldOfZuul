@@ -77,9 +77,7 @@ public class DataFacade implements IData {
     }
 
     /**
-     * Load Map
-     * 
-     * @param aMap - a HashMap of Map entities to be loaded.
+     * Load Map to data object.
      */
     @Override
     public HashMap loadMap() {

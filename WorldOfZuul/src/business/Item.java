@@ -19,6 +19,8 @@ public class Item {
 
     /**
      * unsupported
+     * 
+     * @return 1 - not yet implemented.
      */
     public int getSize() {
         return 1;
@@ -26,6 +28,8 @@ public class Item {
 
     /**
      * returns items name(String)
+     * 
+     * @return String - name of item.
      */
     public String getName() {
         return this.name;

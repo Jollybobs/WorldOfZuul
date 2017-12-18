@@ -28,7 +28,7 @@ public class initBackgroundMap {
     /**
      * getter for backgroundMap.
      * 
-     * @return empty HashMap<String, Image>
+     * @return empty HashMap - to be populated with tile images from serialized map file, when loaded.
      */
     public static HashMap getMap() {
         return levelMap;

@@ -15,14 +15,10 @@ public class Guard {
     
     
     /**
-     * This class's constuctor
-     * @param room the room the guard starts in
+     * A guard to patrol the map.
+     * 
      */
-    public Guard(/*Room room*/){
-//        this.currentRoom = room;
-//        patrol = new Room[10];
-//        patrol[numOfRooms] = room; // Siger hvilket rum han er i nu
-//        numOfRooms++;
+    public Guard(){
         initGuardPath();
         guardPosition = "2207";
         iterateForward = true;
@@ -49,7 +45,7 @@ public class Guard {
     /**
      *  Getter for the Guard's path.
      * 
-     * @return ArrayList<String> of positions.
+     * @return ArrayList of positions.
      */
     public ArrayList getGuardPath() {
         return guardPath;

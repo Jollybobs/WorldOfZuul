@@ -94,7 +94,8 @@ public class Data {
     
     /**
      * saves the game with serializable
-     * @param aList it saves an ArrayList
+     * @param aMap it saves a HashMap
+     * 
      * @return returns true if it saved or false if it could not save
      */
     protected boolean saveMap(HashMap aMap) {

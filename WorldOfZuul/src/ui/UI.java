@@ -56,7 +56,7 @@ public class UI extends Application implements IUI {
     /**
      * Inject business data interface to UI.
      * 
-     * @param business Interface for Business.
+     * @param businessInterface Interface for Business.
      */
     public void injectBusiness(IBusiness businessInterface) {
         business = businessInterface;

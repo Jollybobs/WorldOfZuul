@@ -62,7 +62,7 @@ public class FXMLDocumentController implements Initializable {
     /**
      * Getter for LevelMap
      * 
-     * @return HashMap<String, ImageView> - LevelMap
+     * @return HashMap - LevelMap
      */
     public HashMap<String, ImageView> getLevelMap() {
         return levelMap;
