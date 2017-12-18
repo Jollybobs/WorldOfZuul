@@ -7,7 +7,7 @@ package business;
 
 import acquaintance.IBusiness;
 import acquaintance.IData;
-import dataLayer.DataFacede;
+import dataLayer.DataFacade;
 import static java.lang.System.currentTimeMillis;
 import java.util.List;
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import java.util.ArrayList;
  *
  * @author Bruger
  */
-public class BusinessFacede implements IBusiness {
+public class BusinessFacade implements IBusiness {
     
     Game game = new Game();
     Guard guard = new Guard();
     TimeHandler timer;
-    dataLayer.DataFacede data = new DataFacede();
+    dataLayer.DataFacade data = new DataFacade();
     WallBreak wallBreak = new WallBreak();
     Player player = new Player();
 

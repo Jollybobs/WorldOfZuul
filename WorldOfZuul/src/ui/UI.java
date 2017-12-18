@@ -7,7 +7,7 @@ package ui;
 
 import acquaintance.IBusiness;
 import acquaintance.IUI;
-import business.BusinessFacede;
+import business.BusinessFacade;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 public class UI extends Application implements IUI {
 
     static IBusiness business;
-    static BusinessFacede businessFacade;
+    static BusinessFacade businessFacade;
     static UI ui;
     static Stage aStage;
     static Scene rootScene; 
@@ -50,7 +50,7 @@ public class UI extends Application implements IUI {
      * @param args the command line arguments
      */
     public void startAplication(String[] args) {
-        businessFacade = new BusinessFacede();
+        businessFacade = new BusinessFacade();
         ui = this;
         launch(args);
     }
@@ -67,7 +67,7 @@ public class UI extends Application implements IUI {
      * 
      * @return 
      */
-    public static BusinessFacede getBusiness() {
+    public static BusinessFacade getBusiness() {
         return businessFacade;
     }
     

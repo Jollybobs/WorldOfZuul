@@ -13,10 +13,10 @@ import java.util.List;
  *
  * @author 103020
  */
-public class DataFacede implements IData {
+public class DataFacade implements IData {
     Data data;
     
-    public DataFacede() {
+    public DataFacade() {
         data = new Data();
     }
     

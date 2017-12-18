@@ -5,8 +5,8 @@
  */
 package ui.tiles;
 
-import business.BusinessFacede;
-import dataLayer.DataFacede;
+import business.BusinessFacade;
+import dataLayer.DataFacade;
 import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
 import javafx.scene.image.Image;
@@ -20,7 +20,7 @@ import ui.UI;
  */
 public class TileEngine {
     
-    BusinessFacede bfacade;
+    BusinessFacade bfacade;
     int offsetX;
     int offsetY;
     FXMLDocumentController controller;
@@ -30,7 +30,7 @@ public class TileEngine {
 //    HashMap<String, ImageView> levelMap;
     HashMap<String, String> backgroundMap;
     HashMap<String, Image> dynamicMap;
-    DataFacede data;
+    DataFacade data;
     
     
     /**
@@ -44,8 +44,8 @@ public class TileEngine {
         offsetY = 12;
     // Instantiate used objects.
         DynamicMap dm = new DynamicMap();
-        bfacade = new BusinessFacede();
-        data = new DataFacede();
+        bfacade = new BusinessFacade();
+        data = new DataFacade();
     // Get data from objects.
         dynamicMap = dm.getMap();
         backgroundMap = data.loadMap();    

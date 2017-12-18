@@ -5,7 +5,7 @@
  */
 package ui.mapEditorTool;
 
-import dataLayer.DataFacede;
+import dataLayer.DataFacade;
 import ui.tiles.TileEnum;
 import java.net.URL;
 import java.util.HashMap;
@@ -34,11 +34,11 @@ public class EditorUIController implements Initializable {
     private GridPane viewGrid;
     String setTile;
     HashMap<String, String> levelMap;
-    DataFacede data;
+    DataFacade data;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        data = new DataFacede();
+        data = new DataFacade();
         levelMap = new HashMap<>();
         loadMap();
         updateView();

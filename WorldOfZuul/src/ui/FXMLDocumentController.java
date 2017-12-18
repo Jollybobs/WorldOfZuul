@@ -5,7 +5,7 @@
  */
 package ui;
 
-import business.BusinessFacede;
+import business.BusinessFacade;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -117,7 +117,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     private void updateTextArea() {
-        BusinessFacede business = UI.getBusiness();
+        BusinessFacade business = UI.getBusiness();
         int minutes = (int) (UI.getBusiness().getTime()/(1000*60))%60;
         int seconds = (int) (UI.getBusiness().getTime()/(1000))%60;
         if(seconds < 10){

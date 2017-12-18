@@ -2,7 +2,7 @@ package business;
 
 import java.util.ArrayList;
 
-import dataLayer.DataFacede;
+import dataLayer.DataFacade;
 
 /**
  * @author Michael Kolling and David J. Barnes
@@ -10,7 +10,7 @@ import dataLayer.DataFacede;
  */
 public class Game {
 
-    DataFacede data = new DataFacede();
+    DataFacade data = new DataFacade();
 
     private ArrayList allObjects = new ArrayList();
     private ArrayList highscore;

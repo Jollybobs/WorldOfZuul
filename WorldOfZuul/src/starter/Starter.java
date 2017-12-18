@@ -10,8 +10,8 @@ package starter;
 import acquaintance.IBusiness;
 import acquaintance.IData;
 import acquaintance.IUI;
-import business.BusinessFacede;
-import dataLayer.DataFacede;
+import business.BusinessFacade;
+import dataLayer.DataFacade;
 import ui.UI;
 
 /**
@@ -20,8 +20,8 @@ import ui.UI;
  */
 public class Starter {
      public static void main(String[] args) {
-         IData Data = new DataFacede();
-         IBusiness business = new BusinessFacede();
+         IData Data = new DataFacade();
+         IBusiness business = new BusinessFacade();
          business.play();
          IUI UI = (IUI) new UI();
          UI.injectBusiness(business);

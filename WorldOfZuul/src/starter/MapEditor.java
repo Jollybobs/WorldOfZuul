@@ -10,8 +10,8 @@ package starter;
 import acquaintance.IUI;
 import acquaintance.IBusiness;
 import acquaintance.IData;
-import business.BusinessFacede;
-import dataLayer.DataFacede;
+import business.BusinessFacade;
+import dataLayer.DataFacade;
 import ui.mapEditorTool.EditorUI;
 
 /**
@@ -20,8 +20,8 @@ import ui.mapEditorTool.EditorUI;
  */
 public class MapEditor {
      public static void main(String[] args) {
-         IData Data = new DataFacede();
-         IBusiness business = new BusinessFacede();
+         IData Data = new DataFacade();
+         IBusiness business = new BusinessFacade();
          IUI UI = (IUI) new EditorUI();
          UI.injectBusiness(business);
          UI.startAplication(args);

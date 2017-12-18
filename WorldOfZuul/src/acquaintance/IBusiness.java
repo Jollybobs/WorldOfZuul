@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface IBusiness {
 
-     boolean checkInput(String input);
+    boolean checkInput(String input);
     
     void injectData(IData Data);
 
