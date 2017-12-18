@@ -19,7 +19,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 /**
- *
+ * FXML-Controller for EditorUI.fxml.
+ * 
  * @author paul
  */
 public class EditorUIController implements Initializable {
@@ -35,11 +36,14 @@ public class EditorUIController implements Initializable {
     String setTile;
     HashMap<String, String> levelMap;
     DataFacade data;
-    @Override
+    
     /**
-     * FXML-controller for mapeditor.
+     * FXML-controller initialization.
      * 
+     * @param url - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb - The resources used to localize the root object, or null if the root object was not localized.
      */
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         data = new DataFacade();

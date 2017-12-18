@@ -32,7 +32,8 @@ import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
 /**
- *
+ * 
+ * 
  * @author paul
  */
 public class FXMLDocumentController implements Initializable {    
@@ -43,6 +44,12 @@ public class FXMLDocumentController implements Initializable {
     boolean gameRunning = false;
     TileEngine tileEngine;
 
+    /**
+     * FXML-controller initialization.
+     * 
+     * @param url - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb - The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initViewPort();
@@ -52,26 +59,56 @@ public class FXMLDocumentController implements Initializable {
         tileEngine = new TileEngine(this);
     }
     
+    /**
+     * Getter for LevelMap
+     * 
+     * @return HashMap<String, ImageView> - LevelMap
+     */
     public HashMap<String, ImageView> getLevelMap() {
         return levelMap;
     }
     
+    /**
+     * Getter for Timeline (listener of timeEvent to control Guard).
+     * 
+     * @return Timeline.
+     */
     public Timeline getTimeline() {
         return timeline;
     }
 
+    /**
+     * Getter for GameOver Label
+     * 
+     * @return Label - Game Over.
+     */
     public Label getGameOverLabel() {
         return gameOver;
     }
     
+    /**
+     * Getter for YouWon Label
+     * 
+     * @return Label - You Won.
+     */
     public Label getYouWonLabel() {
         return youWon;
     }
     
+    /**
+     * Getter for Pause Label
+     * 
+     * @return Label - Pause.
+     */
     public Label getPausedLabel() {
         return paused;
     }
 
+    /**
+     * Set game running true/false.
+     * 
+     * @param b - Determines if the game should run.
+     */
     public void setGameRunning(boolean b) {
         gameRunning = b;
     }
