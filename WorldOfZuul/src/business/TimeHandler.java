@@ -10,12 +10,11 @@ package business;
  *
  * @author Marc
  */
-class Timer {
+class TimeHandler {
     double startTime;
-    public Timer() {
+    public TimeHandler() {
         startTime = System.currentTimeMillis();
     }
-            
     
     protected void resetTime(){
         startTime = System.currentTimeMillis();
@@ -33,5 +32,4 @@ class Timer {
     protected double getStartTime() {
         return startTime;
     }
-    
 }

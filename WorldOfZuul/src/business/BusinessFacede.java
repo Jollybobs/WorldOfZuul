@@ -20,9 +20,10 @@ public class BusinessFacede implements IBusiness {
     
     Game game = new Game();
     Guard guard = new Guard();
-    Timer timer;
+    TimeHandler timer;
     dataLayer.DataFacede data = new DataFacede();
     WallBreak wallBreak = new WallBreak();
+    Player player = new Player();
 
     public void printTest(String input) {
         System.out.println("WORKS" + input);
@@ -48,11 +49,11 @@ public class BusinessFacede implements IBusiness {
      */
     @Override
     public String look() {
-        if (Player.getCurrentRoom() == null) {
+        if (player.getCurrentRoom() == null) {
             return "You are in the void a place no man should be";
         } else {
-            System.out.println("long description: " + Player.getCurrentRoom().getLongDescription() + ", get item: " + Player.getCurrentRoom().getExitString());
-            return Player.getCurrentRoom().getLongDescription() + Player.getCurrentRoom().getItem();
+            System.out.println("long description: " + player.getCurrentRoom().getLongDescription() + ", get item: " + player.getCurrentRoom().getExitString());
+            return player.getCurrentRoom().getLongDescription() + player.getCurrentRoom().getItem();
         }
     }
 
@@ -106,14 +107,14 @@ public class BusinessFacede implements IBusiness {
 
     /**
      * saves the game
-     * @return a true if the save was succeful and a false if it was not
+     * @return a true if the save was successful and a false if it was not
      */
     @Override
     public boolean saveGame() {
         if (game == null) {
             return false;
         } else {
-            Player.setScore(currentTimeMillis() - timer.getStartTime());
+            player.setScore(currentTimeMillis() - timer.getStartTime());
             return game.saveGame();
         }
     }
@@ -129,30 +130,31 @@ public class BusinessFacede implements IBusiness {
 
     /**
      * picks up an item in the room that the player is
-     * @return a true if the item was picked up succefully
+     * @return a true if the item was picked up succesfully.
      */
     @Override
     public boolean pickUpItem() {
-        if (Player.getCurrentRoom().isEmpty()) {
+        System.out.println(player.getCurrentRoom());
+        if (player.getCurrentRoom().isEmpty()) {
             return false;
         } else {
-            Player.getInventory().addItem(Player.getCurrentRoom().getItem());
-            Player.getCurrentRoom().setItem(null);
+            player.getInventory().addItem(player.getCurrentRoom().getItem());
+            player.getCurrentRoom().setItem(null);
             return true;
         }
     }
 
     /**
-     * emptys inventory will also remove keys
+     * empty inventory will also remove keys
      */
     @Override
     public void dropItem() {
-        Player.getInventory().emptyInventory();
+        player.getInventory().emptyInventory();
     }
 
     /**
      * uses the item that the player have in their inventory
-     * @return a true if it was succesful
+     * @return a true if it was successful
      */
     @Override
     public boolean useItem() {
@@ -162,11 +164,11 @@ public class BusinessFacede implements IBusiness {
     /**
      *
      * @return a string that contains all the items in the inventory in the
-     * format: "you'r inventory contains: name, name, name, name,"
+     * format: "your inventory contains: name, name, name, name,"
      */
     @Override
     public String showInventory() {
-        return Player.getInventory().printInventory();
+        return player.getInventory().printInventory();
     }
 
     @Override
@@ -186,7 +188,7 @@ public class BusinessFacede implements IBusiness {
 
     @Override
     public void startTime() {
-        timer = new Timer();
+        timer = new TimeHandler();
     }
 
     @Override

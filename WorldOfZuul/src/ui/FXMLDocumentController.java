@@ -5,6 +5,7 @@
  */
 package ui;
 
+import business.BusinessFacede;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -29,7 +29,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 /**
@@ -114,6 +113,70 @@ public class FXMLDocumentController implements Initializable {
                 case 10:
                     Time5.setText(aList.get(i).toString());
             }
+        }
+    }
+    
+    private void updateTextArea() {
+        BusinessFacede business = UI.getBusiness();
+        int minutes = (int) (UI.getBusiness().getTime()/(1000*60))%60;
+        int seconds = (int) (UI.getBusiness().getTime()/(1000))%60;
+        if(seconds < 10){
+                textArea.setText("Time: " + minutes + ":0" + seconds + "\n" + UI.getBusiness().showInventory());
+            } else {
+                textArea.setText("Time: " + minutes + ":" + seconds + "\n" + UI.getBusiness().showInventory());
+        }
+    }
+    
+    @FXML
+    private void startNewGame(ActionEvent event) throws IOException {
+        UI.getBusiness().startTime();
+        tileEngine.setStartPosition();
+        paused.setVisible(false);
+        youWon.setVisible(false);
+        gameOver.setVisible(false);
+        startGuardHandler(); 
+        gameRunning = true;
+        setControlButtonStatus(false);
+        buttonNewgame.setVisible(false);
+        buttonLoadgame.setVisible(false);
+        HighScore0.setVisible(false);
+        HighScore1.setVisible(false);
+        HighScore2.setVisible(false);
+        HighScore3.setVisible(false);
+        HighScore4.setVisible(false);
+        HighScore5.setVisible(false);
+        Time0.setVisible(false);
+        Time1.setVisible(false);
+        Time2.setVisible(false);
+        Time3.setVisible(false);
+        Time4.setVisible(false);
+        Time5.setVisible(false);
+    }
+
+    @FXML
+    private void loadGame(ActionEvent event) {
+        UI.getBusiness().loadGame();
+    }
+    
+    @FXML
+    private void saveGame(ActionEvent event) {
+        if (UI.getBusiness().saveGame() == false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "There was an error during the saveing of the game!", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "The game was succsesfully saved.", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void exitGame(ActionEvent event) {
+        gameRunning = false;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit the game?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            Platform.exit();
+            System.exit(0);
         }
     }
 
@@ -210,59 +273,7 @@ public class FXMLDocumentController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, UI.getBusiness().look(), ButtonType.OK);
         alert.showAndWait();
     }
-
-    @FXML
-    private void saveGame(ActionEvent event) {
-        if (UI.getBusiness().saveGame() == false) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "There was an error during the saveing of the game!", ButtonType.OK);
-            alert.showAndWait();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "The game was succsesfully saved.", ButtonType.OK);
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void exitGame(ActionEvent event) {
-        gameRunning = false;
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to exit the game?", ButtonType.YES, ButtonType.NO);
-        alert.showAndWait();
-        if (alert.getResult() == ButtonType.YES) {
-            Platform.exit();
-            System.exit(0);
-        }
-    }
     
-    @FXML
-    private void startNewGame(ActionEvent event) throws IOException {
-        tileEngine.setStartPosition();
-        paused.setVisible(false);
-        youWon.setVisible(false);
-        gameOver.setVisible(false);
-        startGuardHandler(); 
-        gameRunning = true;
-        setControlButtonStatus(false);
-        buttonNewgame.setVisible(false);
-        buttonLoadgame.setVisible(false);
-        HighScore0.setVisible(false);
-        HighScore1.setVisible(false);
-        HighScore2.setVisible(false);
-        HighScore3.setVisible(false);
-        HighScore4.setVisible(false);
-        HighScore5.setVisible(false);
-        Time0.setVisible(false);
-        Time1.setVisible(false);
-        Time2.setVisible(false);
-        Time3.setVisible(false);
-        Time4.setVisible(false);
-        Time5.setVisible(false);
-    }
-
-    @FXML
-    private void loadGame(ActionEvent event) {
-        UI.getBusiness().loadGame();
-    }
-
     @FXML
     private void about(ActionEvent event) {
         //TODO: about
@@ -292,6 +303,7 @@ public class FXMLDocumentController implements Initializable {
         ae -> {
             UI.getBusiness().moveGuard();
             handlePlayerCapture();
+            updateTextArea();
             tileEngine.redrawViewPort();
         }));
         timeline.setCycleCount(Animation.INDEFINITE);

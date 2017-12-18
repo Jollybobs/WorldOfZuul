@@ -7,14 +7,10 @@ package ui.tiles;
 
 import business.BusinessFacede;
 import dataLayer.DataFacede;
-import java.util.ArrayList;
 import ui.mapHandlers.DynamicMap;
 import java.util.HashMap;
-import javafx.animation.Timeline;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ui.mapHandlers.BackgroundMap;
 import ui.FXMLDocumentController;
 import ui.UI;
 
@@ -29,10 +25,6 @@ public class TileEngine {
     int offsetY;
     FXMLDocumentController controller;
     String centerPosition;
-//    Timeline timeline;
-//    Label gameOver;
-//    Label youWon;
-//    Label paused;
     String tile;
     boolean move;
 //    HashMap<String, ImageView> levelMap;
@@ -108,8 +100,10 @@ public class TileEngine {
                 // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(updateCenterPosition(1, 0), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(updateCenterPosition(1, 0), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
@@ -123,8 +117,10 @@ public class TileEngine {
                 // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(updateCenterPosition(-1, 0), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(updateCenterPosition(-1, 0), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
@@ -138,8 +134,10 @@ public class TileEngine {
                 // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(updateCenterPosition(0, 1), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(updateCenterPosition(0, 1), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
@@ -153,8 +151,10 @@ public class TileEngine {
                 // Else tile is checked to contain an item to pick up.
                 if ((tile.equals(TileEnum.Key.toString()))) {
                     backgroundMap.put(updateCenterPosition(0, -1), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 } else if ((tile.equals(TileEnum.HAMMER_CHISEL.toString()))) {
                     backgroundMap.put(updateCenterPosition(0, -1), TileEnum.BACKGROUND.toString());
+                    UI.getBusiness().pickUpItem();
                 // If tile isn't stepable and doesn't contain an item, ableToMove is set to false.
                 } else {
                     ableToMove = false;
@@ -236,8 +236,6 @@ public class TileEngine {
 
             x = x + offsetX;
             y = y + offsetY;
-            
-            
             
             String placement;
             if (y < 10 && x < 10) {

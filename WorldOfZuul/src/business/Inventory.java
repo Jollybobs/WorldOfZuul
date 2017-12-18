@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Inventory {
 
     private int freeSpace = 1;
-    private ArrayList<Item> inventory = new ArrayList<Item>();
+    private ArrayList<Item> inventory = new ArrayList();
 
     /**
      * if no args default inventory freeSpace=1
@@ -22,19 +22,11 @@ public class Inventory {
      * inventory if there is not space. Returns a String with text explaining
      * the outcome.
      */
-    public String addItem(Item item) throws IllegalArgumentException {
-        if (item.getSize() <= 0) {
-            throw new IllegalArgumentException("Size <=0 exception");
-        }
-        if (item.getSize() <= freeSpace) {
+    public String addItem(Item item) {
             inventory.add(item);
             freeSpace -= item.getSize();
             //sout Item pick up
             return ("you picked up a " + item.getName() + "!");
-        }//if 
-        else {
-            return ("your inventory doesn't have space");
-        }//else
 
     }//m-addItem
 
@@ -54,10 +46,12 @@ public class Inventory {
     //PRINT INVENTORY
     //prints ArrayList inventory
     public String printInventory() {
-        String result = ("you inventory contains: ");
-        for (Item item : inventory) {
-            result += (item.getName() + ", ");
-        }//for print
+        String result = ("you inventory contains: \n");
+        if(inventory.size() > 0) {
+            for (Item item : inventory) {
+                result += (item.getName() + "\n");
+            }//for print
+        }
         return result;
     }//PrintInventory
 

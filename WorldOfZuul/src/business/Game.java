@@ -116,6 +116,7 @@ public class Game {
 
         northHall.setExit("east", canteen);
         northHall.setExit("south", southHall);
+        northHall.setExit("north", office);
 
         office.setExit("south", northHall);
 
@@ -125,6 +126,7 @@ public class Game {
         yard.setExit("west", hall);
         yard.setExit("north", canteen);
         yard.setExit("south", bathroom);
+        yard.setExit("east", workshop);
 
         workshop.setExit("west", yard);
 
@@ -140,16 +142,8 @@ public class Game {
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
         player.setCurrentRoom(cell);
 
-        //inventory.add(new Item("key", 0));
-//        Guard guard = new Guard(northHall);
-//        guards[0] = guard;
-//        guard.addToPatrol(canteen);
-//        guard.addToPatrol(yard);
-//        guard.addToPatrol(bathroom);
-//        guard.addToPatrol(southHall);
-//        guard.addToPatrol(hall);
-//
-//        allObjects.add(guards);
+        workshop.setItem(new Item("Hammer & Chisel", 0, 1));
+        office.setItem(new Item("Key", 0, 1));
     }
 
     /**

@@ -12,10 +12,8 @@ class Player {
      *
      * @param room
      */
-    protected Player(Room room) {
-        this.currentRoom = room;
+    protected Player() {
         this.inventory = new Inventory();
-
     }
 
     /**
