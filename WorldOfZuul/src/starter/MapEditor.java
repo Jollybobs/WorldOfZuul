@@ -22,8 +22,6 @@ public class MapEditor {
      public static void main(String[] args) {
          IData Data = new DataFacede();
          IBusiness business = new BusinessFacede();
-         business.injectData(Data);
-          
          IUI UI = (IUI) new EditorUI();
          UI.injectBusiness(business);
          UI.startAplication(args);

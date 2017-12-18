@@ -41,34 +41,3 @@ public class Item {
         // c key
     }
 }//c-Item
-
-//C-KEY
-class key extends Item {
-
-
-    /**
-     *
-     * @param name
-     * @param size
-     * @param itemID
-     */
-    public key(String name, int size, int itemID) {
-        super(name, size, itemID);
-    }//key no args -constructor
-}
-
-class saw extends Item {
-
-
-    public saw(String name, int size, int itemID) {
-        super(name, size, itemID);
-    }
-}
-
-class hammer_chisel extends Item {
-
-
-    public hammer_chisel(String name, int size, int itemID) {
-        super(name, size, itemID);
-    }
-}

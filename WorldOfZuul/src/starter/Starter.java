@@ -22,9 +22,7 @@ public class Starter {
      public static void main(String[] args) {
          IData Data = new DataFacede();
          IBusiness business = new BusinessFacede();
-          business.injectData(Data);
-          business.play();
-          
+         business.play();
          IUI UI = (IUI) new UI();
          UI.injectBusiness(business);
          UI.startAplication(args);

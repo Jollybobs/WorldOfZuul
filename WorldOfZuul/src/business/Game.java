@@ -3,7 +3,6 @@ package business;
 import java.util.ArrayList;
 
 import dataLayer.DataFacede;
-import java.util.List;
 
 /**
  * @author Michael Kolling and David J. Barnes
@@ -18,7 +17,6 @@ public class Game {
     private Player player;
     private Parser parser;
     private Guard[] guards = new Guard[10];
-    private boolean TimerRunOut;
 
     // Defines room variables.
     protected Room cell, southHall, hall, northHall, office, canteen, yard, workshop, bathroom, sewer, sewerExit, freedom;
@@ -28,7 +26,6 @@ public class Game {
      * parser for handling the command line input is instantiated. After
      * instantiation call .play() to start the game
      */
-
     public Game() 
     {
         parser = new Parser();
@@ -36,34 +33,21 @@ public class Game {
 
     protected void loadRooms(ArrayList aList){
         allObjects = new ArrayList(aList);
-        
         player = (Player)allObjects.get(0);
       
         // Instantiates room variables.
         cell = (Room)allObjects.get(1);
-        
         southHall = (Room)allObjects.get(2);
-        
         hall = (Room)allObjects.get(3);
-        
         northHall = (Room)allObjects.get(4);
-        
         office = (Room)allObjects.get(5);
-        
         canteen = (Room)allObjects.get(6);
-        
         yard = (Room)allObjects.get(7);
-        
         workshop = (Room)allObjects.get(8);
-        
         bathroom = (Room)allObjects.get(9);
-        
         sewer = (Room)allObjects.get(10);
-        
         sewerExit = (Room)allObjects.get(11);
-        
         freedom = (Room)allObjects.get(12);
-        
         Guard guard = (Guard)allObjects.get(13);
         guards[0] = guard;
     }
@@ -72,7 +56,6 @@ public class Game {
      * Creates room instantiations, sets exits in rooms and defines the starting
      * room.
      */
-
     protected void createRooms()
     {
         allObjects.add(player);
@@ -142,6 +125,7 @@ public class Game {
         // Sets a room-variable to the membervariable currentRoom. Thus defining a starting room.
         player.setCurrentRoom(cell);
 
+        // Add items to room.
         workshop.setItem(new Item("Hammer & Chisel", 0, 1));
         office.setItem(new Item("Key", 0, 1));
     }
@@ -276,12 +260,6 @@ public class Game {
         }
     }
 
-//    protected void moveGuard() {
-//        for (Guard guard : guards) {
-//            guard.moveToNextRoom();
-//        }
-//    }
-
     // In order to quit, there can't be a second word.
     private boolean quit(Command command) {
         // If something is written in the console the program won't quit.
@@ -293,53 +271,29 @@ public class Game {
         }
     }
 
-//    protected boolean CheckForItems() {
-//        for (Guard gua : guards) { //Checking all Guards
-//            if (player.getCurrentRoom() == gua.getCurrentRoom()) {
-//                if (!player.getInventory().checkEmpty()) {
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
-    
-    /*protected boolean PickUpItem(){
-        if (player.getCurrentRoom().isEmpty()) {
-            return false;
-        } else {
-            player.addItemInventory(player.getCurrentRoom().getItem());
-            player.getCurrentRoom().setItem(null);
-            return true;
-            
-        }
-    }*/
-
     /**
      * savegame gets the list that it will save from here
-     * @return true if it saved succsesfully
+     * @return true if it saved successfully
      */
     protected boolean saveGame() {
         return data.save(allObjects);
     }
 
+    /**
+     * Saves the highscore.
+     * 
+     * @return a boolean indicating succes of the save operation.
+     */
     protected boolean saveHighscore() {
         highscore = (ArrayList) data.loadScore();
         return data.saveScore(highscore);
     }
-
-    protected void GameOver() {
-        if (TimerRunOut) {
-            System.out.println("You didn't make it in time. Hurry up and surrender, before they shoot you");
-//        } else if (CheckForItems()) {
-//
-//            System.out.println("You are not allowed to carry items in a prison. You were thrown in isolation for 10 days");
-        } else {
-            System.out.println("You made it, Congratz! Your time was " + Player.getScore());
-            sortHighScore(highscore);
-        }
-        System.out.println("Game over");
-    }
+    
+    /**
+     * Sort an ArrayList
+     * 
+     * @param highScore The ArrayList to be sorted.
+     */
     private void sortHighScore(ArrayList highScore){
         boolean highSet = false;
         double temp = 0;
@@ -362,5 +316,4 @@ public class Game {
             }
         }
     }
-
 }

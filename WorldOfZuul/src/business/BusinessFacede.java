@@ -25,16 +25,6 @@ public class BusinessFacede implements IBusiness {
     WallBreak wallBreak = new WallBreak();
     Player player = new Player();
 
-    public void printTest(String input) {
-        System.out.println("WORKS" + input);
-    }
-
-  
-    //IData data;
-    public void injectData(IData Data) {
-        //this.data=data;
-    }
-
     /**
      * called when a new game starts
      */
@@ -90,7 +80,6 @@ public class BusinessFacede implements IBusiness {
         return guard.getPosition();
     }    
     
-
     /**
      * to save the highscore of the game in its file
      * @return 
@@ -145,23 +134,6 @@ public class BusinessFacede implements IBusiness {
     }
 
     /**
-     * empty inventory will also remove keys
-     */
-    @Override
-    public void dropItem() {
-        player.getInventory().emptyInventory();
-    }
-
-    /**
-     * uses the item that the player have in their inventory
-     * @return a true if it was successful
-     */
-    @Override
-    public boolean useItem() {
-        return false;
-    }
-
-    /**
      *
      * @return a string that contains all the items in the inventory in the
      * format: "your inventory contains: name, name, name, name,"
@@ -169,16 +141,6 @@ public class BusinessFacede implements IBusiness {
     @Override
     public String showInventory() {
         return player.getInventory().printInventory();
-    }
-
-    @Override
-    public void pause() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void interactNPC() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -190,23 +152,75 @@ public class BusinessFacede implements IBusiness {
     public void startTime() {
         timer = new TimeHandler();
     }
+    
+    /**
+     * Not supported yet.
+     */
+    @Override
+    public boolean useItem() {
+        return false;
+    }
 
+    /**
+     * Not supported yet.
+     */
     @Override
     public boolean miniGameConditionCheck() {
       return wallBreak.conditionCheck();
     }
 
+    /**
+     * Not supported yet.
+     */
     @Override
     public boolean miniGameRuns() {
        return wallBreak.runs();
     }
 
+    /**
+     * Not supported yet.
+     */
     @Override
     public String miniGameGetChar() {
     return Character.toString(wallBreak.getChar());
     }
+    
+    /**
+     * Not supported yet.
+     */
     @Override
     public boolean checkInput(String input) {
       return  wallBreak.checkInput(input);
+    }
+    
+    /**
+     * Not supported yet.
+     */
+    @Override
+    public void pause() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * Not supported yet.
+     */
+    @Override
+    public void interactNPC() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    /**
+     * Not supported yet.
+     */
+    @Override
+    public void dropItem() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /**
+     * Not supported yet.
+     */
+    public void injectData(IData dataInterface) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

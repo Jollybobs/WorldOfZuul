@@ -75,8 +75,11 @@ class Player {
         inventory.addItem(item);
     }
     
+    /**
+     * Not yet supported.
+     */
     protected static void dropAll(){
-        inventory.emptyInventory();
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     protected static double getScore() {

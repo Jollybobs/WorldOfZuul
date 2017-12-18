@@ -3,8 +3,8 @@ package business;
 import java.util.ArrayList;
 
 public class Inventory {
-
-    private int freeSpace = 1;
+//
+//    private int freeSpace = 1;
     private ArrayList<Item> inventory = new ArrayList();
 
     /**
@@ -13,10 +13,6 @@ public class Inventory {
     public Inventory() {
     }  // no args constructor
 
-    public Inventory(int FreeSpace) {
-        this.freeSpace = FreeSpace;
-    }
-
     /**
      * Checks if the inventory has freeSpace, and adds an Item to the ArrayList
      * inventory if there is not space. Returns a String with text explaining
@@ -24,24 +20,11 @@ public class Inventory {
      */
     public String addItem(Item item) {
             inventory.add(item);
-            freeSpace -= item.getSize();
+//            freeSpace -= item.getSize();
             //sout Item pick up
             return ("you picked up a " + item.getName() + "!");
 
     }//m-addItem
-
-    /*
-    *removes Item from ArrayList inventory & and adds the items size back to freeSpace
-     *returns a String with text explaining the outcome.
-     */
-    public void dropItem(Item item) {
-        inventory.remove(item);
-        freeSpace += item.getSize();
-    }//m-addItem 
-    
-    public void emptyInventory(){
-        inventory.clear();
-    }
 
     //PRINT INVENTORY
     //prints ArrayList inventory
@@ -67,20 +50,11 @@ public class Inventory {
     }//m-checkFor
 
     /**
-     * check if the inventory contains anything (returns true if inventory is
-     * empty)
+     * better for inventory.
+     * 
+     * @return ArrayList of inventory items.
      */
-    public boolean checkEmpty() {
-        boolean result = false;
-        if (inventory.isEmpty()) {
-            result = true;
-        }//if .isempty= true result=true
-        return result;
-    }//m-checkEmpty
-
     public ArrayList<Item> getInventory() {
         return inventory;
     }
-    
-    
 }//c-inventory
