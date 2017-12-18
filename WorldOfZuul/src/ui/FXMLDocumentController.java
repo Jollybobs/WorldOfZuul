@@ -5,7 +5,6 @@
  */
 package ui;
 
-import ui.mapHandlers.BackgroundMap;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,52 +30,27 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
 /**
  *
  * @author paul
  */
-public class FXMLDocumentController implements Initializable {
-
-//    BusinessFacede busFace = new BusinessFacede();
-//    @FXML
-//    private MenuItem menuPause;
-//    @FXML
-//    private BorderPane viewPort;
-    
+public class FXMLDocumentController implements Initializable {    
     boolean miniGameInput = false;
     Timeline timeline;
     ArrayList<Label> statePointers;
-    HashMap<String, ImageView> levelMap;
-    boolean gameRunning;
+    HashMap<String, ImageView> levelMap = new HashMap<>();
+    boolean gameRunning = false;
     TileEngine tileEngine;
-    @FXML
-    private TextArea textArea;
-    @FXML
-    private AnchorPane viewGrid;
-    @FXML
-    private TextField miniGameTextInput;
-    @FXML
-    private Label gameOver;
-    @FXML
-    private Label youWon;
-    @FXML
-    private Label paused;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        gameRunning = false;
-        levelMap = new HashMap<>();
         initViewPort();
         initGuardHandler();
-        tileEngine = new TileEngine(this);
-        BackgroundMap gm = new BackgroundMap();
-        initViewPort();
         setControlButtonStatus(true);
         setHighscore((ArrayList) UI.getBusiness().loadHighscore());
-//      setViewScaleable();
+        tileEngine = new TileEngine(this);
     }
     
     public HashMap<String, ImageView> getLevelMap() {
@@ -98,7 +72,6 @@ public class FXMLDocumentController implements Initializable {
     public Label getPausedLabel() {
         return paused;
     }
-    
 
     public void setGameRunning(boolean b) {
         gameRunning = b;
@@ -186,14 +159,13 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void waitClicked(MouseEvent event) {
-        UI.getBusiness().waitGuard();
+    private void pause(MouseEvent event) {
         if(timeline.getStatus().equals(timeline.getStatus().RUNNING)) {
             timeline.pause();
             tileEngine.setPause(true);
         } else {
             timeline.play();
-            tileEngine.setPause(true);
+            tileEngine.setPause(false);
         }
     }
 
@@ -263,6 +235,10 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void startNewGame(ActionEvent event) throws IOException {
+        tileEngine.setStartPosition();
+        paused.setVisible(false);
+        youWon.setVisible(false);
+        gameOver.setVisible(false);
         startGuardHandler(); 
         gameRunning = true;
         setControlButtonStatus(false);
@@ -433,6 +409,61 @@ public class FXMLDocumentController implements Initializable {
         levelMap.put("99", tile99);
     }
 
+    @FXML
+    private TextArea textArea;
+    @FXML
+    private TextField miniGameTextInput;
+    @FXML
+    private Label gameOver;
+    @FXML
+    private Label youWon;
+    @FXML
+    private Label paused;
+    @FXML
+    private Label Time0;
+    @FXML
+    private Label HighScore0;
+    @FXML
+    private Label HighScore1;
+    @FXML
+    private Label HighScore2;
+    @FXML
+    private Label HighScore3;
+    @FXML
+    private Label HighScore4;
+    @FXML
+    private Label HighScore5;
+    @FXML
+    private Label Time1;
+    @FXML
+    private Label Time2;
+    @FXML
+    private Label Time3;
+    @FXML
+    private Label Time4;
+    @FXML
+    private Label Time5;
+    @FXML
+    private Button buttonShowInventory;
+    @FXML
+    private Button buttonUseItem;
+    @FXML
+    private Button buttonLook;
+    @FXML
+    private Button buttonNorth;
+    @FXML
+    private Button buttonWest;
+    @FXML
+    private Button buttonSouth;
+    @FXML
+    private Button buttonWait;
+    @FXML
+    private Button buttonEast;
+    @FXML
+    private Button buttonNewgame;
+    @FXML
+    private Button buttonLoadgame;
+    
     // FXML-pointer to tiles.
     @FXML
     private ImageView tile00;
@@ -634,366 +665,4 @@ public class FXMLDocumentController implements Initializable {
     private ImageView tile98;
     @FXML
     private ImageView tile99;
-
-    @FXML
-    private ImageView tile001;
-    @FXML
-    private ImageView tile011;
-    @FXML
-    private ImageView tile021;
-    @FXML
-    private ImageView tile031;
-    @FXML
-    private ImageView tile041;
-    @FXML
-    private ImageView tile051;
-    @FXML
-    private ImageView tile061;
-    @FXML
-    private ImageView tile071;
-    @FXML
-    private ImageView tile081;
-    @FXML
-    private ImageView tile091;
-    @FXML
-    private ImageView tile101;
-    @FXML
-    private ImageView tile111;
-    @FXML
-    private ImageView tile121;
-    @FXML
-    private ImageView tile131;
-    @FXML
-    private ImageView tile141;
-    @FXML
-    private ImageView tile151;
-    @FXML
-    private ImageView tile161;
-    @FXML
-    private ImageView tile171;
-    @FXML
-    private ImageView tile181;
-    @FXML
-    private ImageView tile191;
-    @FXML
-    private ImageView tile201;
-    @FXML
-    private ImageView tile211;
-    @FXML
-    private ImageView tile221;
-    @FXML
-    private ImageView tile231;
-    @FXML
-    private ImageView tile241;
-    @FXML
-    private ImageView tile251;
-    @FXML
-    private ImageView tile261;
-    @FXML
-    private ImageView tile271;
-    @FXML
-    private ImageView tile281;
-    @FXML
-    private ImageView tile291;
-    @FXML
-    private ImageView tile301;
-    @FXML
-    private ImageView tile311;
-    @FXML
-    private ImageView tile321;
-    @FXML
-    private ImageView tile331;
-    @FXML
-    private ImageView tile341;
-    @FXML
-    private ImageView tile351;
-    @FXML
-    private ImageView tile361;
-    @FXML
-    private ImageView tile371;
-    @FXML
-    private ImageView tile381;
-    @FXML
-    private ImageView tile391;
-    @FXML
-    private ImageView tile401;
-    @FXML
-    private ImageView tile411;
-    @FXML
-    private ImageView tile421;
-    @FXML
-    private ImageView tile431;
-    @FXML
-    private ImageView tile441;
-    @FXML
-    private ImageView tile451;
-    @FXML
-    private ImageView tile461;
-    @FXML
-    private ImageView tile471;
-    @FXML
-    private ImageView tile481;
-    @FXML
-    private ImageView tile491;
-    @FXML
-    private ImageView tile501;
-    @FXML
-    private ImageView tile511;
-    @FXML
-    private ImageView tile521;
-    @FXML
-    private ImageView tile531;
-    @FXML
-    private ImageView tile541;
-    @FXML
-    private ImageView tile551;
-    @FXML
-    private ImageView tile561;
-    @FXML
-    private ImageView tile571;
-    @FXML
-    private ImageView tile581;
-    @FXML
-    private ImageView tile591;
-    @FXML
-    private ImageView tile601;
-    @FXML
-    private ImageView tile611;
-    @FXML
-    private ImageView tile621;
-    @FXML
-    private ImageView tile631;
-    @FXML
-    private ImageView tile641;
-    @FXML
-    private ImageView tile651;
-    @FXML
-    private ImageView tile661;
-    @FXML
-    private ImageView tile671;
-    @FXML
-    private ImageView tile681;
-    @FXML
-    private ImageView tile691;
-    @FXML
-    private ImageView tile701;
-    @FXML
-    private ImageView tile711;
-    @FXML
-    private ImageView tile721;
-    @FXML
-    private ImageView tile731;
-    @FXML
-    private ImageView tile741;
-    @FXML
-    private ImageView tile751;
-    @FXML
-    private ImageView tile761;
-    @FXML
-    private ImageView tile771;
-    @FXML
-    private ImageView tile781;
-    @FXML
-    private ImageView tile791;
-    @FXML
-    private ImageView tile801;
-    @FXML
-    private ImageView tile811;
-    @FXML
-    private ImageView tile821;
-    @FXML
-    private ImageView tile831;
-    @FXML
-    private ImageView tile841;
-    @FXML
-    private ImageView tile851;
-    @FXML
-    private ImageView tile861;
-    @FXML
-    private ImageView tile871;
-    @FXML
-    private ImageView tile881;
-    @FXML
-    private ImageView tile891;
-    @FXML
-    private ImageView tile901;
-    @FXML
-    private ImageView tile911;
-    @FXML
-    private ImageView tile921;
-    @FXML
-    private ImageView tile931;
-    @FXML
-    private ImageView tile941;
-    @FXML
-    private ImageView tile951;
-    @FXML
-    private ImageView tile961;
-    @FXML
-    private ImageView tile971;
-    @FXML
-    private ImageView tile981;
-    @FXML
-    private ImageView tile991;
-
-    //Other FXML-pointers.
-    @FXML
-    private Label Time0;
-    @FXML
-    private Label HighScore0;
-    @FXML
-    private Label HighScore1;
-    @FXML
-    private Label HighScore2;
-    @FXML
-    private Label HighScore3;
-    @FXML
-    private Label HighScore4;
-    @FXML
-    private Label HighScore5;
-    @FXML
-    private Label Time1;
-    @FXML
-    private Label Time2;
-    @FXML
-    private Label Time3;
-    @FXML
-    private Label Time4;
-    @FXML
-    private Label Time5;
-    @FXML
-    private Button buttonShowInventory;
-    @FXML
-    private Button buttonUseItem;
-    @FXML
-    private Button buttonLook;
-    @FXML
-    private Button buttonNorth;
-    @FXML
-    private Button buttonWest;
-    @FXML
-    private Button buttonSouth;
-    @FXML
-    private Button buttonWait;
-    @FXML
-    private Button buttonEast;
-    @FXML
-    private MenuItem menuSave;
-    @FXML
-    private MenuItem menuExit;
-    @FXML
-    private MenuItem menuAbout;
-    @FXML
-    private MenuItem menuControls;
-    @FXML
-    private Button buttonNewgame;
-    @FXML
-    private Button buttonLoadgame;
-
-    @FXML
-    private void pause(ActionEvent event) {
-    }
-
-    private void setViewScaleable() {
-        tile00.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile01.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile02.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile03.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile04.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile05.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile06.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile07.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile08.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile09.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile10.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile11.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile12.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile13.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile14.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile15.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile16.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile17.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile18.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile19.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile20.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile21.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile22.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile23.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile24.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile25.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile26.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile27.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile28.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile29.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile30.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile31.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile32.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile33.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile34.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile35.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile36.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile37.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile38.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile39.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile40.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile41.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile42.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile43.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile44.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile45.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile46.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile47.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile48.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile49.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile50.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile51.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile52.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile53.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile54.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile55.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile56.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile57.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile58.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile59.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile60.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile61.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile62.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile63.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile64.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile65.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile66.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile67.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile68.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile69.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile70.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile71.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile72.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile73.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile74.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile75.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile76.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile77.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile78.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile79.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile80.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile81.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile82.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile83.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile84.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile85.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile86.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile87.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile88.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile89.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile90.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile91.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile92.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile93.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile94.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile95.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile96.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile97.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile98.fitHeightProperty().bind(viewGrid.widthProperty());
-//        tile99.fitHeightProperty().bind(viewGrid.widthProperty());
-    }
 }

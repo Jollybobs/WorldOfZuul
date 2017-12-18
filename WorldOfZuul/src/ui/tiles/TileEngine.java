@@ -43,46 +43,25 @@ public class TileEngine {
     
     /**
      * 
-     * @param lvlMap
-     * @param gOver
-     * @param uWon
-     * @param pause 
+     * @param cont 
      */
     public TileEngine(FXMLDocumentController cont) {
-        // Set Values.
+    // Set Values.
         controller = cont;
         offsetX = 7;
         offsetY = 12;
-//        timeline = tline;
-//        gameOver = gOver;
-//        youWon = uWon;
-//        paused = pause;
-//        levelMap = lvlMap;
-        
-        // Instantiate used objects.
+    // Instantiate used objects.
         DynamicMap dm = new DynamicMap();
         bfacade = new BusinessFacede();
         data = new DataFacede();
-        
-        
-        // Get data from objects.
+    // Get data from objects.
         dynamicMap = dm.getMap();
-        backgroundMap = data.loadMap();
-        
-        // Update map with data.
-        redrawViewPort();
-    }
-        
-    public void moveMap(int x, int y) {
-        // Get logik values.
-        move = checkTileAndMovePlayer(x, y);
-        
-        // Do method-logik.
-        movePlayer(move, x, y);
-        changeRoom(x, y);
+        backgroundMap = data.loadMap();    
+    // Update map with data.
         redrawViewPort();
     }
     
+    // Game state handlers.
     public void setPause(boolean b) {
         controller.getPausedLabel().setVisible(b);
         if(controller.getTimeline().getStatus().equals(controller.getTimeline().getStatus().PAUSED)) {
@@ -92,13 +71,31 @@ public class TileEngine {
         }
     }
     
-    public void stopGame() {
-        controller.getTimeline().pause();
+    private void setYouWon() {
+        stopGame();
+        controller.getYouWonLabel().setVisible(true);
     }
     
-    public void setYouWon(boolean b) {
-        stopGame();
-        controller.getYouWonLabel().setVisible(b);
+    public void isCapture() {
+        if(UI.getBusiness().getGuardPosition().equals(centerPosition)) {
+            stopGame();
+            controller.getGameOverLabel().setVisible(true);
+        }
+    }
+    
+    private void stopGame() {
+        controller.getTimeline().pause();
+        controller.setGameRunning(false);
+    }
+    
+    // Movement handlers.
+    public void moveMap(int x, int y) {
+        // Get logik values.
+        move = checkTileAndMovePlayer(x, y);
+        // Do method-logik.
+        movePlayer(move, x, y);
+        changeRoom(x, y);
+        redrawViewPort();
     }
     
     private boolean checkTileAndMovePlayer(int x, int y) {
@@ -174,11 +171,8 @@ public class TileEngine {
         x = x + offsetX + screenOffset;
         y = y + offsetY + screenOffset;
         
-        System.out.println("x: " + x + ", y: " + y);
-        
         if(x == 2 && y == 13) {
-            controller.getYouWonLabel().setVisible(true);
-            
+            setYouWon();
         }
         
         // Handles the shift from possible 2-int tileplacer-format to 4-int tileplacer-format.
@@ -193,6 +187,12 @@ public class TileEngine {
             centerPosition = Integer.toString(x) + Integer.toString(y);
         }
         return centerPosition;
+    }
+    
+
+    public void setStartPosition() {
+        offsetX = 7;
+        offsetY = 12;
     }
     
     private void movePlayer(boolean canMove, int x, int y) {
@@ -266,12 +266,5 @@ public class TileEngine {
 
     private void insertGuardInMap(HashMap<String, String> map) {
         map.put(UI.getBusiness().getGuardPosition(), "/ui/tiles/sprites/Guard.gif");
-    }
-
-    public void isCapture() {
-        if(UI.getBusiness().getGuardPosition().equals(centerPosition)) {
-            stopGame();
-            controller.getGameOverLabel().setVisible(true);
-        }
     }
 }

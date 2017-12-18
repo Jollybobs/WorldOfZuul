@@ -78,7 +78,6 @@ public class Guard {
     }
     
     public String getPosition(){
-        System.out.println(guardPosition);
         return guardPosition;
     }
 
