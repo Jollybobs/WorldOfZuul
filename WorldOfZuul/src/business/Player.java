@@ -69,7 +69,7 @@ class Player {
     }
 
     /**
-     * Not yet suported.
+     * Not yet supported.
      * 
      * @param score 
      */
