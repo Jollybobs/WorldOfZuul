@@ -36,6 +36,10 @@ public class EditorUIController implements Initializable {
     HashMap<String, String> levelMap;
     DataFacade data;
     @Override
+    /**
+     * FXML-controller for mapeditor.
+     * 
+     */
     public void initialize(URL url, ResourceBundle rb) {
         
         data = new DataFacade();

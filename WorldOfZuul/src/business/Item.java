@@ -3,25 +3,25 @@ package business;
 public class Item {
 
     private String name;
-    private int size;
-    private final int itemID;
+//    private int size;
+//    private final int itemID;
 
-//CONSTRUCTOR 
+    /**
+     * create an item.
+     * 
+     * @param name of item.
+     * @param Size unused.
+     * @param itemID unused.
+     */
     public Item(String name, int Size, int itemID) {
         this.name = name;
-        this.size = Size;
-        this.itemID = itemID;
-    }
-
-    public Item(int itemID) {
-        this.itemID = itemID;
     }
 
     /**
-     * returns the size(int) that the item will take up in the inventory
+     * unsupported
      */
     public int getSize() {
-        return this.size;
+        return 1;
     }
 
     /**
@@ -32,12 +32,11 @@ public class Item {
     }
 
     /**
-     * return the items ID witch is used to find a specific item. itemID is
-     * final and is defined when the constructor is called
+     * unsupported
+     * 
+     * @return int 1.
      */
     public int getItemID() {
-        return this.itemID;
-
-        // c key
+        return 1;
     }
-}//c-Item
+}

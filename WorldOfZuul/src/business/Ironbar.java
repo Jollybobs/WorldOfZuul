@@ -12,7 +12,7 @@ public class Ironbar {
     private int winCount = 0;
 
     /**
-     * adds Characters to the stack
+     * Unfinished minigame. Unsupported.
      */
     public Ironbar() {
         charList.add('w');

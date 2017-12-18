@@ -16,10 +16,18 @@ class TimeHandler {
         startTime = System.currentTimeMillis();
     }
     
+    /**
+     * Reset the starting time.
+     */
     protected void resetTime(){
         startTime = System.currentTimeMillis();
     }
     
+    /**
+     * get the time since start or last reset.
+     * 
+     * @return double time since start or reset.
+     */
     protected String getTimeSinceStart(){
         double timeSinceStart = System.currentTimeMillis() - startTime;
         double allSecondsSinceStart = timeSinceStart/1000;
@@ -29,6 +37,11 @@ class TimeHandler {
         return timeGone;
     }
 
+    /**
+     * get the time at start or reset
+     * 
+     * @return double time at start or reset
+     */
     protected double getStartTime() {
         return startTime;
     }

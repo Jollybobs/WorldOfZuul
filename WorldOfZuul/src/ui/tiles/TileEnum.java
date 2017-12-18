@@ -6,7 +6,8 @@
 package ui.tiles;
 
 /**
- *
+ * Enum class containing tile paths.
+ * 
  * @author Jonathan
  */
 public enum TileEnum {    

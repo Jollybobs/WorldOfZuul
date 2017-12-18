@@ -11,12 +11,21 @@ public class Parser
     private CommandWords commands;
     private Scanner reader;
 
+    /**
+     * Parser to split up commandword and input for command word.
+     * 
+     */
     public Parser() 
     {
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
 
+    /**
+     * getter for commandword
+     * 
+     * @return Command
+     */
     public Command getCommand() 
     {
         String inputLine;
@@ -38,6 +47,10 @@ public class Parser
         return new Command(commands.getCommandWord(word1), word2);
     }
 
+    /**
+     * Show available commands.
+     * 
+     */
     public void showCommands()
     {
         commands.showAll();

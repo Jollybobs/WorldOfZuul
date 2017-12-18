@@ -46,11 +46,20 @@ public class Guard {
         }
     }
     
+    /**
+     *  Getter for the Guard's path.
+     * 
+     * @return ArrayList<String> of positions.
+     */
     public ArrayList getGuardPath() {
-        
         return guardPath;
     }
 
+    /**
+     * Initiate an ArrayList of positions (a path) for the Guard to walk on.
+     * 
+     * @return ArrayList<String> of positions.
+     */
     private ArrayList initGuardPath() {
         guardPath = new ArrayList();
         guardPath.add("2207");
@@ -77,6 +86,11 @@ public class Guard {
         return guardPath;
     }
     
+    /**
+     * Guards current position.
+     * 
+     * @return String with position.
+     */
     public String getPosition(){
         return guardPosition;
     }

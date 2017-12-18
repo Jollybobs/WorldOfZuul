@@ -15,7 +15,8 @@ import dataLayer.DataFacade;
 import ui.mapEditorTool.EditorUI;
 
 /**
- *
+ * a Mapeditor, not part of this program but an external tool to ease map creation.
+ * 
  * @author Jonathan
  */
 public class MapEditor {

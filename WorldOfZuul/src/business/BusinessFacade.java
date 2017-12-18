@@ -143,11 +143,20 @@ public class BusinessFacade implements IBusiness {
         return player.getInventory().printInventory();
     }
 
+    /**
+     * Time elapsed.
+     * 
+     * @return time in miliseconds from game started.
+     */
     @Override
     public double getTime() {
         return currentTimeMillis() - timer.getStartTime();
     }
 
+    /**
+     * Start ingame timer clock
+     * 
+     */
     @Override
     public void startTime() {
         timer = new TimeHandler();

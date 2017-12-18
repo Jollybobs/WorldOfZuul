@@ -15,7 +15,8 @@ import dataLayer.DataFacade;
 import ui.UI;
 
 /**
- *
+ * a Launcher for the program.
+ * 
  * @author Unknown
  */
 public class Starter {

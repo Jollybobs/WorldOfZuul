@@ -31,6 +31,11 @@ public class Game {
         parser = new Parser();
     }
 
+    /**
+     * Load Rooms to list.
+     * 
+     * @param aList 
+     */
     protected void loadRooms(ArrayList aList){
         allObjects = new ArrayList(aList);
         player = (Player)allObjects.get(0);

@@ -14,7 +14,7 @@ public class WallBreak {
     private int winCount = 0;
 
     /**
-     * adds Characters to the stack
+     * Unsupported.
      */
     public WallBreak() {
         charList.add('q');
